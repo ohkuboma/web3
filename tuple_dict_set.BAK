@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タプル・辞書・セット | Python 入門講座（ohkuboma）</title>
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<link rel="icon" type="image/png" href="favicon.png">
+    <!-- 最小限のインラインスタイルで右上角を修正 -->
+    <style>
+ .content {
+    overflow: visible !important;
+  }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <button onclick="location.href='index.html'" class="home-button"><i class="fas fa-home"></i> HOME</button>
+            <h1><i class="fas fa-code"></i> タプル・辞書・セット</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- 左サイドバー（目次） -->
+        <nav class="sidebar">
+            <h2><i class="fas fa-list-ul"></i> 目次</h2>
+            <ul class="toc" id="tableOfContents">
+                <!-- JavaScriptで動的に生成される目次 -->
+            </ul>
+        </nav>
+        
+        <!-- 右側のメインコンテンツ -->
+        <div class="content">
+            <div class="page-header">
+                <h2 id="タプル"><i class="fas fa-list"></i> タプル・辞書・セット</h2>
+                <div class="progress-indicator">
+                    <div class="progress-bar" style="width: 40%"></div>
+                    <span>講義進度: 第3回</span>
+                </div>
+            </div>
+ 
+            <h3><a href="https://youtu.be/yeZ3STy3k44?si=403jkphZeDt1Paat&t=1574" class="video-link"><span class="video-icon"><i class="fas fa-play-circle"></i></span>解説動画:（26:14～35:58）<br>リストの基本</a></h3>
+            <p style = "font-size: 10px;">ビデオの授業内での利用を快く許可してくださった今西航平先生に感謝申し上げます。<br> 出典：【完全版】この動画1本でPythonの基礎を習得！忙しい人のための速習コース（Python入門）@imanyu_programming</p>
+            
+            <h2 id="タプルの基本">タプルの基本</h2>
+            <h3 id="タプルの定型">タプルの定型</h3>
+            <div class="column" data-title="タプルの定型">
+                <div class="code-block">
+                    <pre><code>変数名 = (要素0, 要素1, 要素2, ...)</code></pre>       
+                </div>
+            </div>
+            
+            <h3>タプルの特徴</h3>
+            <ul>
+                <li>タプルは、リストと同じように、複数の要素をまとめて管理するデータ型です。</li>
+                <li>リストとの違いは、タプルは要素の追加や削除ができないことです。</li>
+                <li>タプルは、丸括弧<code> ( ) </code> で囲んで表現します。</li>
+            </ul>
+            
+            <h3 id="タプルの例">タプルの例</h3>
+            <div class="code-example">
+                <pre><code style="font-size: 100%;" >eto = ('子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥')
+print(eto)  # タプルの中身を表示
+#結果
+('子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥')</code></pre>
+<br>
+
+                <pre><code style="font-size: 100%;">weekdays = ('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday','Friday', 'Saturday')
+print(weekdays)  # タプルの中身を表示
+#結果
+('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')</code></pre>
+            </div>
+            
+            <h2>辞書の基本</h2>  
+            <h3 id="辞書の定型">辞書の定型</h3>
+            <div class="column" data-title="辞書の定型">
+                <div class="code-block">
+                    <pre><code>変数名 = {キー1: 値1, キー2: 値2, ...}</code></pre>
+                </div>
+            </div>
+            
+            <h3>辞書の特徴</h3>
+            <ul>
+                <li>辞書は、キーと値のペアを複数まとめて管理するデータ型です。</li>
+                <li>キーは重複してはいけません。</li>
+                <li>キーは変更できません。</li>
+
+            </ul>
+            
+            <h3 id="辞書の例">辞書の例</h3>
+            <div class="code-example">
+                <pre><code>person = {'name': '大久保', 'age': 40, 'gender': '女性'}
+print(person)  # 辞書の中身を表示
+#結果
+{'name': '大久保', 'age': 40, 'gender': '女性'}</code></pre>
+            </div>
+            
+            <h2>セットの基本</h2>
+            <h3 id="セットの定型">セットの定型</h3>
+            <div class="column" data-title="セットの定型">
+                <div class="code-block">
+                    <pre><code>変数名 = {要素1, 要素2, ...}</code></pre>
+                </div>
+            </div>
+            
+            <h3>セットの特徴</h3>
+            <ul>
+                <li>セットは、重複しない要素をまとめて管理するデータ型です。</li>
+                <li>セットは、集合演算を行うためのデータ型です。</li>
+
+            </ul>
+            
+            <h3 id="セットの例">セットの例</h3> 
+            <div class="code-example">
+                <pre><code>fruits = {'apple', 'banana', 'cherry'}
+print(fruits)  # セットの中身を表示, 
+{'cherry', 'apple', 'banana'}　#セットに順序という概念はない</code></pre>
+            </div>
+            
+            <h3>セットの集合演算の例</h3>
+            <div class="code-example">
+                <pre><code>set1 = {1, 2, 3, 4, 5}
+set2 = {3, 4, 5, 6, 7}
+
+print(set1 | set2)  # 和集合
+#結果
+{1, 2, 3, 4, 5, 6, 7}
+
+print(set1 & set2)  # 積集合
+#結果
+{3, 4, 5}
+
+print(set1 - set2)  # 差集合
+#結果
+{1, 2}</code></pre>
+            </div>
+ 
+            <h2 id="練習問題">練習問題</h2>
+            <div class="quiz-container">
+                <!-- 問題1 -->
+                <div class="quiz-item" id="quiz1">
+                    <h3>問題 1</h3>
+                    <p>以下のデータ構造のうち、要素の追加や削除ができないものはどれですか？</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q1" value="A"> A) リスト</label>
+                        <label><input type="radio" name="q1" value="B"> B) タプル</label>
+                        <label><input type="radio" name="q1" value="C"> C) セット</label>
+                        <label><input type="radio" name="q1" value="D"> D) 辞書</label>
+                    </div>
+                    <button onclick="checkAnswer(1, 'B')">回答する</button>
+                    <div class="quiz-result" id="result1"></div>
+                    <div class="quiz-explanation" id="explanation1" style="display: none;">
+                        タプルは一度作成すると、要素の追加、削除、変更ができない不変（イミュータブル）なデータ構造です。
+                    </div>
+                </div>
+
+                <!-- 問題2 -->
+                <div class="quiz-item" id="quiz2">
+                    <h3>問題 2</h3>
+                    <p>次の辞書型データの記述で、正しくないものはどれですか？</p>
+                    <div class="code-example">
+                        <pre><code>A) person = {'name': '大久保', 'age': 40}
+B) scores = {1: 100, 2: 90, 2: 85}
+C) info = {'id': 123, 'points': [80, 90, 85]}
+D) data = {'x': 10, 'y': 20, 'z': 30}</code></pre>
+                    </div>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q2" value="A"> A</label>
+                        <label><input type="radio" name="q2" value="B"> B</label>
+                        <label><input type="radio" name="q2" value="C"> C</label>
+                        <label><input type="radio" name="q2" value="D"> D</label>
+                    </div>
+                    <button onclick="checkAnswer(2, 'B')">回答する</button>
+                    <div class="quiz-result" id="result2"></div>
+                    <div class="quiz-explanation" id="explanation2" style="display: none;">
+                        辞書ではキーは重複できません。同じキーを使用した場合、後の値で上書きされます。
+                    </div>
+                </div>
+
+                <!-- 問題3 -->
+                <div class="quiz-item" id="quiz3">
+                    <h3>問題 3</h3>
+                    <p>セットの特徴として、正しくないものはどれですか？</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q3" value="A"> A) 重複する要素は自動的に1つにまとめられる</label>
+                        <label><input type="radio" name="q3" value="B"> B) 要素の順序は保持される</label>
+                        <label><input type="radio" name="q3" value="C"> C) 集合演算（和集合、積集合、差集合）ができる</label>
+                        <label><input type="radio" name="q3" value="D"> D) 要素の追加と削除が可能</label>
+                    </div>
+                    <button onclick="checkAnswer(3, 'B')">回答する</button>
+                    <div class="quiz-result" id="result3"></div>
+                    <div class="quiz-explanation" id="explanation3" style="display: none;">
+                        セットは順序を持たないデータ構造です。要素の順序は保証されません。
+                    </div>
+                </div>
+
+                <!-- 問題4 -->
+                <div class="quiz-item" id="quiz4">
+                    <h3>問題 4</h3>
+                    <p>以下のタプルの操作のうち、実行可能なものはどれですか？</p>
+                    <div class="code-example">
+                        <pre><code>numbers = (1, 2, 3, 4, 5)
+
+A) numbers[0] = 10
+B) print(numbers[2])
+C) numbers.append(6)
+D) numbers.remove(3)</code></pre>
+                    </div>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q4" value="A"> A</label>
+                        <label><input type="radio" name="q4" value="B"> B</label>
+                        <label><input type="radio" name="q4" value="C"> C</label>
+                        <label><input type="radio" name="q4" value="D"> D</label>
+                    </div>
+                    <button onclick="checkAnswer(4, 'B')">回答する</button>
+                    <div class="quiz-result" id="result4"></div>
+                    <div class="quiz-explanation" id="explanation4" style="display: none;">
+                        タプルは要素の変更はできませんが、インデックスを使用して要素にアクセス（参照）することは可能です。
+                    </div>
+                </div>
+
+                <!-- 問題5 -->
+                <div class="quiz-item" id="quiz5">
+                    <h3>問題 5</h3>
+                    <p>次のセットの演算結果として正しいものはどれですか？</p>
+                    <div class="code-example">
+                        <pre><code>A = {1, 2, 3, 4}
+B = {3, 4, 5, 6}
+
+A | B の結果は？</code></pre>
+                    </div>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q5" value="A"> A) {1, 2, 3, 4, 5, 6}</label>
+                        <label><input type="radio" name="q5" value="B"> B) {3, 4}</label>
+                        <label><input type="radio" name="q5" value="C"> C) {1, 2, 5, 6}</label>
+                        <label><input type="radio" name="q5" value="D"> D) {1, 2, 3, 4, 3, 4, 5, 6}</label>
+                    </div>
+                    <button onclick="checkAnswer(5, 'A')">回答する</button>
+                    <div class="quiz-result" id="result5"></div>
+                    <div class="quiz-explanation" id="explanation5" style="display: none;">
+                        和集合（|）は両方のセットのすべての要素を含み、重複は自動的に除去されます。
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 参考文献部分 -->
+            <h2>参考文献</h2>
+            <div class="column" data-title="教科書参照ページ">
+                <div class="textbook-section">
+                    <ul>
+                        <li>教科書：P.141-P.144「辞書を使って複数のデータをまとめる」</li>
+                        <li>参考サイト：python早見帳
+                            <a href="https://chokkan.github.io/python/07tuple.html" target="_blank">7.タプル</a>
+                            <a href="https://chokkan.github.io/python/09dict.html" target="_blank"> 9.辞書</a>
+                            <a href="https://chokkan.github.io/python/10set.html" target="_blank"> 10.セット</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+      
+            <div class="page-navigation">
+                <button onclick="window.scrollTo(0, 0)" class="top-button"><i class="fas fa-arrow-up"></i></button>
+                <button onclick="location.href='datatypes.html'"><i class="fas fa-arrow-left"></i> 前へ：データ型</button>
+                <button onclick="location.href='function.html'"><i class="fas fa-arrow-right"></i> 次へ：関数</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>Python 入門講座 &copy; 2025</p>
+            <p><i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by ohkuboma</p>
+        </div>
+    </footer>
+
+    <script src="pages.js"></script>
+</body>
+</html>

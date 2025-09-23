@@ -1,0 +1,263 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 350">
+  <!-- キーボードのベース -->
+  <rect width="900" height="350" fill="#f5f5f5" rx="10" ry="10" stroke="#999" stroke-width="2"/>
+  
+  <!-- 指の色分け -->
+  <rect x="20" y="15" width="20" height="15" fill="#ffcccc" rx="3" ry="3"/>
+  <text x="45" y="27" font-family="Arial" font-size="12">小指（左）</text>
+  
+  <rect x="120" y="15" width="20" height="15" fill="#ffddcc" rx="3" ry="3"/>
+  <text x="145" y="27" font-family="Arial" font-size="12">薬指（左）</text>
+  
+  <rect x="220" y="15" width="20" height="15" fill="#ffffcc" rx="3" ry="3"/>
+  <text x="245" y="27" font-family="Arial" font-size="12">中指（左）</text>
+  
+  <rect x="320" y="15" width="20" height="15" fill="#ccffcc" rx="3" ry="3"/>
+  <text x="345" y="27" font-family="Arial" font-size="12">人差し指（左）</text>
+  
+  <rect x="520" y="15" width="20" height="15" fill="#ccffff" rx="3" ry="3"/>
+  <text x="545" y="27" font-family="Arial" font-size="12">人差し指（右）</text>
+  
+  <rect x="620" y="15" width="20" height="15" fill="#ddddff" rx="3" ry="3"/>
+  <text x="645" y="27" font-family="Arial" font-size="12">中指（右）</text>
+  
+  <rect x="720" y="15" width="20" height="15" fill="#ffccff" rx="3" ry="3"/>
+  <text x="745" y="27" font-family="Arial" font-size="12">薬指（右）</text>
+  
+  <rect x="820" y="15" width="20" height="15" fill="#ffccdd" rx="3" ry="3"/>
+  <text x="845" y="27" font-family="Arial" font-size="12">小指（右）</text>
+
+  <!-- 第1段 -->
+  <g transform="translate(0, 50)">
+    <rect x="20" y="0" width="40" height="40" fill="#ffcccc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="40" y="15" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" dominant-baseline="middle">半角</text>
+    <text x="40" y="30" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" dominant-baseline="middle">全角</text>
+    
+    <rect x="70" y="0" width="40" height="40" fill="#ffcccc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="90" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">1</text>
+    <text x="90" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">!</text>
+    
+    <rect x="120" y="0" width="40" height="40" fill="#ffddcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="140" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">2</text>
+    <text x="140" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">"</text>
+    
+    <rect x="170" y="0" width="40" height="40" fill="#ffffcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="190" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">3</text>
+    <text x="190" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">#</text>
+    
+    <rect x="220" y="0" width="40" height="40" fill="#ccffcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="240" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">4</text>
+    <text x="240" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">$</text>
+    
+    <rect x="270" y="0" width="40" height="40" fill="#ccffcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="290" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">5</text>
+    <text x="290" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">%</text>
+    
+    <rect x="320" y="0" width="40" height="40" fill="#ccffcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="340" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">6</text>
+    <text x="340" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">&amp;</text>
+    
+    <rect x="370" y="0" width="40" height="40" fill="#ccffff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="390" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">7</text>
+    <text x="390" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">'</text>
+    
+    <rect x="420" y="0" width="40" height="40" fill="#ccffff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="440" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">8</text>
+    <text x="440" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">(</text>
+    
+    <rect x="470" y="0" width="40" height="40" fill="#ddddff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="490" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">9</text>
+    <text x="490" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">)</text>
+    
+    <rect x="520" y="0" width="40" height="40" fill="#ffccff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="540" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">0</text>
+    
+    <rect x="570" y="0" width="40" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="590" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">-</text>
+    <text x="590" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">=</text>
+    
+    <rect x="620" y="0" width="40" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="640" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">^</text>
+    <text x="640" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">~</text>
+    
+    <rect x="670" y="0" width="40" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="690" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">¥</text>
+    <text x="690" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">|</text>
+    
+    <rect x="720" y="0" width="90" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="765" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">BackSpace</text>
+  </g>
+  
+  <!-- 第2段 -->
+  <g transform="translate(0, 100)">
+    <rect x="20" y="0" width="60" height="40" fill="#ffcccc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="50" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Tab</text>
+    
+    <rect x="90" y="0" width="40" height="40" fill="#ffcccc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="110" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Q</text>
+    
+    <rect x="140" y="0" width="40" height="40" fill="#ffddcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="160" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">W</text>
+    
+    <rect x="190" y="0" width="40" height="40" fill="#ffffcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="210" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">E</text>
+    
+    <rect x="240" y="0" width="40" height="40" fill="#ccffcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="260" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">R</text>
+    
+    <rect x="290" y="0" width="40" height="40" fill="#ccffcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="310" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">T</text>
+    
+    <rect x="340" y="0" width="40" height="40" fill="#ccffff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="360" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Y</text>
+    
+    <rect x="390" y="0" width="40" height="40" fill="#ccffff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="410" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">U</text>
+    
+    <rect x="440" y="0" width="40" height="40" fill="#ccffff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="460" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">I</text>
+    
+    <rect x="490" y="0" width="40" height="40" fill="#ddddff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="510" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">O</text>
+    
+    <rect x="540" y="0" width="40" height="40" fill="#ffccff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="560" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">P</text>
+    
+    <rect x="590" y="0" width="40" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="610" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">@</text>
+    <text x="610" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">`</text>
+    
+    <rect x="640" y="0" width="40" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="660" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">[</text>
+    <text x="660" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">{</text>
+    
+    <rect x="690" y="0" width="70" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="725" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Enter</text>
+  </g>
+  
+  <!-- 第3段 -->
+  <g transform="translate(0, 150)">
+    <rect x="20" y="0" width="80" height="40" fill="#ffcccc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="60" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">CapsLock</text>
+    
+    <rect x="110" y="0" width="40" height="40" fill="#ffcccc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="130" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">A</text>
+    
+    <rect x="160" y="0" width="40" height="40" fill="#ffddcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="180" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">S</text>
+    
+    <rect x="210" y="0" width="40" height="40" fill="#ffffcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="230" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">D</text>
+    
+    <rect x="260" y="0" width="40" height="40" fill="#ccffcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="280" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">F</text>
+    
+    <rect x="310" y="0" width="40" height="40" fill="#ccffcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="330" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">G</text>
+    
+    <rect x="360" y="0" width="40" height="40" fill="#ccffff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="380" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">H</text>
+    
+    <rect x="410" y="0" width="40" height="40" fill="#ccffff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="430" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">J</text>
+    
+    <rect x="460" y="0" width="40" height="40" fill="#ddddff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="480" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">K</text>
+    
+    <rect x="510" y="0" width="40" height="40" fill="#ffccff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="530" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">L</text>
+    
+    <rect x="560" y="0" width="40" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="580" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">;</text>
+    <text x="580" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">+</text>
+    
+    <rect x="610" y="0" width="40" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="630" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">:</text>
+    <text x="630" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">*</text>
+    
+    <rect x="660" y="0" width="40" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="680" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">]</text>
+    <text x="680" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">}</text>
+  </g>
+  
+  <!-- 第4段 -->
+  <g transform="translate(0, 200)">
+    <rect x="20" y="0" width="60" height="40" fill="#ffcccc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="50" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Shift</text>
+    
+    <rect x="90" y="0" width="40" height="40" fill="#ffcccc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="110" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Z</text>
+    
+    <rect x="140" y="0" width="40" height="40" fill="#ffddcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="160" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">X</text>
+    
+    <rect x="190" y="0" width="40" height="40" fill="#ffffcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="210" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">C</text>
+    
+    <rect x="240" y="0" width="40" height="40" fill="#ccffcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="260" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">V</text>
+    
+    <rect x="290" y="0" width="40" height="40" fill="#ccffcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="310" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">B</text>
+    
+    <rect x="340" y="0" width="40" height="40" fill="#ccffff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="360" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">N</text>
+    
+    <rect x="390" y="0" width="40" height="40" fill="#ccffff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="410" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">M</text>
+    
+    <rect x="440" y="0" width="40" height="40" fill="#ccffff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="460" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">,</text>
+    <text x="460" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">&lt;</text>
+    
+    <rect x="490" y="0" width="40" height="40" fill="#ddddff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="510" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">.</text>
+    <text x="510" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">&gt;</text>
+    
+    <rect x="540" y="0" width="40" height="40" fill="#ffccff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="560" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">/</text>
+    <text x="560" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">?</text>
+    
+    <rect x="590" y="0" width="40" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="610" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">\_</text>
+    
+    <rect x="640" y="0" width="120" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="700" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Shift</text>
+  </g>
+  
+  <!-- 第5段 -->
+  <g transform="translate(0, 250)">
+    <rect x="20" y="0" width="50" height="40" fill="#ffcccc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="45" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Ctrl</text>
+    
+    <rect x="80" y="0" width="50" height="40" fill="#ffcccc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="105" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Win</text>
+    
+    <rect x="140" y="0" width="50" height="40" fill="#ffcccc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="165" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Alt</text>
+    
+    <rect x="200" y="0" width="260" height="40" fill="#ccffff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="330" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">スペース</text>
+    
+    <rect x="470" y="0" width="50" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="495" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Alt</text>
+    
+    <rect x="530" y="0" width="50" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="555" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Win</text>
+    
+    <rect x="590" y="0" width="50" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="615" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Menu</text>
+    
+    <rect x="650" y="0" width="50" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="675" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Ctrl</text>
+  </g>
+  
+  <!-- 方向キー -->
+  <g transform="translate(0, 300)">
+    <rect x="590" y="0" width="40" height="40" fill="white" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="610" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">←</text>
+    
+    <rect x="640" y="0" width="40" height="40" fill="white" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+    <text x="660" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">↓</text>
+    
+    <rect x="690" y="0" width="40" height="40" fill="white" stroke="#999" stroke-width="1" rx="3" ry

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>変数 | Python 入門講座</title>
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <button onclick="location.href='index.html'" class="home-button"><i class="fas fa-home"></i> HOME</button>
+            <h1><i class="fas fa-box"></i> 変数</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- 左サイドバー（目次） -->
+        <nav class="sidebar">
+            <h2><i class="fas fa-list-ul"></i> 目次</h2>
+            <ul class="toc" id="tableOfContents">
+                <!-- JavaScriptで動的に生成される目次 -->
+            </ul>
+        </nav>
+        
+        <!-- 右側のメインコンテンツ -->
+        <main class="content">
+            <div class="page-header">
+                <h2 id="変数"><i class="fas fa-box"></i> 変数</h2>
+                <div class="progress-indicator">
+                    <div class="progress-bar" style="width: 40%"></div>
+                    <span>講義進度: 第4回</span>
+                </div>
+            </div>
+            
+
+            
+            <h3>
+                <a href="https://youtu.be/yeZ3STy3k44?si=OehT7jPcJHVY-69k&t=536" class="video-link"> 
+                    <span class="video-icon"><i class="fas fa-play-circle"></i></span>解説動画:（～16:15）<br>
+                    変数（今西）
+                </a>
+            </h3>
+            <p style = "font-size: 10px;">出典：【完全版】この動画1本でPythonの基礎を習得！忙しい人のための速習コース（Python入門）@imanyu_programming<br>ビデオの授業内での利用を快く許可してくださった今西航平先生に感謝申し上げます。</p>
+            
+            <h3><i class="fas fa-tag"></i> 変数の命名規則と推奨される命名方法</h3>
+            <div class="column" data-title="命名規則と推奨される命名方法">
+                <h4><i class="fas fa-exclamation-circle"></i> 命名規則 </h4>
+                <ul>
+                    <li><i class="fas fa-caret-right"></i> 大文字と小文字は区別される</li>
+                        <ul>
+                            <li><code>Komoji</code></li>
+                            <li><code>komoji</code></li>
+                        </ul>
+
+                    <li><i class="fas fa-caret-right"></i> 数字、一部(アンダーバー）を除いた記号は先頭の文字に使用できない
+                        <ul>
+                            <li><code class="invalid">01moji</code> <span class="invalid-mark">✗</span></li>
+                            <li><code class="invalid">¥moji</code> <span class="invalid-mark">✗</span></li>
+                        </ul>
+                    </li>
+
+                    <li><i class="fas fa-caret-right"></i> 予約語は使用できない。予約語とはPython 内で、既に特定の用途で使用することが決まっている用語。</li>
+                        <ul>
+                            <li><code class="invalid">and</code> <span class="invalid-mark">✗</span></li>
+                            <li><code class="invalid">True</code> <span class="invalid-mark">✗</span></li>
+                            <li><code class="invalid">class</code> <span class="invalid-mark">✗</span></li>
+                            <li><code class="invalid">global</code> <span class="invalid-mark">✗</span></li>
+                        </ul>
+                </ul>
+
+                <h4><i class="fas fa-check-circle"></i> 推奨される命名方法 </h4> 
+                <p>全小文字 + アンダースコア区切りで名付ける</p>
+                
+                <div class="column" data-title="OKな例">
+                    <ul>
+                        <li><code class="valid">my_name</code> <span class="valid-mark">✓</span></li>
+                        <li><code class="valid">famous_city</code> <span class="valid-mark">✓</span></li>
+                    </ul>
+                </div>
+
+                <div class="column" data-title="NGな例">
+                    <ul>
+                        <li><code class="invalid">01name</code> <span class="invalid-mark">✗</span> <span class="comment">数字から始まる</span></li>
+                        <li><code class="invalid">name!</code> <span class="invalid-mark">✗</span> <span class="comment">記号を含む</span></li>
+                        <li><code class="invalid">class</code> <span class="invalid-mark">✗</span> <span class="comment">予約語</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 id="実習2 変数">
+                <i class="fas fa-laptop-code"></i> 実習 2 変数
+            </h3>
+            <div class="exercise-box">
+                <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
+                <ol>
+                    <li>テキストセルを挿入し、markdown editor に<code># 変数</code>　と入力</li>
+                    <li>コードセルを挿入し、変数 <code>name</code> を作成し、自分の名前を代入し、結果を出力しなさい。
+                        <div class="code-sample">
+                            <pre><code>name = "山田太郎" 
+print(name)</code></pre>
+                        </div>
+                    </li>
+                    <li>3つの変数　<code>price</code>, <code>discount</code>, <code>discount_price</code>を作成します。<code>price</code> に　<code>100</code>、<code>discount</code> に<code>0.2</code>　を代入します。割引後の価格の計算式を考えて、<code>discount_price</code> に代入し、結果を出力しなさい（参考資料:教科書036)
+                        <div class="code-hint">
+                            <pre><code># ヒント
+price = 100
+discount = 0.2
+discount_price = ???? # ここに計算式を書く
+print(discount_price)</code></pre>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <div class="column" data-title="教科書参照ページ">
+                <div class="textbook-section">
+                    <h4><i class="fas fa-book"></i> 参照ページ</h4>
+                    <ul>
+                        <li>P.034-P,050 変数を使って計算する。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="page-navigation">
+                <button onclick="window.scrollTo(0, 0)" class="top-button"><i class="fas fa-arrow-up"></i></button>
+                <button onclick="location.href='03rd.html'"><i class="fas fa-arrow-left"></i> 前へ：四則演算</button>
+                <button onclick="location.href='datatypes.html'"><i class="fas fa-arrow-right"></i> 次へ：データ型</button>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>Python 入門講座 &copy; 2025</p>
+            <p><i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by ohkuboma</p>
+        </div>
+    </footer>
+
+    <script src="pages.js"></script>
+</body>
+</html> 

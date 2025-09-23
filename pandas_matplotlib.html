@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ライブラリ3（標準：ライブラリ） | Python 入門講座（ohkuboma）</title>
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        .content {
+            overflow: visible !important;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <button onclick="location.href='index.html'" class="home-button"><i class="fas fa-home"></i> HOME</button>
+            <h1><i class="fa-solid fa-calendar-days"></i>  【データの整理と可視化】 外部ライブラリ Pandas, Matplotlib </h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- 左サイドバー（目次） -->
+        <nav class="sidebar">
+            <h2><i class="fas fa-list-ul"></i> 目次</h2>
+            <ul class="toc" id="tableOfContents">
+                <!-- JavaScriptで動的に生成される目次 -->
+            </ul>
+        </nav>
+        
+        <!-- 右側のメインコンテンツ -->
+        <main class="content">
+            <div class="page-header">
+                <h2><i class="fa-solid fa-calendar-days"></i> データの整理と可視化</h2>
+                <div class="progress-indicator">
+                    <div class="progress-bar" style="width: 40%"></div>
+                    <span>講義進度: 第7回</span>
+
+                </div>
+                <p>ライブラリとは、Pythonでよく使う機能をまとめたものです。pythonに付属している標準ライブラリとインポートして利用する外部ライブラリがあります。外部ライブラリはには、pandas, numpy, matplotlib, openpyxl.. などがあり、それぞれ得意の分野が異なります。
+                   
+            </p>
+            </div>
+            <h3><a href="https://youtu.be/EI40pSM8TJc?si=g2qsVuSNGe6cQ0bt" class="video-link"><span class="video-icon"> </span>解説動画:（18:47）<br>22. 外部ライブラリ(Pandas) | 中学生でもわかるPython入門シリーズ</a></h3>
+            <h3><a href="https://youtu.be/Z2ourGFyeBQ?si=aKaOYSsbJibcXOrO" class="video-link"><span class="video-icon"> </span>解説動画:（11:07）<br>23. 外部ライブラリ(Matplotlib) | 中学生でもわかるPython入門シリーズ</a></h3>
+
+          
+            <h2 id="関数の基本"> 関数の基本</h2>
+            <h3 id="関数の定型"> 関数の定型</h3>
+            <div class="column" data-title="関数の定型">
+                    <div class="code-block">
+                    <pre><code>def 関数名():
+   関数内で実行する処理
+  </code></pre>       
+                </div>
+            </div>
+
+            <h3 id="関数の例（引数なし、戻り値なし）
+            ">関数の例　引数なし、戻り値なし</h3>
+            <div class="code-example">
+                <pre><code>def say_hello():
+    print('皆さん！こんにちは')
+say_hello()</code>
+皆さん！こんにちは　# 実行結果
+*引数なし、戻り値なしの場合の例</pre>
+            </div>
+            <div class="code-example">
+                <pre><code>def say_hello2(name):
+    print(f'{name}さんこんにちは')
+say_hello2('白山')</code>
+白山さん、こんにちは　# 実行結果
+*引数あり、戻り値なしの場合の例</pre>
+            </div>
+            <h3 id="関数の例（引数あり、戻り値あり）">関数の例　引数あり、戻り値あり</h3>
+            <div class="code-example">
+                <pre><code>def add(a, b):
+    return a + b
+add(1, 2) = 3</code></pre>
+            </div>
+            <h3 id="関数の例（引数あり、戻り値を変数に代入）">関数の例（引数あり、戻り値を変数に代入）</h3>
+            <div class="code-example">
+<pre><code>def calc_square(side):
+    return side * side
+result = calc_square(10)
+print(result)
+100 # 実行結果</code></pre>
+            </div>
+            <h3 id="関数の例（三角形の面積）">関数の例（三角形の面積）</h3>
+            <div class="code-example">
+<pre><code>def calc_triangle(base = 10, height = 5):
+    return base * height *0.5
+calc_triangle()
+25 # 実行結果
+calc_triangle(base = 20)
+50 # 実行結果
+calc_triangle(height = 10)
+25 # 実行結果</code></pre>
+            </div>
+            
+         <h3 id="実習2 リスト">
+                <div class="fas fa-laptop-code"></div> 実習 2 変数
+            </h3>
+            <div class="exercise-box">
+                <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
+                <ol>
+                    <li>テキストセルを挿入し、markdown editor に<code># 関数</code>　と入力</li>
+                    <li>コードセルを挿入し、関数 rectangle を作成し、長方形の面積を計算する関数を作成しましょう。width と height を引数にとり、面積を計算します。ビデオで解説があった通り、初期値を設定してください。作成した関数に、20×30の長方形の面積を計算をさせましょう。
+                        <!--<pre><code>def rectangle(width=10, height=5):
+    return width * height
+rectangle() = 50
+rectangle(width=20) = 100
+rectangle(height=20) = 200
+rectangle(width=20, height=30) = 600</code></pre>-->
+                    </li>
+                    </ol>
+ 
+            </div>
+            <h2 id="参考文献">参考文献</h2>
+            <div class="column" data-title="教科書参照ページ">
+                <div class="textbook-section">
+                    <ul>
+                        <li>教科書参照ページP.130-P.140:「関数の書き方を覚えよう」</li>
+                        <li>参考サイト：python早見帳  <a href="https://chokkan.github.io/python/04function.html" target="_blank">４.関数</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="page-navigation">
+                <button onclick="window.scrollTo(0, 0)" class="top-button"><i class="fas fa-arrow-up"></i></button>
+                <button onclick="location.href='tuple_dict_set.html'"><i class="fas fa-arrow-left"></i> 前へ：タプル・辞書・集合</button>
+                <button onclick="location.href='function.html'"><i class="fas fa-arrow-right"></i> 次へ：関数</button>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>Python 入門講座 &copy; 2025</p>
+            <p><i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by ohkuboma</p>
+        </div>
+    </footer>
+
+    <script src="pages.js"></script>
+</body>
+</html>

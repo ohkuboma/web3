@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pythonデモ｜Driveでファイル作成＆リネーム</title>
+  <style>
+    :root {
+      --bg: #fff; --fg: #222; --accent: #0b57d0; --muted:#747775; --codebg:#f6f8fa; --border:#e6e8eb;
+    }
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; color: var(--fg); background: var(--bg); line-height: 1.7; margin: 0; }
+    header { border-bottom: 1px solid var(--border); padding: 16px; }
+    header h1 { margin: 0 0 6px; font-size: 20px; }
+    header p { margin: 0; color: var(--muted); font-size: 14px; }
+    main { max-width: 880px; margin: 0 auto; padding: 24px 16px 48px; }
+    .badge { display:inline-block; vertical-align:middle; }
+    .hint { background:#fff7cc; border:1px solid #ffec8b; padding:10px 12px; border-radius:8px; font-size:14px; }
+    section { margin: 28px 0; padding: 16px; border:1px solid var(--border); border-radius:12px; background:#fff; }
+    h2 { margin: 0 0 12px; font-size: 18px; }
+    .explain { font-size: 14px; color: #333; margin: 8px 0 12px; }
+    pre { background: var(--codebg); border:1px solid var(--border); padding: 12px; border-radius: 10px; overflow:auto; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size: 13px; }
+    footer { color: var(--muted); font-size: 12px; padding: 24px 16px; text-align:center; border-top:1px solid var(--border); }
+    .steps { display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; }
+    .chip { border:1px solid var(--border); border-radius:999px; padding:4px 10px; font-size:12px; color:#555; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Pythonデモ：Driveで「作る → 見る → わさわさリネーム」</h1>
+    <p>マリちゃん監修・トラちゃん解説。Colabで各自のコピーを実行して体験しよう。</p>
+  </header>
+
+  <main>
+    <!-- Open in Colab バッジ（閲覧専用ノートへのリンク） -->
+    <p>
+      <a class="badge" href="https://colab.research.google.com/drive/YOUR_COLAB_ID_HERE" target="_blank" rel="noopener">
+        <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" />
+      </a>
+    </p>
+    <div class="hint">
+      <strong>使い方：</strong>「Open in Colab」を押すと、見本ノートのコピーがあなたのGoogleドライブに作られます。<br/>
+      あとはセルを上から順に実行してね（各自の環境で動くので、同時実行しても衝突しません）。
+    </div>
+
+    <!-- ① マウント -->
+    <section id="step-1">
+      <h2>① ドライブをマウント</h2>
+      <div class="explain">
+        Google ColabにGoogleドライブをつなげます。これでプログラムからドライブへアクセス可能になります。
+      </div>
+      <pre><code>from google.colab import drive
+drive.mount('/content/drive')</code></pre>
+      <div class="steps">
+        <span class="chip">セルを実行</span>
+        <span class="chip">認証→許可</span>
+      </div>
+    </section>
+
+    <!-- ② フォルダ作成（空を確認） -->
+    <section id="step-2">
+      <h2>② フォルダを作成（空でスタート）</h2>
+      <div class="explain">
+        教材用フォルダ <code>python_demo</code> を作成します。実行が終わったら、左のファイルブラウザで
+        <code>MyDrive/python_demo</code> を開いてください。<strong>この時点では中身は空です。</strong>
+      </div>
+      <pre><code>import os
+folder = "/content/drive/MyDrive/python_demo"
+os.makedirs(folder, exist_ok=True)</code></pre>
+      <div class="steps">
+        <span class="chip">フォルダ作成</span>
+        <span class="chip">左のブラウザで目視確認</span>
+      </div>
+    </section>
+
+    <!-- ③ 5ファイル作成（目で確認） -->
+    <section id="step-3">
+      <h2>③ トラちゃんファイルを5つ作成</h2>
+      <div class="explain">
+        <code>torachan_1.txt</code> 〜 <code>torachan_5.txt</code> を作成します。実行後、<code>python_demo</code> フォルダを
+        開きっぱなしにして、<strong>5つのファイルが並んだことを目で確認</strong>しましょう。
+      </div>
+      <pre><code>paths = []
+for i in range(1, 6):
+    filename = f"torachan_{i}.txt"
+    path = os.path.join(folder, filename)
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(f"トラちゃんファイル {i}\n")
+    paths.append(path)</code></pre>
+      <div class="steps">
+        <span class="chip">5ファイル作成</span>
+        <span class="chip">開きっぱなしで確認</span>
+      </div>
+    </section>
+
+    <!-- ④ まとめてリネーム（開きっぱなしで変化を見る） -->
+    <section id="step-4">
+      <h2>④ まとめてリネーム（変化を見る）</h2>
+      <div class="explain">
+        作成した5ファイルを、<code>torachan_new_01.txt</code> のように一括リネームします。
+        フォルダを<strong>開きっぱなし</strong>にしておくと、<strong>名前が一斉に変わる</strong>のがわかります。
+      </div>
+      <pre><code>import os
+for i, old_path in enumerate(paths, start=1):
+    new_name = f"torachan_new_{i:02d}.txt"
+    new_path = os.path.join(folder, new_name)
+    os.rename(old_path, new_path)
+    print(f"{os.path.basename(old_path)} → {new_name}")</code></pre>
+      <div class="steps">
+        <span class="chip">一括変更</span>
+        <span class="chip">目で変化を確認</span>
+      </div>
+    </section>
+
+    <!-- 付録：片付け（任意） -->
+    <section id="cleanup">
+      <h2>（任意）付録：片付け</h2>
+      <div class="explain">
+        実習後に片付けたい場合は、以下でフォルダごと削除できます（十分ご注意を）。
+      </div>
+      <pre><code>import shutil
+shutil.rmtree(folder)  # ※ 実行すると python_demo が丸ごと消えます</code></pre>
+    </section>
+  </main>
+
+  <footer>
+    © マリちゃん＆トラちゃん教材 — シンプルに、転ばぬ先の杖ってもんよ。
+  </footer>
+</body>
+</html>

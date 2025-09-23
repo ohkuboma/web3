@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>実習環境に慣れる | Python 入門講座</title>
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <button onclick="location.href='index.html'" class="home-button"><i class="fas fa-home"></i> HOME</button>
+            <h1><i class="fas fa-laptop-code"></i> 実習環境に慣れる</h1>
+        </div>
+        
+    
+    </header>
+    
+    <div class="container">
+        <!-- 左サイドバー（目次） -->
+        <nav class="sidebar">
+            <h2><i class="fas fa-list-ul"></i> 目次</h2>
+            <ul class="toc" id="tableOfContents">
+                <!-- JavaScriptで動的に生成される目次 -->
+            </ul>
+        </nav>
+        
+        <!-- 右側のメインコンテンツ -->
+        <main class="content">
+            <div class="page-header">
+                <h2 id="python とは">Python とは</h2>
+                <div class="progress-indicator">
+                    <div class="progress-bar" style="width: 20%"></div>
+                    <span>講義進度: 第2回</span>
+                </div>
+            </div>
+            
+      
+            
+            <h3 id="ビデオ：習得したい言語第1位！！Pythonとは？">
+                <a href="https://youtu.be/rPCm-v_W4Ng?si=gMDqfuGTrniS-HxQ&t=109" class="video-link">
+                    <span class="video-icon"><i class="fas fa-play-circle"></i></span>解説動画:<br>
+                    習得したい言語第1位！！Pythonとは？（今西）
+                </a>
+            </h3>
+            
+            <h3 id="ビデオ：Pythonでできること">
+                <a href="https://youtu.be/2FIAadJEZhk?si=1ObsfmrA82np_Lyf" class="video-link">
+                    <span class="video-icon"><i class="fas fa-play-circle"></i></span>解説動画:<br>
+                    プログラミング言語人気第1位 Pythonでできること5選（今西）
+                </a>
+            </h3>
+            <p style = "font-size: 10px;"> 出典：【完全版】この動画1本でPythonの基礎を習得！忙しい人のための速習コース（Python入門）@imanyu_programming<br>ビデオの授業内での利用を快く許可してくださった今西航平先生に感謝申し上げます。</p>
+           
+           
+            <div class="column" data-title="Pythonの特徴">
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> 少ないコードでシンプルに書ける</li>
+                    <li><i class="fas fa-robot"></i> 機械学習・AI領域で使われる</li>
+                    <li><i class="fas fa-tools"></i> 応用領域が広い（データ分析、Webスクレイピング、業務の自動化、ファイルの一括整理）</li>
+                    <li><i class="fas fa-box-open"></i> ライブラリが充実</li>
+                    <li><i class="fas fa-user-graduate"></i> 初学者でも扱いやすい</li>
+                </ul>
+            </div>
+
+            <h2 id="Google Colaboratoryによる環境構築">
+                <i class="fab fa-google"></i> Google Colaboratoryによる環境構築
+            </h2>  
+            <h3>
+                <h3><a href="https://youtu.be/yeZ3STy3k44?si=AK5aptT8HX0NxMri&t=49" class="video-link"> 
+                    <span class="video-icon"><i class="fas fa-play-circle"></i></span>解説動画:（～3：47）
+                    Google Colaboratoryによる環境構築（今西）
+                </a></h3>
+                    <p style = "font-size: 10px;"> 出典：【完全版】この動画1本でPythonの基礎を習得！忙しい人のための速習コース（Python入門）@imanyu_programming</p>
+
+                </a>
+            </h3>
+
+            <h3 id="実習1  GoogleColab の準備">
+                <i class="fas fa-tasks"></i> 実習 1 GoogleColab の準備と新規ファイルの作成
+            </h3>
+            <div class="exercise-box">
+                <ol>
+                    <li><i class="fas fa-sign-in-alt"></i> @toyo.jp で、Google にログインする</li>
+                    <li><i class="fab fa-google-drive"></i> Google Drive を開く</li>
+                    <li><i class="fas fa-cog"></i> Google Colaboratory を使用できるようにする</li> 
+                    <li><i class="fas fa-file-code"></i> 新規ノートブックを開き、ファイル名を、mynotebook とする</li> 
+                    <li><i class="fas fa-plug"></i> 新規ノートブックの右上に表示されている接続ボタンを押して、仮想環境に接続する</li>  
+                             
+                </ol>
+            
+            </div>
+               <h3 id="ノートの作成">覚えたことをノートにまとめる</h3>
+                <p>google colab の新規ノートブックを作成して、テキストセルにマークダウンでまとめる</p>
+                <div class="column" data-title="マークダウン記法の使い方">
+                    <h4>📝 よく使うマークダウン記法</h4>
+                    <table>
+                        <tr>
+                            <th>書き方</th>
+                            <th>表示結果</th>
+                        </tr>
+                        <tr>
+                            <td># 見出し1</td>
+                            <td>大見出し</td>
+                        </tr>
+                        <tr>
+                            <td>## 見出し2</td>
+                            <td>中見出し</td>
+                        </tr>
+                        <tr>
+                            <td>### 見出し3</td>
+                            <td>小見出し</td>
+                        </tr>
+                        <tr>
+                            <td>- リスト<br>- リスト</td>
+                            <td>・箇条書き<br>・箇条書き</td>
+                        </tr>
+                        <tr>
+                            <td>1. 番号付き<br>2. リスト</td>
+                            <td>1. 番号付き<br>2. リスト</td>
+                        </tr>
+                        <tr>
+                            <td>`コード`</td>
+                            <td>コードの強調表示</td>
+                        </tr>
+                        <tr>
+                            <td>**太字**</td>
+                            <td>太字表示</td>
+                        </tr>
+                    </table>
+                    <p>※テキストセルをダブルクリックすると編集モードになります</p>
+                </div>
+            <div class="column" data-title="教科書参照ページ">
+                <div class="textbook-section">
+                    <h4><i class="fas fa-book"></i> 参照ページ</h4>
+                    <ul>
+                        <li>直接該当する箇所はないが、予習を兼ねて Chapter1 を読んでおくこと</li>
+                    </ul>
+                </div>
+            </div>
+
+            
+            <div class="page-navigation">
+                <button onclick="window.scrollTo(0, 0)" class="top-button"><i class="fas fa-arrow-up"></i></button>
+                <button onclick="location.href='calcuration.html'"><i class="fas fa-arrow-right"></i> 次へ：四則演算</button>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>Python 入門講座 &copy; 2025</p>
+            <p><i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by ohkuboma</p>
+        </div>
+    </footer>
+
+    <script src="pages.js"></script>
+</body>
+</html>

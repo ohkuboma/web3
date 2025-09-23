@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>データ型 | Python 入門講座</title>
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <button onclick="location.href='index.html'" class="home-button"><i class="fas fa-home"></i> HOME</button>
+            <h1><i class="fas fa-database"></i> データ型</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- 左サイドバー（目次） -->
+        <nav class="sidebar">
+            <h2><i class="fas fa-list-ul"></i> 目次</h2>
+            <ul class="toc" id="tableOfContents">
+                <!-- JavaScriptで動的に生成される目次 -->
+            </ul>
+        </nav>
+        
+        <!-- 右側のメインコンテンツ -->
+        <main class="content">
+            <div class="page-header">
+                <h2 id="データ型"><i class="fas fa-database"></i> データ型</h2>
+                <div class="progress-indicator">
+                    <div class="progress-bar" style="width: 50%"></div>
+                    <span>講義進度: 第4回</span>
+                </div>
+            </div>
+            
+
+            
+            <h3>
+                <a href="https://youtu.be/yeZ3STy3k44?t=1238&si=m4V_bfqd5pSy-tmi" class="video-link"> 
+                    <span class="video-icon"><i class="fas fa-play-circle"></i></span>解説動画:（～26:12）<br>
+                    データ型（今西）
+                </a>
+            </h3>
+            <p style = "font-size: 10px;">ビデオの授業内での利用を快く許可してくださった今西航平先生に感謝申し上げます。<br> 出典：【完全版】この動画1本でPythonの基礎を習得！忙しい人のための速習コース（Python入門）@imanyu_programming</p>
+            <h3><i class="fas fa-cubes"></i> データ型の種類と例</h3>
+            <table class="data-types">
+                <caption>データ型の種類と例</caption>
+                <tr>
+                    <th>型</th>
+                    <th>型名（日本語表記）</th>
+                    <th>値の例</th>
+                </tr>
+                <tr>
+                    <td><code>int</code></td>
+                    <td>整数型</td>
+                    <td><code>-1</code>, <code>0</code>, <code>1</code>, <code>2</code>, <code>10</code>, <code>100</code></td>
+                </tr>
+                <tr>
+                    <td><code>float</code></td>
+                    <td>浮動小数点数型</td>
+                    <td><code>-0.12</code>, <code>0.0</code>, <code>0.5</code>, <code>2.34</code></td>
+                </tr>
+                <tr>
+                    <td><code>str</code></td>
+                    <td>文字列型</td>
+                    <td><code>'hello'</code>, <code>'こんにちは'</code></td>
+                </tr>
+                <tr>
+                    <td><code>bool</code></td>
+                    <td>真偽値型</td>
+                    <td><code>True</code>, <code>False</code></td>
+                </tr>
+            </table>
+
+            <h3 id="実習3 データ型">
+                <i class="fas fa-laptop-code"></i> 実習 3 データ型
+            </h3>
+            <div class="exercise-box">
+                <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
+                <ol>
+                    <li>テキストセルを挿入し、markdown editor に<code># データ型</code>　と入力</li>
+                    <li>コードセルを挿入し<code>int</code> 型の変数を作成し、自分の年齢を代入しなさい。<code>type()</code>のかっこの中に変数を入れて実行して、その変数の型を確認しなさい。
+                        <div class="code-sample">
+                            <pre><code>age = 20  # 自分の年齢を入力
+print(type(age))</code></pre>
+                        </div>
+                    </li>
+                    <li><code>float</code> 型の変数を作成し、自分の身長（小数点以下一桁まで入力。架空でもよし）を代入しなさい。<code>type()</code>のかっこの中に変数を入れて実行して、その変数の型を確認しなさい。</li>
+                    <li><code>str</code> 型の変数を作成し、自分の名前を代入しなさい。<code>type()</code>のかっこの中に変数を入れて実行して、その変数の型を確認しなさい。</li>
+                    <li><code>bool</code> 型の変数を作成し、（例：<code>flg=True</code>）<code>type()</code>のかっこの中に変数を入れて実行して、変数の型を確認しなさい。</li>
+                </ol>
+            </div>
+            <div class="column" data-title="教科書参照ページ">
+                <div class="textbook-section">
+                    <h4><i class="fas fa-book"></i> 参照ページ</h4>
+                    <ul>
+                        <li>P.42-P.50 データの入力を受け付ける、数値と文字列を変換する
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="page-navigation">
+                <button onclick="window.scrollTo(0, 0)" class="top-button"><i class="fas fa-arrow-up"></i></button>
+                <button onclick="location.href='variables.html'"><i class="fas fa-arrow-left"></i> 前へ：変数</button>
+                <button onclick="location.href='if.html'"><i class="fas fa-arrow-right"></i> 次へ：条件分岐</button>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>Python 入門講座 &copy; 2025</p>
+            <p><i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by ohkuboma</p>
+        </div>
+    </footer>
+
+    <script src="pages.js"></script>
+</body>
+</html> 

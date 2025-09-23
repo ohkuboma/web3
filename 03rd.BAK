@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>四則演算・変数・データ型 | Python 入門講座</title>
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <button onclick="location.href='index.html'" class="home-button"><i class="fas fa-home"></i> HOME</button>
+            <h1><i class="fas fa-calculator"></i> 四則演算・変数・データ型</h1>
+        </div>
+        
+        <div class="lecture-buttons">
+            <button onclick="location.href='index.html'"><i class="fas fa-home"></i> ガイダンス</button>
+            <button onclick="location.href='jisshukankyo.html'"><i class="fas fa-laptop-code"></i> 実習環境</button>
+            <button onclick="location.href='03rd.html'" class="active-nav"><i class="fas fa-calculator"></i> 四則演算・変数・データ型</button>
+            <button onclick="location.href='#'"><i class="fas fa-code-branch"></i> 比較演算子とif文</button>
+            <button onclick="location.href='#'"><i class="fas fa-list"></i> リストと辞書</button>
+            <button onclick="location.href='#'"><i class="fas fa-sync-alt"></i> 繰り返し処理</button>
+            <button onclick="location.href='#'"><i class="fas fa-puzzle-piece"></i> 関数</button>
+            <button onclick="location.href='#'"><i class="fas fa-book"></i> 標準ライブラリ</button>
+            <button onclick="location.href='#'"><i class="fas fa-chart-bar"></i> データ分析</button>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- 左サイドバー（目次） -->
+        <nav class="sidebar">
+            <h2><i class="fas fa-list-ul"></i> 目次</h2>
+            <ul class="toc" id="tableOfContents">
+                <!-- JavaScriptで動的に生成される目次 -->
+            </ul>
+        </nav>
+        
+        <!-- 右側のメインコンテンツ -->
+        <main class="content">
+            <div class="page-header">
+                <h2 id="四則演算"><i class="fas fa-calculator"></i> 四則演算</h2>
+                <div class="progress-indicator">
+                    <div class="progress-bar" style="width: 30%"></div>
+                    <span>講義進度: 第3回</span>
+                </div>
+            </div>
+            
+            <div class="info-box">
+                <p><i class="fas fa-info-circle"></i> このページではPythonの基本的な計算方法、変数、データ型について学びます。実際にコードを書いて動かしながら理解を深めましょう。</p>
+            </div>
+            
+            <h3>
+                <a href="https://youtu.be/yeZ3STy3k44?si=AK5aptT8HX0NxMri&t=227" class="video-link">
+                    <span class="video-icon"><i class="fas fa-play-circle"></i></span>解説動画:（3:47～12:00）<br>
+                    四則演算・変数・データ型（今西）
+                </a>
+            </h3>
+
+            <table class="operator-table">
+                <caption>計算用の演算子一覧</caption>
+                <tr>
+                    <th>演算子</th>
+                    <th>読み方</th>
+                    <th>例</th>
+                </tr>
+                <tr>
+                    <td><code>+</code></td>
+                    <td>左辺に右辺を足した結果を出せ</td>
+                    <td><code>5 + 8</code></td>
+                </tr>
+                <tr>
+                    <td><code>-</code></td>
+                    <td>右辺から左辺を引いた結果を出せ</td>
+                    <td><code>12 - 7</code></td>
+                </tr>
+                <tr>
+                    <td><code>*</code></td>
+                    <td>左辺に右辺を掛けた結果を出せ</td>
+                    <td><code>4 * 3</code></td>
+                </tr>
+                <tr>
+                    <td><code>/</code></td>
+                    <td>左辺を右辺で割った結果を出せ</td>
+                    <td><code>16 / 4</code></td>
+                </tr>
+                <tr>
+                    <td><code>//</code></td>
+                    <td>左辺を右辺で割った結果を整数で出せ</td>
+                    <td><code>20 // 3</code></td>
+                </tr>
+                <tr>
+                    <td><code>%</code></td>
+                    <td>左辺を右辺で割った余りを出せ</td>
+                    <td><code>19 % 5</code></td>
+                </tr>
+                <tr>
+                    <td><code>**</code></td>
+                    <td>左辺の右辺乗（べき乗）の結果を出せ</td>
+                    <td><code>3 ** 4</code></td>
+                </tr>
+            </table>
+
+            <h3 id="実習1 四則演算">
+                <i class="fas fa-laptop-code"></i> 実習 1 四則演算
+            </h3>
+            <div class="exercise-box">
+                <p>chapter1 のノートブックにつづけて以下の実習をしなさい。</p>
+                <ol>
+                    <li>テキストセルのマークダウンエディタ（左側のウインドウ）に、<code># 四則演算</code>　と入力　← markdown 記法</li>
+                    <li>コードセルを作成し、以下の計算をさせなさい。
+                        <ol class="code-examples">
+                            <li><code>10 + 2</code></li>
+                            <li><code>10 - 2</code></li>
+                            <li><code>10 - 20</code></li>
+                            <li><code>-20 + 10</code></li>
+                            <li><code>10 * 10</code> <span class="comment">← 10 × 10</span></li>
+                            <li><code>1.08 * 100</code> <span class="comment">← 1.08 × 100</span></li>
+                            <li><code>1800 / 100</code> <span class="comment">← 1800 ÷ 100</span></li>
+                            <li><code>(100 + 300) / 4</code> <span class="comment">← (100 +300) ÷ 4</span></li>
+                            <li><code>7 * (3 + 4)</code> <span class="comment">← 7 × (3 + 4)</span></li>
+                            <li><code>10 % 5</code></li>
+                            <li><code>10 % 8</code></li>
+                            <li><code>2 ** 3</code> <span class="comment">← 2 の 3乗</span></li>
+                            <li><code>2 ** 4</code> <span class="comment">← 2 の 4乗</span></li>
+                        </ol>
+                    </li>
+                </ol>
+            </div>
+
+            <!-- 変数セクション -->
+            <h2 id="変数"><i class="fas fa-box"></i> 変数</h2>
+            <h3>
+                <a href="https://youtu.be/yeZ3STy3k44?si=OehT7jPcJHVY-69k&t=536" class="video-link"> 
+                    <span class="video-icon"><i class="fas fa-play-circle"></i></span>解説動画:（～16:15）<br>
+                    変数（今西）
+                </a>
+            </h3>
+
+            <h3><i class="fas fa-tag"></i> 変数の命名規則と推奨される命名方法</h3>
+            <div class="column" data-title="命名規則と推奨される命名方法">
+                <h4><i class="fas fa-exclamation-circle"></i> 命名規則 </h4>
+                <ul>
+                    <li><i class="fas fa-caret-right"></i> 大文字と小文字は区別される</li>
+                        <ul>
+                            <li><code>Komoji</code></li>
+                            <li><code>komoji</code></li>
+                        </ul>
+
+                    <li><i class="fas fa-caret-right"></i> 数字、一部(アンダーバー）を除いた記号は先頭の文字に使用できない
+                        <ul>
+                            <li><code class="invalid">01moji</code> <span class="invalid-mark">✗</span></li>
+                            <li><code class="invalid">¥moji</code> <span class="invalid-mark">✗</span></li>
+                        </ul>
+                    </li>
+
+                    <li><i class="fas fa-caret-right"></i> 予約語は使用できない。予約語とはPython 内で、既に特定の用途で使用することが決まっている用語。</li>
+                        <ul>
+                            <li><code class="invalid">and</code> <span class="invalid-mark">✗</span></li>
+                            <li><code class="invalid">True</code> <span class="invalid-mark">✗</span></li>
+                            <li><code class="invalid">class</code> <span class="invalid-mark">✗</span></li>
+                            <li><code class="invalid">global</code> <span class="invalid-mark">✗</span></li>
+                        </ul>
+                </ul>
+
+                <h4><i class="fas fa-check-circle"></i> 推奨される命名方法 </h4> 
+                <p>全小文字 + アンダースコア区切りで名付ける</p>
+                
+                <div class="column" data-title="OKな例">
+                    <ul>
+                        <li><code class="valid">my_name</code> <span class="valid-mark">✓</span></li>
+                        <li><code class="valid">famous_city</code> <span class="valid-mark">✓</span></li>
+                    </ul>
+                </div>
+
+                <div class="column" data-title="NGな例">
+                    <ul>
+                        <li><code class="invalid">01name</code> <span class="invalid-mark">✗</span> <span class="comment">数字から始まる</span></li>
+                        <li><code class="invalid">name!</code> <span class="invalid-mark">✗</span> <span class="comment">記号を含む</span></li>
+                        <li><code class="invalid">class</code> <span class="invalid-mark">✗</span> <span class="comment">予約語</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <table class="reserved-words">
+                <caption>予約語一覧</caption>
+                <tr>
+                    <td style="text-align: left;">
+                        <code>and</code> <code>as</code> <code>assert</code> <code>async</code> <code>await</code> <code>break</code> <code>class</code> <code>continue</code> <code>def</code> <code>del</code> <code>elif</code> <code>else</code> <code>except</code> 
+                        <code>False</code> <code>finally</code> <code>for</code> <code>from</code> <code>global</code> <code>if</code> <code>import</code> <code>in</code> <code>is</code> <code>lambda</code> <code>None</code> <code>nonlocal</code> <code>not</code> <code>or</code> 
+                        <code>pass</code> <code>raise</code> <code>return</code> <code>True</code> <code>try</code> <code>while</code> <code>with</code> <code>yield</code>
+                    </td>
+                </tr>
+            </table>
+
+            <h3 id="実習2 変数">
+                <i class="fas fa-laptop-code"></i> 実習 2 変数
+            </h3>
+            <div class="exercise-box">
+                <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
+                <ol>
+                    <li>テキストセルを挿入し、markdown editor に<code># 変数</code>　と入力</li>
+                    <li>コードセルを挿入し、変数 <code>name</code> を作成し、自分の名前を代入し、結果を出力しなさい。
+                        <div class="code-sample">
+                            <pre><code>name = "山田太郎" 
+print(name)</code></pre>
+                        </div>
+                    </li>
+                    <li>3つの変数　<code>price</code>, <code>discount</code>, <code>discount_price</code>を作成します。<code>price</code> に　<code>100</code>、<code>discount</code> に<code>0.2</code>　を代入します。割引後の価格の計算式を考えて、<code>discount_price</code> に代入し、結果を出力しなさい（参考資料:教科書036)
+                        <div class="code-hint">
+                            <pre><code># ヒント
+price = 100
+discount = 0.2
+discount_price = ???? # ここに計算式を書く
+print(discount_price)</code></pre>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+
+            <!-- データ型セクション -->
+            <h2 id="データ型"><i class="fas fa-database"></i> データ型</h2>
+            <h3>
+                <a href="https://youtu.be/yeZ3STy3k44?t=1238&si=m4V_bfqd5pSy-tmi" class="video-link"> 
+                    <span class="video-icon"><i class="fas fa-play-circle"></i></span>解説動画:（～26:12）<br>
+                    データ型（今西）
+                </a>
+            </h3>
+
+            <h3><i class="fas fa-cubes"></i> データ型の種類と例</h3>
+            <table class="data-types">
+                <caption>データ型の種類と例</caption>
+                <tr>
+                    <th>型</th>
+                    <th>型名（日本語表記）</th>
+                    <th>値の例</th>
+                </tr>
+                <tr>
+                    <td><code>int</code></td>
+                    <td>整数型</td>
+                    <td><code>-1</code>, <code>0</code>, <code>1</code>, <code>2</code>, <code>10</code>, <code>100</code></td>
+                </tr>
+                <tr>
+                    <td><code>float</code></td>
+                    <td>浮動小数点数型</td>
+                    <td><code>-0.12</code>, <code>0.0</code>, <code>0.5</code>, <code>2.34</code></td>
+                </tr>
+                <tr>
+                    <td><code>str</code></td>
+                    <td>文字列型</td>
+                    <td><code>'hello'</code>, <code>'こんにちは'</code></td>
+                </tr>
+                <tr>
+                    <td><code>bool</code></td>
+                    <td>真偽値型</td>
+                    <td><code>True</code>, <code>False</code></td>
+                </tr>
+            </table>
+
+            <h3 id="実習3 データ型">
+                <i class="fas fa-laptop-code"></i> 実習 3 データ型
+            </h3>
+            <div class="exercise-box">
+                <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
+                <ol>
+                    <li>テキストセルを挿入し、markdown editor に<code># データ型</code>　と入力</li>
+                    <li>コードセルを挿入し<code>int</code> 型の変数を作成し、自分の年齢を代入しなさい。<code>type()</code>のかっこの中に変数を入れて実行して、その変数の型を確認しなさい。
+                        <div class="code-sample">
+                            <pre><code>age = 20  # 自分の年齢を入力
+print(type(age))</code></pre>
+                        </div>
+                    </li>
+                    <li><code>float</code> 型の変数を作成し、自分の身長（小数点以下一桁まで入力。架空でもよし）を代入しなさい。<code>type()</code>のかっこの中に変数を入れて実行して、その変数の型を確認しなさい。</li>
+                    <li><code>str</code> 型の変数を作成し、自分の名前を代入しなさい。<code>type()</code>のかっこの中に変数を入れて実行して、その変数の型を確認しなさい。</li>
+                    <li><code>bool</code> 型の変数を作成し、（例：<code>flg=True</code>）<code>type()</code>のかっこの中に変数を入れて実行して、変数の型を確認しなさい。</li>
+                </ol>
+            </div>
+<h2>予習･復習</h2>
+            <div class="column" data-title="予習復習">
+                <div class="textbook-section">
+                    <ul>
+                        <li><i class="fas fa-pencil-alt"></i> ビデオ・実習・予習復習で学んだことをノートにまとめる（一例：google colab の 新規ノートブックを作成して、テキストセルにマークダウンでまとめる）</li>
+                    </ul>
+                </div>
+</div>
+
+                <div class="column" data-title="マークダウン記法の使い方">
+                    <h4>📝 よく使うマークダウン記法</h4>
+                    <table class="markdown-table">
+                        <tr>
+                            <th>書き方</th>
+                            <th>表示結果</th>
+                        </tr>
+                        <tr>
+                            <td><code># 見出し1</code></td>
+                            <td>大見出し</td>
+                        </tr>
+                        <tr>
+                            <td><code>## 見出し2</code></td>
+                            <td>中見出し</td>
+                        </tr>
+                        <tr>
+                            <td><code>### 見出し3</code></td>
+                            <td>小見出し</td>
+                        </tr>
+                        <tr>
+                            <td><code>- リスト<br>- リスト</code></td>
+                            <td>・箇条書き<br>・箇条書き</td>
+                        </tr>
+                        <tr>
+                            <td><code>1. 番号付き<br>2. リスト</code></td>
+                            <td>1. 番号付き<br>2. リスト</td>
+                        </tr>
+                        <tr>
+                            <td><code>`コード`</code></td>
+                            <td>コードの強調表示</td>
+                        </tr>
+                        <tr>
+                            <td><code>**太字**</code></td>
+                            <td>太字表示</td>
+                        </tr>
+                    </table>
+                    <p class="note"><i class="fas fa-lightbulb"></i> テキストセルをダブルクリックすると編集モードになります</p>
+
+            </div>
+            
+            <div class="page-navigation">
+                <button onclick="window.scrollTo(0, 0)" class="top-button"><i class="fas fa-arrow-up"></i></button>
+                <button onclick="location.href='#'"><i class="fas fa-arrow-right"></i> 次へ：比較演算子とif文</button>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>Python 入門講座 &copy; 2025</p>
+            <p><i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by ohkuboma</p>
+        </div>
+    </footer>
+
+    <script src="pages.js"></script>
+</body>
+</html>

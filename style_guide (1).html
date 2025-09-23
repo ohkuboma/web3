@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Website Style Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Base Styles from pages.css */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #3498db;
+            --primary-dark: #2980b9;
+            --secondary-color: #2c3e50;
+            --accent-color: #f39c12;
+            --text-color: #333;
+            --text-light: #666;
+            --bg-color: #f8f9fa;
+            --sidebar-bg: #fff;
+            --card-bg: #fff;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            padding: 2rem;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #3a7bd5 0%, #2c3e50 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 3rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            color: var(--primary-color);
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        /* Section Styling */
+        .section {
+            background: white;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Header Component */
+        .demo-header {
+            background: linear-gradient(135deg, #3a7bd5 0%, #2c3e50 100%);
+            color: white;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+        }
+
+        .demo-header h1 {
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+            color: white;
+            background: none;
+            -webkit-text-fill-color: white;
+        }
+
+        /* Lecture Buttons */
+        .lecture-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+        }
+
+        .lecture-buttons button {
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: var(--transition);
+            font-weight: bold;
+            backdrop-filter: blur(5px);
+        }
+
+        .lecture-buttons button:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .lecture-buttons button.active-nav {
+            background-color: rgba(255, 255, 255, 0.35);
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Special Button Variants */
+        .lecture-buttons button.applied-button {
+            background-color: rgba(173, 216, 230, 0.2) !important;
+            border: 1px solid rgba(173, 216, 230, 0.5) !important;
+        }
+
+        .lecture-buttons button.applied-button:hover {
+            background-color: rgba(173, 216, 230, 0.4) !important;
+        }
+
+        .lecture-buttons button.info-button {
+            background-color: rgba(173, 216, 230, 0.6) !important;
+            border: 1px solid rgba(173, 216, 230, 0.9) !important;
+        }
+
+        .lecture-buttons button.info-button:hover {
+            background-color: rgba(173, 216, 230, 0.8) !important;
+        }
+
+        /* Home Button */
+        .home-button {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            margin-bottom: 0.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .home-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Column Components */
+        .column {
+            background-color: #f5f9fc;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--primary-color);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .column::before {
+            content: attr(data-title);
+            position: absolute;
+            top: -10px;
+            left: 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .column:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .column[data-title="OKな例"] {
+            border-left-color: #3498db;
+        }
+
+        .column[data-title="OKな例"]::before {
+            background-color: #3498db;
+        }
+
+        .column[data-title="NGな例"] {
+            border-left-color: #a8d1f0;
+        }
+
+        .column[data-title="NGな例"]::before {
+            background-color: #a8d1f0;
+        }
+
+        /* Info Boxes */
+        .info-box, .warning-box, .success-box {
+            background-color: rgba(52, 152, 219, 0.1);
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        .warning-box {
+            background-color: rgba(231, 76, 60, 0.1);
+            border-left-color: #e74c3c;
+        }
+
+        .warning-box h4 {
+            color: #e74c3c;
+        }
+
+        .success-box {
+            background-color: rgba(46, 204, 113, 0.1);
+            border-left-color: #2ecc71;
+        }
+
+        .success-box p {
+            color: #27ae60;
+        }
+
+        /* Code Blocks */
+        .code-block {
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .code-example {
+            background-color: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 2px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            position: relative;
+        }
+
+        .code-example::before {
+            content: "例文";
+            position: absolute;
+            top: -0.7rem;
+            left: 1rem;
+            background-color: white;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.9rem;
+            color: #555;
+            border: 1px solid #e0e0e0;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        code {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+            background-color: #f5f5f5;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+        }
+
+        pre code {
+            display: block;
+            padding: 0;
+            background: none;
+            font-size: 1rem;
+        }
+
+        /* Exercise Box */
+        .exercise-box {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        table th {
+            background-color: rgba(52, 152, 219, 0.1);
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        table td {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        /* Progress Indicator */
+        .progress-indicator {
+            background-color: #eee;
+            height: 10px;
+            border-radius: 5px;
+            width: 200px;
+            overflow: hidden;
+            position: relative;
+            margin: 1rem 0;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 5px;
+            transition: width 0.5s ease;
+            width: 65%;
+        }
+
+        /* Top Button */
+        .top-button {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--secondary-color);
+            color: white;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            z-index: 99;
+            border: none;
+        }
+
+        .top-button:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        /* Video Links */
+        .video-icon {
+            display: inline-block;
+            margin-right: 0.5rem;
+            color: #3498db;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        a .video-icon {
+            transition: transform 0.3s ease;
+        }
+
+        a:hover .video-icon {
+            transform: scale(1.2);
+        }
+
+        /* Demo Grid */
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .demo-item {
+            padding: 1rem;
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+        }
+
+        /* Color Palette */
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .color-item {
+            text-align: center;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            color: white;
+            font-weight: bold;
+        }
+
+        .color-primary { background-color: var(--primary-color); }
+        .color-primary-dark { background-color: var(--primary-dark); }
+        .color-secondary { background-color: var(--secondary-color); }
+        .color-accent { background-color: var(--accent-color); }
+
+        /* Animation Examples */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in-demo {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        /* Responsive Demo */
+        @media (max-width: 768px) {
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Educational Website Style Guide</h1>
+
+    <div class="section">
+        <h2>Color Palette</h2>
+        <p>The website uses a professional blue-based color scheme with supporting colors:</p>
+        <div class="color-palette">
+            <div class="color-item color-primary">Primary<br>#3498db</div>
+            <div class="color-item color-primary-dark">Primary Dark<br>#2980b9</div>
+            <div class="color-item color-secondary">Secondary<br>#2c3e50</div>
+            <div class="color-item color-accent">Accent<br>#f39c12</div>
+        </div>
+
+        <pre><code>&lt;div class="color-palette"&gt;
+    &lt;div class="color-item color-primary"&gt;Primary&lt;br&gt;#3498db&lt;/div&gt;
+    &lt;div class="color-item color-primary-dark"&gt;Primary Dark&lt;br&gt;#2980b9&lt;/div&gt;
+    &lt;div class="color-item color-secondary"&gt;Secondary&lt;br&gt;#2c3e50&lt;/div&gt;
+    &lt;div class="color-item color-accent"&gt;Accent&lt;br&gt;#f39c12&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Header Component</h2>
+        <p>The header features a gradient background with navigation buttons:</p>
+        <div class="demo-header">
+            <button class="home-button">
+                <i class="fas fa-home"></i> ホーム
+            </button>
+            <h1>情報リテラシー講座</h1>
+            <div class="lecture-buttons">
+                <button class="active-nav">第1回 基礎</button>
+                <button>第2回 応用</button>
+                <button class="applied-button">応用演習</button>
+                <button class="info-button">情報倫理</button>
+                <button>資料集</button>
+            </div>
+        </div>
+
+        <pre><code>&lt;div class="demo-header"&gt;
+    &lt;button class="home-button"&gt;
+        &lt;i class="fas fa-home"&gt;&lt;/i&gt; ホーム
+    &lt;/button&gt;
+    &lt;h1&gt;情報リテラシー講座&lt;/h1&gt;
+    &lt;div class="lecture-buttons"&gt;
+        &lt;button class="active-nav"&gt;第1回 基礎&lt;/button&gt;
+        &lt;button&gt;第2回 応用&lt;/button&gt;
+        &lt;button class="applied-button"&gt;応用演習&lt;/button&gt;
+        &lt;button class="info-button"&gt;情報倫理&lt;/button&gt;
+        &lt;button&gt;資料集&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Content Columns</h2>
+        <p>Special content boxes with labels and hover effects:</p>
+        
+        <div class="column" data-title="OKな例">
+            <h4>適切な例</h4>
+            <p>この種類のコラムは良い例や推奨される方法を示すために使用されます。青いアクセントカラーで目立つようになっています。</p>
+        </div>
+
+        <pre><code>&lt;div class="column" data-title="OKな例"&gt;
+    &lt;h4&gt;適切な例&lt;/h4&gt;
+    &lt;p&gt;この種類のコラムは良い例や推奨される方法を示すために使用されます。青いアクセントカラーで目立つようになっています。&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        
+        <div class="column" data-title="NGな例">
+            <h4>不適切な例</h4>
+            <p>このコラムは避けるべき例や注意が必要な内容を表示します。薄い青色で区別されています。</p>
+        </div>
+
+        <pre><code>&lt;div class="column" data-title="NGな例"&gt;
+    &lt;h4&gt;不適切な例&lt;/h4&gt;
+    &lt;p&gt;このコラムは避けるべき例や注意が必要な内容を表示します。薄い青色で区別されています。&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Information Boxes</h2>
+        <p>Various types of information boxes for different purposes:</p>
+        
+        <div class="info-box">
+            <h4><i class="fas fa-info-circle"></i> 情報</h4>
+            <p>一般的な情報や補足説明に使用される情報ボックスです。</p>
+        </div>
+
+        <pre><code>&lt;div class="info-box"&gt;
+    &lt;h4&gt;&lt;i class="fas fa-info-circle"&gt;&lt;/i&gt; 情報&lt;/h4&gt;
+    &lt;p&gt;一般的な情報や補足説明に使用される情報ボックスです。&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        
+        <div class="warning-box">
+            <h4><i class="fas fa-exclamation-triangle"></i> 注意</h4>
+            <p>重要な注意事項や警告を表示する際に使用されます。</p>
+        </div>
+
+        <pre><code>&lt;div class="warning-box"&gt;
+    &lt;h4&gt;&lt;i class="fas fa-exclamation-triangle"&gt;&lt;/i&gt; 注意&lt;/h4&gt;
+    &lt;p&gt;重要な注意事項や警告を表示する際に使用されます。&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        
+        <div class="success-box">
+            <h4><i class="fas fa-check-circle"></i> 成功</h4>
+            <p>成功事例や達成すべき目標を示すために使用されます。</p>
+        </div>
+
+        <pre><code>&lt;div class="success-box"&gt;
+    &lt;h4&gt;&lt;i class="fas fa-check-circle"&gt;&lt;/i&gt; 成功&lt;/h4&gt;
+    &lt;p&gt;成功事例や達成すべき目標を示すために使用されます。&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Code Examples</h2>
+        <p>Code blocks with proper styling and syntax highlighting:</p>
+        
+        <div class="code-block">
+            <pre><code>// インラインコードの例
+function generateTableOfContents() {
+    const headings = document.querySelectorAll('.content h2, .content h3');
+    // 処理内容...
+}</code></pre>
+        </div>
+
+        <pre><code>&lt;div class="code-block"&gt;
+    &lt;pre&gt;&lt;code&gt;// インラインコードの例
+function generateTableOfContents() {
+    const headings = document.querySelectorAll('.content h2, .content h3');
+    // 処理内容...
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</code></pre>
+        
+        <div class="code-example">
+            <pre><code>html:5
+div.container>div.content</code></pre>
+        </div>
+
+        <pre><code>&lt;div class="code-example"&gt;
+    &lt;pre&gt;&lt;code&gt;html:5
+div.container&gt;div.content&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</code></pre>
+        
+        <p>インラインコード: <code>document.getElementById('tableOfContents')</code></p>
+
+        <pre><code>&lt;p&gt;インラインコード: &lt;code&gt;document.getElementById('tableOfContents')&lt;/code&gt;&lt;/p&gt;</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Exercise Box</h2>
+        <p>Exercise boxes for interactive content:</p>
+        
+        <div class="exercise-box">
+            <h4>演習問題</h4>
+            <ol>
+                <li>HTMLの基本構造を説明してください</li>
+                <li>CSSセレクタの種類を列挙してください</li>
+                <li>JavaScriptでDOMを操作する方法を示してください</li>
+            </ol>
+        </div>
+
+        <pre><code>&lt;div class="exercise-box"&gt;
+    &lt;h4&gt;演習問題&lt;/h4&gt;
+    &lt;ol&gt;
+        &lt;li&gt;HTMLの基本構造を説明してください&lt;/li&gt;
+        &lt;li&gt;CSSセレクタの種類を列挙してください&lt;/li&gt;
+        &lt;li&gt;JavaScriptでDOMを操作する方法を示してください&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Table Styling</h2>
+        <p>Responsive tables with alternating row colors:</p>
+        
+        <table>
+            <caption>講義スケジュール</caption>
+            <thead>
+                <tr>
+                    <th>回数</th>
+                    <th>テーマ</th>
+                    <th>内容</th>
+                    <th>課題</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>第1回</td>
+                    <td>HTML基礎</td>
+                    <td>基本的なタグとマークアップ</td>
+                    <td>簡単なウェブページ作成</td>
+                </tr>
+                <tr>
+                    <td>第2回</td>
+                    <td>CSS基礎</td>
+                    <td>スタイルシートの基本</td>
+                    <td>デザインの適用</td>
+                </tr>
+                <tr>
+                    <td>第3回</td>
+                    <td>JavaScript基礎</td>
+                    <td>動的な機能の実装</td>
+                    <td>インタラクティブ要素の追加</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <pre><code>&lt;table&gt;
+    &lt;caption&gt;講義スケジュール&lt;/caption&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;回数&lt;/th&gt;
+            &lt;th&gt;テーマ&lt;/th&gt;
+            &lt;th&gt;内容&lt;/th&gt;
+            &lt;th&gt;課題&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;第1回&lt;/td&gt;
+            &lt;td&gt;HTML基礎&lt;/td&gt;
+            &lt;td&gt;基本的なタグとマークアップ&lt;/td&gt;
+            &lt;td&gt;簡単なウェブページ作成&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;第2回&lt;/td&gt;
+            &lt;td&gt;CSS基礎&lt;/td&gt;
+            &lt;td&gt;スタイルシートの基本&lt;/td&gt;
+            &lt;td&gt;デザインの適用&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;第3回&lt;/td&gt;
+            &lt;td&gt;JavaScript基礎&lt;/td&gt;
+            &lt;td&gt;動的な機能の実装&lt;/td&gt;
+            &lt;td&gt;インタラクティブ要素の追加&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Progress Indicators</h2>
+        <p>Visual progress tracking for lessons:</p>
+        
+        <div class="progress-indicator">
+            <div class="progress-bar"></div>
+            <span>65%</span>
+        </div>
+
+        <pre><code>&lt;div class="progress-indicator"&gt;
+    &lt;div class="progress-bar"&gt;&lt;/div&gt;
+    &lt;span&gt;65%&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Interactive Elements</h2>
+        <p>Various interactive components:</p>
+        
+        <div class="demo-grid">
+            <div class="demo-item">
+                <h4><i class="fas fa-play-circle video-icon"></i>ビデオリンク</h4>
+                <p>ビデオコンテンツへのリンクには専用のアイコンが表示されます。</p>
+            </div>
+            
+            <div class="demo-item">
+                <h4>Animation Example</h4>
+                <div class="fade-in-demo">
+                    <p>コンテンツは滑らかなアニメーションで表示されます。</p>
+                </div>
+            </div>
+        </div>
+
+        <pre><code>&lt;div class="demo-grid"&gt;
+    &lt;div class="demo-item"&gt;
+        &lt;h4&gt;&lt;i class="fas fa-play-circle video-icon"&gt;&lt;/i&gt;ビデオリンク&lt;/h4&gt;
+        &lt;p&gt;ビデオコンテンツへのリンクには専用のアイコンが表示されます。&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="demo-item"&gt;
+        &lt;h4&gt;Animation Example&lt;/h4&gt;
+        &lt;div class="fade-in-demo"&gt;
+            &lt;p&gt;コンテンツは滑らかなアニメーションで表示されます。&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code>

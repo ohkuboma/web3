@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>四則演算 | Python 入門講座</title>
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <button onclick="location.href='index.html'" class="home-button"><i class="fas fa-home"></i> HOME</button>
+            <h1><i class="fas fa-calculator"></i> 四則演算</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- 左サイドバー（目次） -->
+        <nav class="sidebar">
+            <h2><i class="fas fa-list-ul"></i> 目次</h2>
+            <ul class="toc" id="tableOfContents">
+                <!-- JavaScriptで動的に生成される目次 -->
+            </ul>
+        </nav>
+        
+        <!-- 右側のメインコンテンツ -->
+        <main class="content">
+            <div class="page-header">
+                <h2 id="四則演算"><i class="fas fa-calculator"></i> 四則演算</h2>
+                <div class="progress-indicator">
+                    <div class="progress-bar" style="width: 30%"></div>
+                    <span>講義進度: 第3回</span>
+                </div>
+            </div>
+            
+           
+            
+            <h3>
+                <a href="https://youtu.be/yeZ3STy3k44?si=AK5aptT8HX0NxMri&t=227" class="video-link">
+                    <span class="video-icon"><i class="fas fa-play-circle"></i></span>解説動画:（3:47～12:00）<br>
+                    四則演算（今西）
+                </a>
+            </h3>
+            <p style = "font-size: 10px;">ビデオの授業内での利用を快く許可してくださった今西航平先生に感謝申し上げます。<br> 出典：【完全版】この動画1本でPythonの基礎を習得！忙しい人のための速習コース（Python入門）@imanyu_programming</p>
+
+            <table class="operator-table">
+                <caption>計算用の演算子一覧</caption>
+                <tr>
+                    <th>演算子</th>
+                    <th>読み方</th>
+                    <th>例</th>
+                </tr>
+                <tr>
+                    <td><code>+</code></td>
+                    <td>左辺に右辺を足した結果を出せ</td>
+                    <td><code>5 + 8</code></td>
+                </tr>
+                <tr>
+                    <td><code>-</code></td>
+                    <td>右辺から左辺を引いた結果を出せ</td>
+                    <td><code>12 - 7</code></td>
+                </tr>
+                <tr>
+                    <td><code>*</code></td>
+                    <td>左辺に右辺を掛けた結果を出せ</td>
+                    <td><code>4 * 3</code></td>
+                </tr>
+                <tr>
+                    <td><code>/</code></td>
+                    <td>左辺を右辺で割った結果を出せ</td>
+                    <td><code>16 / 4</code></td>
+                </tr>
+                <tr>
+                    <td><code>//</code></td>
+                    <td>左辺を右辺で割った結果を整数で出せ</td>
+                    <td><code>20 // 3</code></td>
+                </tr>
+                <tr>
+                    <td><code>%</code></td>
+                    <td>左辺を右辺で割った余りを出せ</td>
+                    <td><code>19 % 5</code></td>
+                </tr>
+                <tr>
+                    <td><code>**</code></td>
+                    <td>左辺の右辺乗（べき乗）の結果を出せ</td>
+                    <td><code>3 ** 4</code></td>
+                </tr>
+            </table>
+
+            <h3 id="実習1 四則演算">
+                <i class="fas fa-laptop-code"></i> 実習 1 四則演算
+            </h3>
+            <div class="exercise-box">
+                <p>chapter1 のノートブックにつづけて以下の実習をしなさい。</p>
+                <ol>
+                    <li>テキストセルのマークダウンエディタ（左側のウインドウ）に、<code># 四則演算</code>　と入力　← markdown 記法</li>
+                    <li>コードセルを作成し、以下の計算をさせなさい。
+                        <ol class="code-examples">
+                            <li><code>10 + 2</code></li>
+                            <li><code>10 - 2</code></li>
+                            <li><code>10 - 20</code></li>
+                            <li><code>-20 + 10</code></li>
+                            <li><code>10 * 10</code> <span class="comment">← 10 × 10</span></li>
+                            <li><code>1.08 * 100</code> <span class="comment">← 1.08 × 100</span></li>
+                            <li><code>1800 / 100</code> <span class="comment">← 1800 ÷ 100</span></li>
+                            <li><code>(100 + 300) / 4</code> <span class="comment">← (100 +300) ÷ 4</span></li>
+                            <li><code>7 * (3 + 4)</code> <span class="comment">← 7 × (3 + 4)</span></li>
+                            <li><code>10 % 5</code></li>
+                            <li><code>10 % 8</code></li>
+                            <li><code>2 ** 3</code> <span class="comment">← 2 の 3乗</span></li>
+                            <li><code>2 ** 4</code> <span class="comment">← 2 の 4乗</span></li>
+                        </ol>
+                    </li>
+                </ol>
+            </div>
+            <div class="column" data-title="教科書参照ページ">
+                <div class="textbook-section">
+                    <h4><i class="fas fa-book"></i> 参照ページ</h4>
+                    <ul>
+                        <li>P.023-P.033 演算子を使って計算する。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="page-navigation">
+                <button onclick="window.scrollTo(0, 0)" class="top-button"><i class="fas fa-arrow-up"></i></button>
+                <button onclick="location.href='jisshukankyo.html'"><i class="fas fa-arrow-left"></i> 前へ：実習環境</button>
+                <button onclick="location.href='variables.html'"><i class="fas fa-arrow-right"></i> 次へ：変数</button>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>Python 入門講座 &copy; 2025</p>
+            <p><i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by ohkuboma</p>
+        </div>
+    </footer>
+
+    <script src="pages.js"></script>
+</body>
+</html>

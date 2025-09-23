@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タプル・辞書・セット | Python 入門講座（ohkuboma）</title>
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+   <!-- CSSを追加 -->
+<style>
+    .quiz-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .quiz-item {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .quiz-options {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 15px 0;
+    }
+    
+    .quiz-options label {
+        display: block;
+        padding: 10px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    .quiz-options label:hover {
+        background-color: #f0f0f0;
+    }
+    
+    .quiz-result {
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+    
+    .quiz-result.correct {
+        background-color: #d4edda;
+        color: #155724;
+    }
+    
+    .quiz-result.wrong {
+        background-color: #f8d7da;
+        color: #721c24;
+    }
+    
+    .quiz-explanation {
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #e9ecef;
+        border-radius: 4px;
+    }
+    
+    button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    button:hover {
+        background-color: #0056b3;
+    }
+    </style>
+
+
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <button onclick="location.href='index.html'" class="home-button"><i class="fas fa-home"></i> HOME</button>
+            <h1><i class="fas fa-list"></i> タプル・辞書・セット</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- 左サイドバー（目次） -->
+        <nav class="sidebar">
+            <h2><i class="fas fa-list-ul"></i> 目次</h2>
+            <ul class="toc" id="tableOfContents">
+                <!-- JavaScriptで動的に生成される目次 -->
+            </ul>
+        </nav>
+        
+        <!-- 右側のメインコンテンツ -->
+        <main class="content">
+            <div class="page-header">
+                <h2 id="リスト"><i class="fas fa-list"></i> タプル</h2>
+                <div class="progress-indicator">
+                    <div class="progress-bar" style="width: 60%"></div>
+                    <span>講義進度: 第6回</span>
+                </div>
+            </div>
+            <main>
+   <!-- 練習問題セクションを修正 -->
+   <h2 id="練習問題">練習問題</h2>
+   <div class="quiz-container">
+              <!-- 問題5 -->
+              <div class="quiz-item" id="quiz5">
+                <h3>問題 5</h3>
+                <p>次のセットの演算結果として正しいものはどれですか？</p>
+                <div class="code-example">
+                    <pre><code>A = {1, 2, 3, 4}
+B = {3, 4, 5, 6}
+
+A | B の結果は？</code></pre>
+                </div>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q5" value="A"> A) {1, 2, 3, 4, 5, 6}</label>
+                    <label><input type="radio" name="q5" value="B"> B) {3, 4}</label>
+                    <label><input type="radio" name="q5" value="C"> C) {1, 2, 5, 6}</label>
+                    <label><input type="radio" name="q5" value="D"> D) {1, 2, 3, 4, 3, 4, 5, 6}</label>
+                </div>
+                <button onclick="checkAnswer(5, 'A')">回答する</button>
+                <div class="quiz-result" id="result5"></div>
+                <div class="quiz-explanation" id="explanation5" style="display: none;">
+                    和集合（|）は両方のセットのすべての要素を含み、重複は自動的に除去されます。
+                </div>
+        </div>
+        
+        </main>
+   </div>
+  
+            <div class="column" data-title="教科書参照ページ">
+                <div class="textbook-section">
+                    <h4><i class="fas fa-book"></i> 参照ページ・サイト</h4>
+                    <ul>
+                        <li>教科書：
+                            <ul>
+                                <li>P.141-P,144「辞書を使って複数のデータをまとめる」</li>
+                            </ul>
+                        </li>
+                        <li>参考サイト：python早見帳
+                            <ul>
+                                <li><a href="https://chokkan.github.io/python/07tuple.html" target="_blank">　7．タプル</a></li>
+                                <li><a href="https://chokkan.github.io/python/09dict.html" target="_blank">　9．辞書</a></li>
+                                <li><a href="https://chokkan.github.io/python/10set.html" target="_blank">10.セット</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+			</div>
+            </div>
+	
+      
+            <div class="page-navigation">
+                <button onclick="window.scrollTo(0, 0)" class="top-button"><i class="fas fa-arrow-up"></i></button>
+                <button onclick="location.href='datatypes.html'"><i class="fas fa-arrow-left"></i> 前へ：データ型</button>
+                <button onclick="location.href='list.html'"><i class="fas fa-arrow-right"></i> 次へ：タプル・辞書・セット</button>
+            </div>
+
+    </main>
+</div>
+
+    <footer>
+        <div class="footer-content">
+            <p>Python 入門講座 &copy; 2025</p>
+            <p><i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by ohkuboma</p>
+        </div>
+    </footer>
+    <!-- JavaScriptを追加 -->
+<script>
+    function checkAnswer(questionNumber, correctAnswer) {
+        const selectedAnswer = document.querySelector(`input[name="q${questionNumber}"]:checked`);
+        const resultDiv = document.getElementById(`result${questionNumber}`);
+        const explanationDiv = document.getElementById(`explanation${questionNumber}`);
+        
+        if (!selectedAnswer) {
+            resultDiv.textContent = "回答を選択してください。";
+            resultDiv.className = "quiz-result";
+            explanationDiv.style.display = "none";
+            return;
+        }
+    
+        if (selectedAnswer.value === correctAnswer) {
+            resultDiv.textContent = "🎉 Congrats! 正解です！";
+            resultDiv.className = "quiz-result correct";
+            explanationDiv.style.display = "none";
+        } else {
+            resultDiv.textContent = "❌ Wrong! もう一度チャレンジしてみましょう。";
+            resultDiv.className = "quiz-result wrong";
+            explanationDiv.style.display = "block";
+        }
+    }
+    </script>
+    <script src="pages.js"></script>
+</body>
+</html>
