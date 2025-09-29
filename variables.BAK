@@ -6,6 +6,7 @@
     <title>変数 | Python 入門講座</title>
     <link rel="stylesheet" href="pages.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
     <header>
@@ -95,7 +96,7 @@
             <div class="exercise-box">
                 <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
                 <ol>
-                    <li>テキストセルを挿入し、markdown editor に<code># 変数</code>　と入力</li>
+                    <li>テキストセルを挿入し、markdown editor に<code>### 変数</code>　と入力</li>
                     <li>コードセルを挿入し、変数 <code>name</code> を作成し、自分の名前を代入し、結果を出力しなさい。
                         <div class="code-sample">
                             <pre><code>name = "山田太郎" 

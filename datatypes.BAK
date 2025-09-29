@@ -6,6 +6,7 @@
     <title>データ型 | Python 入門講座</title>
     <link rel="stylesheet" href="pages.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
     <header>
@@ -79,7 +80,7 @@
             <div class="exercise-box">
                 <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
                 <ol>
-                    <li>テキストセルを挿入し、markdown editor に<code># データ型</code>　と入力</li>
+                    <li>テキストセルを挿入し、markdown editor に<code>### データ型</code>　と入力</li>
                     <li>コードセルを挿入し<code>int</code> 型の変数を作成し、自分の年齢を代入しなさい。<code>type()</code>のかっこの中に変数を入れて実行して、その変数の型を確認しなさい。
                         <div class="code-sample">
                             <pre><code>age = 20  # 自分の年齢を入力
