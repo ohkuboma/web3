@@ -84,6 +84,22 @@ names[2:4] = ['高橋','荒井']//要素2番目から4番目未満まで
 names[3:] = ['荒井','大谷']//要素3番目から最後まで
 names[:3] = ['大久保','北沢','高橋']//最初から3番目未満まで</code></pre>
             </div>
+              <h3 id="リストの長さの取得">リストの長さの取得</h3>
+              <div class="column" data-title="リストの定型">
+                <div class="code-block">
+                <pre><code>変数名 = len(リスト名)</code></pre>       
+            </div>
+        </div>
+        <div class="code-example">
+            <pre><code>names = ['大久保','北沢','高橋','荒井','大谷']
+len(names) = 5</code></pre>
+        </div>
+        <div class="code-example">
+            <h3>配列の長さを利用して、リストの要素を表示する</h3>
+            <pre><code>names = ['大久保','北沢','高橋','荒井','大谷']
+for i in range(len(names)):
+   print(names[i])</code></pre>
+        </div>     
 
             <h3 id="繰り返し取り出す">繰り返し取り出す</h3>
             <div class="code-example">
@@ -154,29 +170,14 @@ print('私の名前は' + name + 'です')　//一般的な文字列と変数の
                 結果:['大谷', '荒井', '高橋', '北沢', '大久保']</td>
                 </tr>
               </table>
-              <h3 id="リストの長さの取得">リストの長さの取得</h3>
-              <div class="column" data-title="リストの定型">
-                <div class="code-block">
-                <pre><code>変数名 = len(リスト名)</code></pre>       
-            </div>
-        </div>
-        <div class="code-example">
-            <pre><code>names = ['大久保','北沢','高橋','荒井','大谷']
-len(names) = 5</code></pre>
-        </div>
-        <div class="code-example">
-            <h3>配列の長さを利用して、リストの要素を表示する</h3>
-            <pre><code>names = ['大久保','北沢','高橋','荒井','大谷']
-for i in range(len(names)):
-   print(names[i])</code></pre>
-        </div>     
-        <h3 id="実習2 リスト">
-            <div class="fas fa-laptop-code"></div> 実習 2 応用
+
+                      <h3 id="実習5 リスト">
+            <div class="fas fa-laptop-code"></div> 実習 5 リスト
         </h3>
         <div class="exercise-box">
 
 
-                <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
+                <p>Execize-Python.ipynb のノートブックにつづけて以下の実習をしなさい</p>
                 <ol>
                     <li>テキストセルを挿入し、markdown editor に<code>### リスト</code>　と入力</li>
                     <li>コードセルを挿入し、リスト names を作成し、自分にとって懐かしい人5名の苗字を要素とするリストになるように、names の要素を設定しましょう。 </li>
@@ -192,6 +193,20 @@ for i in range(len(names)):
                 </ol>
             </div>
 
+<h3 id="実習6  ループ処理">
+            <div class="fas fa-laptop-code"></div> 実習 6 ループ処理
+        </h3>
+        <div class="exercise-box">
+
+
+                <p>Execize-Python.ipynb のノートブックにつづけて以下の実習をしなさい</p>
+                <ol>
+                    <li>テキストセルを挿入し、markdown editor に<code>### 繰り返し要素を取り出す</code>　と入力</li>
+                    <li>コードセルを挿入し、リスト names を作成し、自分にとって懐かしい人5名の苗字を要素とするリストになるように、names の要素を設定しましょう。 </li>
+                    <li> 例を参照し、range メソッドを利用して、リストnames の要素をひとつづつ取り出して表示しましょう。</li>
+                  
+                </ol>
+            </div>
 
             <h2 id="参考文献">参考文献</h2>
             <div class="column" data-title="教科書参照ページ">
