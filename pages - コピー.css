@@ -1,0 +1,783 @@
+/* Modern CSS Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #3498db;
+    --primary-dark: #2980b9;
+    --secondary-color: #2c3e50;
+    --accent-color: #f39c12;
+    --text-color: #333;
+    --text-light: #666;
+    --bg-color: #f8f9fa;
+    --sidebar-bg: #fff;
+    --card-bg: #fff;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #eee;
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+ul, ol {
+    margin: 0 0 1.5rem 1.5rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* Header Styling */
+header {
+    background: linear-gradient(135deg, #3a7bd5 0%, #2c3e50 100%);
+    color: white;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    color: white;
+}
+
+.lecture-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+}
+
+.lecture-buttons button {
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: var(--transition);
+    font-weight: bold;
+    backdrop-filter: blur(5px);
+}
+
+.lecture-buttons button:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.lecture-buttons button.active-nav {
+    background-color: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Home button styling */
+.home-button {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    margin-bottom: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.home-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.home-button i {
+    font-size: 0.8rem;
+}
+
+/* Layout Container */
+.container {
+    display: flex;
+    max-width: 1400px;
+    margin: 2rem auto;
+    min-height: calc(100vh - 7rem);
+    padding: 0 2rem;
+    gap: 2rem;
+}
+
+/* Sidebar (TOC) */
+.sidebar {
+    flex: 0 0 280px;
+    position: sticky;
+    top: calc(5rem + 20px);
+    height: fit-content;
+    padding: 1.5rem;
+    background-color: var(--sidebar-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    border-left: 4px solid var(--primary-color);
+}
+
+.sidebar h2 {
+    font-size: 1.25rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--primary-dark);
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.toc {
+    list-style: none;
+    margin-left: 0;
+}
+
+.toc a {
+    display: block;
+    padding: 0.5rem 0;
+    color: var(--text-light);
+    border-left: 2px solid transparent;
+    padding-left: 0.5rem;
+    margin-left: -0.5rem;
+    transition: var(--transition);
+}
+
+.toc a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+    border-left-color: var(--primary-color);
+    background-color: rgba(52, 152, 219, 0.05);
+}
+
+.toc a.active {
+    color: var(--primary-color);
+    font-weight: 600;
+    border-left-color: var(--primary-color);
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+.toc-h3-list {
+    list-style: none;
+    margin: 0 0 0 1rem;
+}
+
+.toc-h3 a {
+    font-size: 0.9rem;
+    padding: 0.3rem 0 0.3rem 0.5rem;
+}
+
+/* Main Content */
+.content {
+    flex: 1;
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: auto;
+}
+
+/* Page Header with Progress */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.page-header h2 {
+    margin: 0;
+    flex: 1;
+    min-width: 250px;
+}
+
+.progress-indicator {
+    background-color: #eee;
+    height: 10px;
+    border-radius: 5px;
+    width: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 5px;
+    transition: width 0.5s ease;
+}
+
+.progress-indicator span {
+    position: absolute;
+    top: 12px;
+    right: 0;
+    font-size: 0.75rem;
+    color: var(--text-light);
+}
+
+/* Video Links */
+.video-icon {
+    display: inline-block;
+    margin-right: 0.5rem;
+    color: #3498db;
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+a .video-icon {
+    transition: transform 0.3s ease;
+}
+
+a:hover .video-icon {
+    transform: scale(1.2);
+}
+
+/* Columns and Cards */
+.column {
+    background-color: #f5f9fc;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid var(--primary-color);
+    position: relative;
+    transition: var(--transition);
+}
+
+.column::before {
+    content: attr(data-title);
+    position: absolute;
+    top: -10px;
+    left: 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.25rem 1rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.column-hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.column[data-title="OKな例"] {
+    border-left-color: #3498db;
+}
+
+.column[data-title="OKな例"]::before {
+    background-color: #3498db;
+}
+
+.column[data-title="NGな例"] {
+    border-left-color: #a8d1f0;
+}
+
+.column[data-title="NGな例"]::before {
+    background-color: #a8d1f0;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+caption {
+    padding: 0.75rem;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+table th {
+    background-color: rgba(52, 152, 219, 0.1);
+    padding: 0.75rem;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table td {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+}
+
+table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* Special Tables - Markdown Table */
+.markdown-table {
+    font-family: Consolas, Monaco, 'Andale Mono', monospace;
+}
+
+.markdown-table code {
+    background-color: #f0f0f0;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+}
+
+/* Styling for Success and Warning boxes */
+.info-box, .warning-box, .success-box {
+    background-color: rgba(52, 152, 219, 0.1);
+    border-left: 4px solid var(--primary-color);
+    padding: 1rem;
+    margin: 1.5rem 0;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.warning-box {
+    background-color: rgba(231, 76, 60, 0.1);
+    border-left-color: #e74c3c;
+}
+
+.warning-box h3 {
+    color: #e74c3c;
+}
+
+.success-box {
+    background-color: rgba(46, 204, 113, 0.1);
+    border-left-color: #2ecc71;
+}
+
+.success-box p {
+    color: #27ae60;
+}
+
+/* Navigation */
+.page-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.page-navigation button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.page-navigation button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.top-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--secondary-color);
+    color: white;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    z-index: 99;
+}
+
+.top-button.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.top-button:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+/* Book List and Resources */
+.book-list, .resource-list {
+    list-style: none;
+    margin-left: 0;SS
+}
+
+.book-list li, .resource-list li {
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.book-cover {
+    width: 60px;
+    height: 80px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    position: relative;
+}
+
+.book-cover::after {
+    content: "📚";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+}
+
+.book-info {
+    flex: 1;
+}
+
+.resource-list i {
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+    font-size: 1.25rem;
+    width: 20px;
+    text-align: center;
+}
+
+/* Code and Syntax */
+code {
+    background-color: #f5f5f5;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: Consolas, Monaco, 'Andale Mono', monospace;
+    font-size: 0.9em;
+}
+
+.note {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--text-light);
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+footer p {
+    margin: 0.5rem 0;
+}
+
+footer i {
+    color: #e74c3c;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        padding: 0 1rem;
+    }
+    
+    .sidebar {
+        flex: none;
+        width: 100%;
+        position: relative;
+        top: 0;
+        margin-bottom: 1.5rem;
+    }
+    
+    .lecture-buttons {
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+        max-width: 100%;
+        flex-wrap: nowrap;
+    }
+    
+    .lecture-buttons button {
+        white-space: nowrap;
+    }
+    
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .progress-indicator {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+    }
+    
+    .content {
+        padding: 1.5rem;
+    }
+    
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .lecture-buttons button {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+    
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+/* Animated elements */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.content > * {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.content > *:nth-child(1) { animation-delay: 0.1s; }
+.content > *:nth-child(2) { animation-delay: 0.15s; }
+.content > *:nth-child(3) { animation-delay: 0.2s; }
+.content > *:nth-child(4) { animation-delay: 0.25s; }
+.content > *:nth-child(5) { animation-delay: 0.3s; }
+
+/* Page transition animation */
+.page-loaded .content {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Print Styles */
+@media print {
+    header {
+        position: static;
+    }
+    
+    .sidebar, .page-navigation, .top-button {
+        display: none;
+    }
+    
+    .container {
+        display: block;
+    }
+    
+    .content {
+        box-shadow: none;
+    }
+    
+    a {
+        color: black;
+        text-decoration: none;
+    }
+}
+
+.exercise-box {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.exercise-box ol {
+    margin-bottom: 0;
+}
+
+.exercise-box ol li:last-child {
+    margin-bottom: 0;
+}
+
+/* コードブロックの基本スタイル */
+.code-block {
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin: 0;
+}
+
+.code-block pre {
+    margin: 0;
+}
+
+.code-block code {
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    white-space: pre;
+    display: block;
+}
+
+/* 例文ブロックのスタイル */
+.code-example {
+    background-color: #fafafa;
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    position: relative;
+}
+
+.code-example::before {
+    content: "例文";
+    position: absolute;
+    top: -0.7rem;
+    left: 1rem;
+    background-color: white;
+    padding: 0.2rem 0.8rem;
+    font-size: 0.9rem;
+    color: #555;
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.code-example pre {
+    margin: 0;
+}
+
+.code-example code {
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    white-space: pre;
+    display: block;
+    padding-left: 1rem;
+}
+
+/* columnクラス内の調整 */
+.column .code-block {
+    margin-top: -1.2rem;
+}
+
+.column {
+    padding-bottom: 0.5rem;
+}
+
+/* Textbook Section */
+.textbook-section {
+    padding: 0.5rem 0;
+}
+
+.textbook-section ul {
+    margin: 0;
+    list-style-type: none;
+}
+
+.textbook-section li {
+    margin-bottom: 0.25rem;
+}
+
+.textbook-section li:last-child {
+    margin-bottom: 0;
+}
+  
+/* === 応用演習ボタン：淡い水色系 === */
+.lecture-buttons button.applied-button {
+    background-color: rgba(173, 216, 230, 0.2) !important;   /* 淡い水色 */
+    border: 1px solid rgba(173, 216, 230, 0.5) !important;
+    color: #fff !important;  /* ← これで白文字！ */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    font-weight: bold;
+}
+
+.lecture-buttons button.applied-button:hover {
+    background-color: rgba(173, 216, 230, 0.4) !important;
+    border-color: rgba(173, 216, 230, 0.7) !important;
+}
+
+
+
+.lecture-buttons button.info-button {
+    background-color: rgba(173, 216, 230, 0.6) !important;   /* 水色 (lightblue) */
+    border: 1px solid rgba(173, 216, 230, 0.9) !important;
+    color: #fff !important;  /* 白文字でくっきり */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    font-weight: bold;
+}
+
+.lecture-buttons button.info-button:hover {
+    background-color: rgba(173, 216, 230, 0.8) !important;
+    border-color: rgba(173, 216, 230, 1) !important;
+}

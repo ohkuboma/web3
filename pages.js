@@ -1,3 +1,81 @@
+// === パスワード保護ここから ===
+// 2025-10 版：ブラウザのみで暗号化・復号
+// コマリさま用 ID:web3 / PW:1128606
+
+// 暗号化済みデータ（復号にはマスターパスワードが必要）
+const ENCRYPTED_DATA = {
+  cipher: "7r7A2NPDekj3Zf19pCSMtvD0DLXhyM05UjVr8yR7Xpg=",
+  iv: "pRyO3ufhAZbQw+05",
+  salt: "zj6WIMC4w6Ybng92QO8XzA=="
+};
+
+// --- 以下は変更不要 ---
+const MASTER_PROMPT = "マスターパスワードを入力してください:";
+
+function b64ToBuf(b64) {
+  return Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+}
+function bufToStr(buf) {
+  return new TextDecoder().decode(buf);
+}
+async function deriveKey(pass, saltBuf) {
+  const enc = new TextEncoder();
+  const keyMaterial = await crypto.subtle.importKey(
+    "raw",
+    enc.encode(pass),
+    { name: "PBKDF2" },
+    false,
+    ["deriveKey"]
+  );
+  return crypto.subtle.deriveKey(
+    { name: "PBKDF2", salt: saltBuf, iterations: 200000, hash: "SHA-256" },
+    keyMaterial,
+    { name: "AES-GCM", length: 256 },
+    false,
+    ["decrypt"]
+  );
+}
+async function tryDecrypt(encryptedObj, pass) {
+  try {
+    const salt = b64ToBuf(encryptedObj.salt);
+    const iv = b64ToBuf(encryptedObj.iv);
+    const cipherBuf = b64ToBuf(encryptedObj.cipher);
+    const key = await deriveKey(pass, salt);
+    const plainBuf = await crypto.subtle.decrypt({ name: "AES-GCM", iv }, key, cipherBuf);
+    return bufToStr(plainBuf);
+  } catch (e) {
+    return null;
+  }
+}
+
+(async function() {
+  const ok = sessionStorage.getItem("authorized");
+  if (ok === "true") return;
+
+  const pass = prompt(MASTER_PROMPT);
+  if (!pass) {
+    alert("キャンセルされました。");
+    location.href = "about:blank";
+    return;
+  }
+
+  const decrypted = await tryDecrypt(ENCRYPTED_DATA, pass);
+  if (!decrypted) {
+    alert("パスワードが違います。");
+    location.href = "https://vercel.com/";
+    return;
+  }
+
+  sessionStorage.setItem("authorized", "true");
+  alert("ようこそ、コマリさま。");
+
+  // ここに復号結果を使いたい処理を書く（必要なら）
+  // console.log("復号結果:", decrypted);
+})();
+// === パスワード保護ここまで ===
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     // 目次の生成
     generateTableOfContents();
