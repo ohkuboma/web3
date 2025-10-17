@@ -65,7 +65,7 @@ async function tryDecrypt(encryptedObj, pass) {
   }
 
   sessionStorage.setItem("authorized", "true");
-  alert("ようこそ、コマリさま。");
+  alert("ようこそ!");
 
   // ここに復号結果を使いたい処理を書く（必要なら）
   // console.log("復号結果:", decrypted);
