@@ -4,10 +4,11 @@
 
 // 暗号化済みデータ（復号にはマスターパスワードが必要）
 const ENCRYPTED_DATA = {
-  cipher: "7r7A2NPDekj3Zf19pCSMtvD0DLXhyM05UjVr8yR7Xpg=",
+  cipher: "7r7A2NPDekj3Zf19pCSMtvDODLXhyM05UjVr8yR7Xpg=",
   iv: "pRyO3ufhAZbQw+05",
-  salt: "zj6WIMC4w6Ybng92QO8XzA=="
+  salt: "zj6WIMC4w6Ybng92Q08XzA=="
 };
+
 
 // --- 以下は変更不要 ---
 const MASTER_PROMPT = "マスターパスワードを入力してください:";
