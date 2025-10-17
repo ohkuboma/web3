@@ -94,40 +94,9 @@ names[:3] = ['大久保','北沢','高橋']//最初から3番目未満まで</co
             <pre><code>names = ['大久保','北沢','高橋','荒井','大谷']
 len(names) = 5</code></pre>
         </div>
-        <div class="code-example">
-            <h3>配列の長さを利用して、リストの要素を表示する</h3>
-            <pre><code>names = ['大久保','北沢','高橋','荒井','大谷']
-for i in range(len(names)):
-   print(names[i])</code></pre>
-        </div>     
-
-            <h3 id="繰り返し取り出す">繰り返し取り出す</h3>
-            <div class="code-example">
-                <pre><code>for name in names:
-    print(name)</code></pre>
-
-<pre>
-
-     '''for 変数 in リスト名:
-        繰り返し実行する処理'''
-    
-    </pre>
-<pre>
-// 実行結果：
-大久保
-北沢
-高橋
-荒井
-大谷
-</pre>
 
 
-                </div>
-            <h3>参考：要素と文を組み合わせる</h3>
-            <div class="code-example">
-                <pre><code>print(f'私の名前は{name}です') 　// f-string を利用した表示
-print('私の名前は' + name + 'です')　//一般的な文字列と変数の結合 </code></pre>
-            </div>
+
             <h3>メソッドを使って要素の追加, 挿入, 削除, 反転する</h3>
             <table border="1">
                 <tr>
@@ -193,20 +162,6 @@ print('私の名前は' + name + 'です')　//一般的な文字列と変数の
                 </ol>
             </div>
 
-<h3 id="実習6  ループ処理">
-            <div class="fas fa-laptop-code"></div> 実習 6 ループ処理
-        </h3>
-        <div class="exercise-box">
-
-
-                <p>Execize-Python.ipynb のノートブックにつづけて以下の実習をしなさい</p>
-                <ol>
-                    <li>テキストセルを挿入し、markdown editor に<code>### 繰り返し要素を取り出す</code>　と入力</li>
-                    <li>コードセルを挿入し、リスト names を作成し、自分にとって懐かしい人5名の苗字を要素とするリストになるように、names の要素を設定しましょう。 </li>
-                    <li> 例を参照し、range メソッドを利用して、リストnames の要素をひとつづつ取り出して表示しましょう。</li>
-                  
-                </ol>
-            </div>
 
             <h2 id="参考文献">参考文献</h2>
             <div class="column" data-title="教科書参照ページ">

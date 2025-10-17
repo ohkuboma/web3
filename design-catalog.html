@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JS × CSS デザイン見本帳 — クラス名 / ID名 一覧つき</title>
+
+  <!-- ユーザー提供のスタイル -->
+  <link rel="stylesheet" href="page.css">
+  <link rel="stylesheet" href="pages.css">
+
+  <!-- 追加の最小装飾（バッジ等、既存CSSに干渉しないよう限定的に） -->
+  <style>
+    .badge { display:inline-block; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+             font-size: .8rem; padding: .15rem .45rem; margin: 0 .25rem; border: 1px dashed #bbb; border-radius: 6px; background:#fff; color:#555; }
+    .small-note { font-size: .85rem; color:#666; }
+    .demo-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+    .demo-card { border:1px solid #e5e7eb; border-radius:12px; padding:1rem; background:#fff; box-shadow:0 1px 2px rgba(0,0,0,.04); }
+    .demo-card h4 { margin:0 0 .5rem 0; font-size:1rem; color:#2c3e50; }
+    .chip { display:inline-block; padding:.15rem .5rem; border-radius:999px; background:#f3f4f6; font-size:.8rem; margin-right:.3rem;}
+    .swatch { padding:.75rem; border-radius:8px; border:1px solid #e5e7eb; background:#f9fafb; }
+    .idmark { color:#a855f7; }
+    .classmark { color:#2563eb; }
+    .hr { height:1px; background:#eee; border:0; margin:1rem 0; }
+    .mono { font-family: ui-monospace, Menlo, Consolas, "Liberation Mono", monospace; font-size:.9rem; }
+    .kbd { font-family: ui-monospace, Menlo, Consolas, "Liberation Mono", monospace; border:1px solid #ddd; border-bottom-width:2px; border-radius:6px; padding:.1rem .35rem; background:#fafafa; }
+  </style>
+
+  <!-- ユーザー提供のスクリプト -->
+  <script src="page.js" defer></script>
+  <script src="pages.js" defer></script>
+</head>
+<body>
+
+<header>
+  <button class="home-button" onclick="location.href='index.html'">
+    <i>⌂</i> Home
+  </button>
+  <h1>JS × CSS デザイン見本帳</h1>
+  <p class="small-note">本ページは <span class="mono">page.css</span> / <span class="mono">pages.css</span> と
+    <span class="mono">page.js</span> / <span class="mono">pages.js</span> を読み込み、クラス/ID名の見本を同時に示します。</p>
+
+  <div class="lecture-buttons">
+    <button class="applied-button">応用ボタン（.applied-button）</button>
+    <button class="info-button">情報倫理ボタン（.info-button）</button>
+  </div>
+</header>
+
+<div class="container">
+  <!-- Sidebar / TOC -->
+  <aside class="sidebar">
+    <h2>目次</h2>
+    <ul id="tableOfContents" class="toc"></ul>
+    <p class="small-note">見出し（<code>h2/h3</code>）から自動生成（<span class="mono">generateTableOfContents()</span>）。</p>
+  </aside>
+
+  <!-- Main -->
+  <main class="content">
+    <section class="page-header">
+      <h2 id="overview">全体概要</h2>
+      <div class="progress-indicator" aria-label="進捗">
+        <div class="progress-bar" style="width: 68%;"></div>
+        <span>68%</span>
+      </div>
+    </section>
+
+    <p>以下の各セクションでは、クラス/ID名（<span class="classmark">.class</span> / <span class="idmark">#id</span>）を
+       バッジで明示し、実際の見た目と簡単なHTML例を併記します。</p>
+
+    <!-- Typography -->
+    <h2 id="typography">タイポグラフィ / 基本要素</h2>
+    <div class="demo-grid">
+      <div class="demo-card">
+        <h4>見出しと本文</h4>
+        <div class="swatch">
+          <h1>h1 見出し</h1>
+          <h2>h2 見出し</h2>
+          <h3>h3 見出し</h3>
+          <p>本文段落。ベースタイポグラフィは <span class="mono">pages.css</span> の変数に準拠。</p>
+        </div>
+        <div class="small-note">関連: <span class="badge">h1</span><span class="badge">h2</span><span class="badge">h3</span><span class="badge">p</span></div>
+      </div>
+
+      <div class="demo-card">
+        <h4>リンクとホバー</h4>
+        <div class="swatch">
+          <a href="#">リンク（hoverで色と下線）</a>
+        </div>
+        <div class="small-note">関連: <span class="badge">a</span><span class="badge">a:hover</span></div>
+      </div>
+
+      <div class="demo-card">
+        <h4>コード表記</h4>
+        <div class="swatch">
+          <code class="mono">&lt;div class="column" data-title="OKな例"&gt;...&lt;/div&gt;</code>
+        </div>
+        <div class="small-note">関連: <span class="badge">code</span> /（必要に応じて Prism/highlight.js によるハイライト）</div>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <h2 id="buttons">ボタン / ナビゲーション</h2>
+    <div class="demo-grid">
+      <div class="demo-card">
+        <h4>応用ボタン</h4>
+        <div class="swatch">
+          <button class="applied-button">.applied-button</button>
+        </div>
+        <div class="small-note">関連: <span class="badge">.lecture-buttons</span><span class="badge">.applied-button</span></div>
+      </div>
+      <div class="demo-card">
+        <h4>情報倫理ボタン</h4>
+        <div class="swatch">
+          <button class="info-button">.info-button</button>
+        </div>
+        <div class="small-note">関連: <span class="badge">.lecture-buttons</span><span class="badge">.info-button</span></div>
+      </div>
+      <div class="demo-card">
+        <h4>ページ遷移系</h4>
+        <div class="swatch">
+          <div class="page-navigation">
+            <button onclick="alert('Prev')">← Prev</button>
+            <button onclick="alert('Next')">Next →</button>
+          </div>
+        </div>
+        <div class="small-note">関連: <span class="badge">.page-navigation</span></div>
+      </div>
+    </div>
+
+    <!-- Layout -->
+    <h2 id="layout">レイアウト / コンテナ</h2>
+    <div class="demo-grid">
+      <div class="demo-card">
+        <h4>2カラム基盤</h4>
+        <div class="swatch">
+          <div class="chip">.container</div>
+          <div class="chip">.sidebar</div>
+          <div class="chip">.content</div>
+          <p class="small-note">本ページ自体が .container + .sidebar + .content の実例です。</p>
+        </div>
+      </div>
+      <div class="demo-card">
+        <h4>固定トップ / トップへ</h4>
+        <div class="swatch">
+          <div class="chip">header</div>
+          <div class="chip">.top-button</div>
+          <p>スクロールすると右下の「▲」が表示されます。クリックでスムーススクロール（JS）。</p>
+        </div>
+      </div>
+      <div class="demo-card">
+        <h4>ヘッダーボタン群</h4>
+        <div class="swatch">
+          <div class="lecture-buttons">
+            <button>Button</button><button>Button</button><button>Button</button>
+          </div>
+        </div>
+        <div class="small-note">関連: <span class="badge">.lecture-buttons</span> / active状態: <span class="badge">.active-nav</span></div>
+      </div>
+    </div>
+
+    <!-- Cards / Columns -->
+    <h2 id="cards">カード / コラム</h2>
+    <div class="demo-grid">
+      <div class="demo-card">
+        <h4>OKな例</h4>
+        <div class="swatch">
+          <div class="column" data-title="OKな例">
+            <p>左の太ライン・ラベル帯は <span class="mono">[data-title]</span> と CSS で装飾。</p>
+            <div class="code-block"><pre><code>&lt;div class="column" data-title="OKな例"&gt;...&lt;/div&gt;</code></pre></div>
+          </div>
+        </div>
+        <div class="small-note">関連: <span class="badge">.column</span><span class="badge">[data-title]</span><span class="badge">.column-hover</span></div>
+      </div>
+      <div class="demo-card">
+        <h4>NGな例</h4>
+        <div class="swatch">
+          <div class="column" data-title="NGな例">
+            <p>色味のみ変化。ホバーで浮き上がり（JSで付与する例には <span class="badge">.column-hover</span>）。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tables -->
+    <h2 id="tables">テーブル</h2>
+    <div class="demo-grid">
+      <div class="demo-card">
+        <h4>標準テーブル</h4>
+        <div class="swatch">
+          <table>
+            <caption>class / id 一覧</caption>
+            <thead><tr><th>用途</th><th>クラス／ID</th><th>備考</th></tr></thead>
+            <tbody>
+              <tr><td>TOC</td><td><span class="badge">#tableOfContents</span> <span class="badge">.toc</span></td><td>JSで自動生成</td></tr>
+              <tr><td>ボタン</td><td><span class="badge">.applied-button</span> <span class="badge">.info-button</span></td><td>色とホバー</td></tr>
+              <tr><td>レイアウト</td><td><span class="badge">.container</span> <span class="badge">.sidebar</span> <span class="badge">.content</span></td><td>2カラム</td></tr>
+              <tr><td>カード</td><td><span class="badge">.column</span> <span class="badge">[data-title]</span></td><td>左帯とラベル</td></tr>
+              <tr><td>ナビ</td><td><span class="badge">.page-navigation</span> <span class="badge">.active-nav</span></td><td>前後ボタン/ハイライト</td></tr>
+              <tr><td>トップへ</td><td><span class="badge">.top-button</span></td><td>scrollYで表示切替</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="demo-card">
+        <h4>Markdown風</h4>
+        <div class="swatch markdown-table">
+          <pre><code>| 用途 | クラス | 
+|---|---|
+| 強調コード | <code>.code-block</code> / <code>.code-example</code> |
+</code></pre>
+        </div>
+        <div class="small-note">関連: <span class="badge">.markdown-table</span> <span class="badge">.code-block</span> <span class="badge">.code-example</span></div>
+      </div>
+    </div>
+
+    <!-- Code / Copy -->
+    <h2 id="code">コード関連（コピー/ハイライト）</h2>
+    <div class="demo-grid">
+      <div class="demo-card code-sample">
+        <h4>コピー可能なコード（JSでボタン付与）</h4>
+        <pre><code class="language-html">&lt;button class="applied-button"&gt;応用&lt;/button&gt;</code></pre>
+        <p class="small-note">JS関数: <span class="mono">setupCodeCopyButtons()</span></p>
+      </div>
+      <div class="demo-card">
+        <h4>コード実行ダミー</h4>
+        <div class="swatch">
+          <button class="run-code-button" data-language="javascript">このコードを「実行」</button>
+          <pre class="code-block"><code>console.log("Hello, Catalog!");</code></pre>
+          <div class="code-output small-note">// ここに実行結果が表示されます</div>
+        </div>
+        <p class="small-note">JS関数: <span class="mono">setupCodeRunButtons()</span> / <span class="mono">executeCode()</span></p>
+      </div>
+    </div>
+
+    <!-- Usage Template -->
+    <h2 id="template">見本追加テンプレート</h2>
+    <p>新しいスタイルを追加したいときは、下記テンプレートをコピーしてセクション末尾へ。</p>
+    <div class="code-example"><pre><code>&lt;div class="demo-card"&gt;
+  &lt;h4&gt;見出し（用途）&lt;/h4&gt;
+  &lt;div class="swatch"&gt;
+    &lt;!-- デモ要素 --&gt;
+  &lt;/div&gt;
+  &lt;div class="small-note"&gt;関連: &lt;span class="badge"&gt;.your-class&lt;/span&gt; &lt;span class="badge"&gt;#your-id&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
+
+    <div class="info-box">
+      <h3>実装メモ</h3>
+      <ul>
+        <li>目次は <span class="mono">.content h2 / h3</span> を走査し、<span class="badge">#tableOfContents</span> に挿入。</li>
+        <li>スクロール連動で <span class="badge">.toc a.active</span> / <span class="badge">.parent-active</span> を付与。</li>
+        <li>右下の <span class="badge">.top-button</span> は <span class="mono">window.scrollY</span> で表示切替。</li>
+      </ul>
+    </div>
+
+    <div class="page-navigation">
+      <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})">▲ トップ</button>
+      <button onclick="alert('次の見本へ')">次へ →</button>
+    </div>
+  </main>
+</div>
+
+<!-- 右下のトップへボタン -->
+<div class="top-button" title="トップへ">▲</div>
+
+<footer>
+  <div class="footer-content">
+    <p>JS × CSS デザイン見本帳（サンプル）</p>
+  </div>
+</footer>
+
+</body>
+</html>
