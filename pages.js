@@ -3,7 +3,7 @@
 // コマリさま用 ID:web3 / PW:1128606
 
 // 暗号化済みデータ（復号にはマスターパスワードが必要）
-const ENCRYPTED_DATA = {"cipher":"D+tr3pxNuaS5TTD7frwVO4wBPhMltG5vIzRn7UQ9uTZ7oTQ=","iv":"+v440qRmzP+SXyU9","salt":"NOUqQWM9gqafwwu2ARauKg=="}
+const ENCRYPTED_DATA = {"cipher":"D+tr3pxNuaS5TTD7frwVO4wBPhMltG5vIzRn7UQ9uTZ7oTQ=","iv":"+v440qRmzP+SXyU9","salt":"NOUqQWM9gqafwwu2ARauKg=="
 };
 
 
