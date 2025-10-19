@@ -35,7 +35,7 @@
                 <h2><i class="fa-solid fa-calendar-days"></i> ライブラリとは</h2>
                 <div class="progress-indicator">
                     <div class="progress-bar" style="width: 40%"></div>
-                    <span>講義進度: 第7回</span>
+                    <span>講義進度: 第8回</span>
 
                 </div>
                 <p>ライブラリとは、Pythonでよく使う機能をまとめたものです。pythonに付属している標準ライブラリとインポートして利用する外部ライブラリがあります。外部ライブラリはには、pandas, numpy, matplotlib, openpyxl.. などがあり、それぞれ得意の分野が異なります。
@@ -46,7 +46,83 @@
             <p style = "font-size: 10px;"> リンク先：19. 標準ライブラリ | 中学生でもわかるPython入門シリーズ@imanyu_programming</p>
            <!-- <h3><a href="https://youtu.be/yeZ3STy3k44?t=5932&si=PEN1UlHXQjnGkzAZ" class="video-link"><span class="video-icon"> </span>解説動画:（1:38:58～1:58:39）<br>ライブラリ</a></h3>
             <p style = "font-size: 10px;"> 出典：【完全版】この動画1本でPythonの基礎を習得！忙しい人のための速習コース（Python入門）@imanyu_programming</p>-->
-            <h2 id="関数の基本"> 関数の基本</h2>
+            <h2 id="標準ライブラリ一覧"> 関数の基本</h2>
+<table>
+  <caption>Python標準ライブラリ一覧（Colab対応版）</caption>
+  <thead>
+    <tr>
+      <th>ライブラリ</th>
+      <th>主な用途</th>
+      <th>まじめな説明</th>
+      <th>トラ風コメント</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>math</code></td>
+      <td>数学関数</td>
+      <td>三角関数・対数・平方根などの演算を行う。</td>
+      <td>計算の神様。割り算で泣く前に呼べ。</td>
+    </tr>
+    <tr>
+      <td><code>datetime</code></td>
+      <td>日付・時刻</td>
+      <td>現在時刻の取得、差分計算、日付の整形を行う。</td>
+      <td>時間泥棒を追い払う術。締切前の救世主。</td>
+    </tr>
+    <tr>
+      <td><code>os</code></td>
+      <td>OS操作</td>
+      <td>ファイルやディレクトリ、環境変数を扱う。Colabでも一部利用可。</td>
+      <td>パソコンの裏口を開ける合言葉。</td>
+    </tr>
+    <tr>
+      <td><code>sys</code></td>
+      <td>システム操作</td>
+      <td>Python実行環境を制御する。Colabでは一部機能が制限される。</td>
+      <td>舞台袖で出番を仕切る黒子。</td>
+    </tr>
+    <tr>
+      <td><code>json</code></td>
+      <td>データ交換</td>
+      <td>JSON形式のデータを読み書きできる。</td>
+      <td>人間と機械の通訳者。</td>
+    </tr>
+    <tr>
+      <td><code>random</code></td>
+      <td>乱数</td>
+      <td>ランダムな数値や要素の選択を行う。</td>
+      <td>運試し担当。今日の気まぐれ枠。</td>
+    </tr>
+    <tr>
+      <td><code>re</code></td>
+      <td>正規表現</td>
+      <td>文字列から特定パターンを検索・置換する。</td>
+      <td>テキスト界の探偵。見逃しゼロ。</td>
+    </tr>
+    <tr>
+      <td><code>statistics</code></td>
+      <td>統計計算</td>
+      <td>平均・分散・中央値などの基本統計量を計算する。</td>
+      <td>数字の心理カウンセラー。落ち着いて分析。</td>
+    </tr>
+    <tr>
+      <td><code>collections</code></td>
+      <td>データ構造拡張</td>
+      <td>辞書やリストを便利に扱うための特別クラスを提供。</td>
+      <td>データ倉庫の番頭。融通が利く。</td>
+    </tr>
+    <tr>
+      <td><code>zipfile</code></td>
+      <td>圧縮ファイル操作</td>
+      <td>ZIP形式ファイルの圧縮・展開を行う。Colabでも利用可。</td>
+      <td>荷造り上手。旅支度はお任せ。</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
             <h3 id="関数の定型"> 関数の定型</h3>
             <div class="column" data-title="関数の定型">
                     <div class="code-block">

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>→ 句読点を削除して単語数を数える。</title>
+<style>
+body {
+  font-family: "Hiragino Sans","Noto Sans JP",sans-serif;
+  background: #f8f8f8;
+  padding: 2em;
+  max-width: 760px;
+  margin: auto;
+}
+h1 { font-size: 1.4em; color: #333; margin-bottom: 0.3em; }
+p  { color: #555; margin-top: 0; margin-bottom: 1.2em; }
+button {
+  display: inline-block;
+  padding: 0.5em 1.4em;
+  background: #3a6ea5;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 1em;
+}
+button:hover { background: #2f5685; }
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1em;
+  margin-top: 0.5em;
+}
+.code, .output {
+  flex: 1;
+  font-family: ui-monospace, Menlo, Consolas, "Noto Sans Mono CJK JP", monospace;
+  font-size: 16px;
+  line-height: 1.8;
+  letter-spacing: 0.2px;
+  border: 1px solid #bbb;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 1.2em;
+  white-space: pre-line;
+  word-break: break-word;
+}
+.label {
+  font-weight: bold;
+  display: block;
+  margin: 0 0 0.4em 0;
+}
+.output {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+}
+.output.show {
+  opacity: 1;
+  visibility: visible;
+}
+</style>
+</head>
+<body>
+
+<h1>→ 句読点を削除して単語数を数える。</h1>
+<p>“No coffee, no code.” の句読点を削除して単語を数えてみよう。</p>
+
+<button onclick="toggleOutput()">結果を表示</button>
+
+<div class="container">
+  <div class="code" id="codeBox">
+    <span class="label">コード入力</span>
+import string
+
+text = "No coffee, no code."
+clean = text.translate(str.maketrans("", "", string.punctuation))
+words = clean.split()
+print("単語数:", len(words))
+  </div>
+
+  <div class="output" id="outputBox">
+    <span class="label">出力結果</span>
+単語数: 4
+  </div>
+</div>
+
+<script>
+function toggleOutput(){
+  const out=document.getElementById("outputBox");
+  out.classList.toggle("show");
+}
+</script>
+
+</body>
+</html>

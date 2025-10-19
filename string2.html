@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>→ "coffee" を "tea" に置き換える。</title>
+<link rel="stylesheet" href="jsbin_style.css">
+</head>
+<body>
+
+<h1>→ "coffee" を "tea" に置き換える。</h1>
+<p>“No coffee, no code.” の中の “coffee” を “tea” に置き換えてみよう。</p>
+
+<button onclick="toggleOutput()">結果を表示</button>
+
+<div class="container">
+  <div class="code">
+    <span class="label">コード入力</span>
+text = "No coffee, no code."
+print(text.replace("coffee", "tea"))
+  </div>
+
+  <div class="output" id="outputBox">
+    <span class="label">出力結果</span>
+No tea, no code.
+  </div>
+</div>
+
+<script src="jsbin_script.js"></script>
+</body>
+</html>

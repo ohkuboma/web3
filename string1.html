@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>→ 句読点を削除して単語数を数える。</title>
+<link rel="stylesheet" href="jsbin_style.css">
+</head>
+<body>
+
+<h1>→ 句読点を削除して単語数を数える。</h1>
+<p>“No coffee, no code.” の句読点を削除して単語を数えてみよう。</p>
+
+<button onclick="toggleOutput()">結果を表示</button>
+
+<div class="container">
+  <div class="code">
+    <span class="label">コード入力</span>
+import string
+
+text = "No coffee, no code."
+clean = text.translate(str.maketrans("", "", string.punctuation))
+words = clean.split()
+print("単語数:", len(words))
+  </div>
+
+  <div class="output" id="outputBox">
+    <span class="label">出力結果</span>
+単語数: 4
+  </div>
+</div>
+
+<script src="jsbin_script.js"></script>
+</body>
+</html>

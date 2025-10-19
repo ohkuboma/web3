@@ -206,13 +206,29 @@ student_Id = ['51020014', '51020777', '51020687', '51020349', '51020347']
 </code></pre>
 </div>
 
-<h3 id="実習6  ループ処理"><div class="fas fa-laptop-code"></div> 実習 7 ループ処理(応用)</h3>
+<h3 id="実習7  ループ処理（応用）"><div class="fas fa-laptop-code"></div> 実習 7 ループ処理(応用)</h3>
 <div class="exercise-box">
  <p>Execize-Python.ipynb のノートブックにつづけて以下の実習をしなさい</p>
 <ol>
                     <li>テキストセルを挿入し、markdown editor に<code>### 繰り返し要素を取り出す</code>　と入力</li>
                     <li>コードセルを挿入し、リスト names を作成し、自分にとって懐かしい人5名の苗字を要素とするリストになるように、names の要素を設定しましょう。 </li>
                     <li> 例を参照し、range メソッドを利用して、リストnames の要素をひとつづつ取り出して表示しましょう。</li>
+                    <li> 例を参照し、zip メソッドを利用して、
+リスト status, animals, habitats の要素をひとつずつ取り出して表示しましょう。
+<pre>リスト：
+status = ["EN", "EN", "LC", "CR", "VU"]
+animals = ["パンダ", "トラ", "コアラ", "ゴリラ", "ホッキョクグマ"]
+habitats = ["中国", "インド", "オーストラリア", "アフリカ中部", "北極圏"]
+
+出力結果：
+EN パンダ 中国
+EN トラ インド
+LC コアラ オーストラリア
+CR ゴリラ アフリカ中部
+VU ホッキョクグマ 北極圏
+</pre>
+
+</li>
                   
                 </ol>
             </div>
@@ -229,7 +245,7 @@ student_Id = ['51020014', '51020777', '51020687', '51020349', '51020347']
             </div>
             <div class="page-navigation">
                 <button onclick="window.scrollTo(0, 0)" class="top-button"><i class="fas fa-arrow-up"></i></button>
-                <button onclick="location.href='datatypes.html'"><i class="fas fa-arrow-left"></i> 前へ：データ型</button>
+                <button onclick="location.href='datatypes.html'"><i class="fas fa-arrow-left"></i> 前へ：リスト</button>
                 <button onclick="location.href='tuple_dict_set.html'"><i class="fas fa-arrow-right"></i>タプル・辞書・セット</button>
             </div>
         </main>   

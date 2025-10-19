@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>datetime 実習：試験まであと何日？</title>
+<style>
+body { font-family: "Hiragino Sans", "Noto Sans JP", sans-serif; line-height: 1.8; background:#f9f9f9; color:#333; padding:2em; }
+h1, h2 { color:#2b3a42; }
+pre { background:#fff; padding:1em; border-radius:6px; border:1px solid #ddd; overflow-x:auto; }
+.code-title { font-weight:bold; color:#006699; }
+.section { background:#fff; border-radius:10px; margin:1.5em 0; padding:1.5em; box-shadow:0 2px 5px rgba(0,0,0,0.05); }
+.note { font-style:italic; color:#666; }
+</style>
+</head>
+<body>
+
+<h1>🐼 datetime 実習：試験まであと何日？</h1>
+
+<p>マリ風のやさしい解説と、トラ風コメントつきコード例です。</p>
+
+<div class="section">
+<h2>1️⃣ datetimeってなに？</h2>
+<p>時間や日付を扱うための箱みたいな道具。<br>
+Pythonの中では <code>datetime</code> モジュールにいろんな部品が入ってる。<br>
+日付だけなら <code>date</code>、時間込みなら <code>datetime</code>、差を表すなら <code>timedelta</code>。</p>
+</div>
+
+<div class="section">
+<h2>2️⃣ 今日の日付を取り出す</h2>
+<pre><code>from datetime import date
+today = date.today()</code></pre>
+<p>今日がいつかを自動で教えてくれる。プログラムが「今」を知っているのがちょっと面白い。</p>
+</div>
+
+<div class="section">
+<h2>3️⃣ 日付を自分で作る</h2>
+<pre><code>exam = date(2026, 1, 15)</code></pre>
+<p>「年・月・日」を順に入れて日付を作る。Pythonでは月が1ずれることはありません。</p>
+</div>
+
+<div class="section">
+<h2>4️⃣ 日付どうしを引き算する</h2>
+<pre><code>diff = exam - today
+print(diff.days)</code></pre>
+<p>差を取ると <code>timedelta</code> が返る。日付で算数ができるって新鮮。</p>
+</div>
+
+<div class="section">
+<h2>5️⃣ timedeltaで日数を足したり引いたり</h2>
+<pre><code>from datetime import timedelta
+next_week = today + timedelta(days=7)</code></pre>
+<p>「一週間後」「三日前」など、日数でカレンダーを動かせる。</p>
+</div>
+
+<div class="section">
+<h2>6️⃣ if文でメッセージを変える</h2>
+<p>日数に合わせて励ましの言葉を変えてみよう。</p>
+</div>
+
+<div class="section">
+<h2>🎯 例題：試験まであと何日？（トラ風コメント入り）</h2>
+<pre><code class="language-python">from datetime import date
+
+# 🐯 今日と試験日を設定だ。焦んなよ。
+today = date.today()
+exam_date = date(2026, 1, 15)   # ← 試験日をここに書いとけ
+
+# 🐯 残り日数を出してみっか。
+days_left = (exam_date - today).days
+
+print(f"試験日：{exam_date}")
+print(f"今日：{today}")
+
+# 🐯 日数に合わせて、トラのぼやきが変わるぜ。
+if days_left > 30:
+    print(f"あと {days_left} 日。慌てんな、地道が一番の近道ってやつだ。")
+elif days_left == 30:
+    print("試験まであと1か月。焦る気持ちはわかるが、落ち着け。勝負はここからだ。")
+elif 7 < days_left < 30:
+    print(f"あと {days_left} 日。よし、得意分野で一発かましてやろうぜ。")
+elif days_left == 7:
+    print("試験まであと1週間！寝不足は敵だぞ。最後まで粘ってこい。")
+elif 1 < days_left < 7:
+    print(f"あと {days_left} 日。静かに仕上げる時期だ。焦りは捨てろ。")
+elif days_left == 1:
+    print("いよいよ明日だな。ここまでやったんなら、もう十分だ。自信持て。")
+elif days_left == 0:
+    print("試験当日だ！肩の力抜けよ、いつものお前でいけ。")
+else:
+    print(f"試験は {abs(days_left)} 日前に終わってる。おつかれさん。ちょっとは休め。")</code></pre>
+<p class="note">このプログラムを実行すると、日付によってトラの励ましが変わります。</p>
+</div>
+
+</body>
+</html>

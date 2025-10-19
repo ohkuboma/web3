@@ -49,7 +49,8 @@
             <h3 id="タプルの定型">タプルの定型</h3>
             <div class="column" data-title="タプルの定型">
                 <div class="code-block">
-                    <pre><code>変数名 = (要素0, 要素1, 要素2, ...)</code></pre>       
+                    <pre><code>変数名 = (要素0, 要素1, 要素2, ...)
+#（要素が1つだけの場合は最後にカンマが必要：(100,)）</code></pre>       
                 </div>
             </div>
             
@@ -117,7 +118,8 @@ print(person)  # 辞書の中身を表示
             <div class="code-example">
                 <pre><code>fruits = {'apple', 'banana', 'cherry'}
 print(fruits)  # セットの中身を表示, 
-{'cherry', 'apple', 'banana'}　#セットに順序という概念はない</code></pre>
+{'cherry', 'apple', 'banana'}
+#セットに順序という概念はない</code></pre>
             </div>
             
             <h3>セットの集合演算の例</h3>
@@ -138,7 +140,67 @@ print(set1 - set2)  # 差集合
 {1, 2}</code></pre>
             </div>
  
+<h2 id="辞書の要素を取り出す方法"> 辞書の要素を取り出す方法</h2>
+        <div class="code-example">
+ 
+            <pre><code>student = {
+51020014:"斎藤勇",
+51020777:"福島彩加",
+51020687:"吉田雪乃",
+51020349:"高橋雅子", 
+51020347:"金子久美子"
+}
 
+# key だけを取り出す
+for key in student.keys():
+    print(key)
+# value だけを取り出す
+for value in student.values():
+    print(value)
+#キーと値を両方取り出す(辞書では .items() が zip() の役目を果たしてくれる)
+for key, value in student.items():
+    print(key, value + 'さん')
+
+//実行結果
+51020014
+51020777
+51020687
+51020349
+51020347
+
+斎藤勇
+福島彩加
+吉田雪乃
+高橋雅子
+金子久美子
+
+51020014 斎藤勇さん
+51020777 福島彩加さん
+51020687 吉田雪乃さん
+51020349 高橋雅子さん
+51020347 金子久美子さん
+
+</code></pre>
+
+        </div>
+            <h3 id="実習8 辞書">
+                <i class="fas fa-laptop-code"></i> 実習 8 辞書
+            </h3>
+            <div class="exercise-box">
+                <p>Exercise_Notebook.ipynb のノートブックにつづけて以下の実習をしなさい</p>
+                <ol>
+                	<li>テキストセルを挿入し、markdown editor に<code>### 辞書</code>　と入力
+			</li>
+                 	<li>例(items)を参照し、辞書 capitals のキーと値をそれぞれ取り出し、「国名：首都」の形で表示しましょう
+<pre>capitals = {"日本": "東京","フランス": "パリ","中国": "北京","オーストラリア": "キャンベラ",  "カナダ": "オタワ"}</pre>
+<pre>//出力結果
+日本：東京
+フランス：パリ
+中国：北京
+オーストラリア：キャンベラ
+カナダ：オタワ</pre>
+                </ol>
+            </div>
             
             <!-- 参考文献部分 -->
                        <h2 id="参考文献">参考文献</h2>
@@ -150,13 +212,16 @@ print(set1 - set2)  # 差集合
                         <li>参考サイト：python早見帳 9.辞書 <a href="https://chokkan.github.io/python/09dict.html" target="_blank">9.辞書</a></li>
 </ul>
                 </div>
+
+
+
             </div>
       
 
       
             <div class="page-navigation">
                 <button onclick="window.scrollTo(0, 0)" class="top-button"><i class="fas fa-arrow-up"></i></button>
-                <button onclick="location.href='datatypes.html'"><i class="fas fa-arrow-left"></i> 前へ：データ型</button>
+                <button onclick="location.href='for.html'"><i class="fas fa-arrow-left"></i> 前へ：繰り返し</button>
                 <button onclick="location.href='function.html'"><i class="fas fa-arrow-right"></i> 次へ：関数</button>
             </div>
         </div>

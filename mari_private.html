@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>マリ専用：プログラミング入門 練習問題と答え</title>
+  <style>
+    body {
+      font-family: "Yu Gothic", sans-serif;
+      line-height: 1.8;
+      background-color: #f9f9fc;
+      color: #333;
+      max-width: 800px;
+      margin: 2em auto;
+      padding: 1em;
+    }
+    h2 {
+      border-bottom: 3px solid #8aa;
+      padding-bottom: 0.2em;
+    }
+    pre {
+      background: #f0f0f0;
+      padding: 1em;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    code {
+      color: #004080;
+    }
+    details {
+      margin-top: 0.5em;
+      margin-bottom: 1.5em;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 0.5em 1em;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: #006;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>マリ専用：プログラミング入門 練習問題と答え</h1>
+  <p>※このページは教材作成者専用です。公開版には答え部分を含めません。</p>
+
+  <h2>【例題1】<code>zip()</code> の利用</h2>
+  <p><code>zip</code> メソッドを利用して、リスト <code>status</code>, <code>animals</code>, <code>habitats</code> の要素を
+  ひとつずつ取り出して表示しましょう。</p>
+
+  <details open>
+    <summary>▶ 解答コード</summary>
+    <pre><code>status = ["EN", "EN", "LC", "CR", "VU"]
+animals = ["パンダ", "トラ", "コアラ", "ゴリラ", "ホッキョクグマ"]
+habitats = ["中国", "インド", "オーストラリア", "アフリカ中部", "北極圏"]
+
+for s, a, h in zip(status, animals, habitats):
+    print(s, a, h)
+    </code></pre>
+  </details>
+
+  <details>
+    <summary>▶ 出力結果</summary>
+    <pre><code>EN パンダ 中国
+EN トラ インド
+LC コアラ オーストラリア
+CR ゴリラ アフリカ中部
+VU ホッキョクグマ 北極圏
+    </code></pre>
+  </details>
+
+  <hr>
+
+  <h2>【例題2】辞書の要素を取り出す</h2>
+  <p>辞書 <code>capitals</code> のキーと値をそれぞれ取り出し、「国名：首都」の形で表示しましょう。</p>
+
+  <details open>
+    <summary>▶ 解答コード</summary>
+    <pre><code>capitals = {
+    "日本": "東京",
+    "フランス": "パリ",
+    "中国": "北京",
+    "オーストラリア": "キャンベラ",
+    "カナダ": "オタワ"
+}
+
+for country, capital in capitals.items():
+    print(country + "：" + capital)
+    </code></pre>
+  </details>
+
+  <details>
+    <summary>▶ 出力結果</summary>
+    <pre><code>日本：東京
+フランス：パリ
+中国：北京
+オーストラリア：キャンベラ
+カナダ：オタワ
+    </code></pre>
+  </details>
+
+  <footer style="margin-top:3em; font-size:0.9em; color:#666;">
+    © 2025 M. Ohkubo — 教材制作用（非公開）
+  </footer>
+
+</body>
+</html>

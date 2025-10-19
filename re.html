@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>→ "works" が何回出てくるか探す。</title>
+<style>
+body {
+  font-family: "Segoe UI", sans-serif;
+  line-height: 1.6;
+  margin: 40px;
+  color: #222;
+}
+h1 { font-size: 20px; margin-bottom: 0.5em; }
+p { margin-bottom: 1.5em; }
+button {
+  background: #3a6ea5;
+  color: #fff;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 4px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-bottom: 1em;
+}
+.container {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+.codebox, .outputbox {
+  flex: 1;
+  font-family: "Consolas", monospace;
+  font-size: 15px;
+}
+.code, .output {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 14px 16px;
+  line-height: 1.8;
+  white-space: pre;
+}
+.output { display: none; }
+.output.show { display: block; }
+/* ラベル非表示 */
+.label { display: none; }
+</style>
+</head>
+<body>
+
+<h1>→ "works" が何回出てくるか探す。</h1>
+<p>英文 “My code works. I have no idea why, but it works.” の中に  
+単語 "works" が何回出てくるかを数えてみよう。</p>
+
+<button id="runBtn">結果を表示</button>
+
+<div class="container">
+  <div class="codebox">
+    <div class="label">コード入力</div>
+    <div class="code">
+import re
+
+text = "My code works. I have no idea why, but it works."
+print(len(re.findall("works", text)))
+    </div>
+  </div>
+
+  <div class="outputbox">
+    <div class="label">出力結果</div>
+    <div class="output" id="outputBox">2</div>
+  </div>
+</div>
+
+<script>
+document.getElementById("runBtn").addEventListener("click", function() {
+  document.getElementById("outputBox").classList.add("show");
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>標準ライブラリ math の応用：ハートを描こう</title>
+<style>
+body {
+  font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+  color: #222;
+  background: #fafafa;
+  line-height: 1.8;
+  max-width: 560px;
+  margin: 2.5em auto;
+  padding: 0 1em;
+}
+h1 {
+  font-weight: 500;
+  font-size: 1.4em;
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+pre {
+  background: #f5f5f5;
+  border-left: 3px solid #aaa;
+  padding: 0.6em 1em;
+  overflow-x: auto;
+  font-size: 0.95em;
+}
+p {
+  margin: 0.6em 0 1.2em;
+}
+hr {
+  border: none;
+  border-bottom: 1px dotted #ccc;
+  margin: 1.6em 0;
+}
+.practice {
+  border: 1px solid #ccc;
+  background: #fff;
+  padding: 1em 1.4em;
+  margin-top: 2em;
+}
+.practice h3 {
+  font-weight: 500;
+  margin-top: 0;
+  font-size: 1em;
+}
+</style>
+</head>
+
+<body>
+
+<h1>標準ライブラリ math の応用：ハートを描こう</h1>
+
+<pre><code>import math</code></pre>
+<p><code>math</code> モジュールを使えるようにします。これを消すと <code>sin</code> や <code>cos</code> が使えず、エラーになります。</p>
+<hr>
+
+<pre><code>points = []</code></pre>
+<p>ハートの点を入れるための空の箱を作っています。まだ中身はありません。</p>
+<hr>
+
+<pre><code>for t in range(0, 360, 10):</code></pre>
+<p>角度を 0 度から 360 度まで、10 度ずつ変えながら計算します。数字を変えると点の密度が変わります。</p>
+<hr>
+
+<pre><code>    rad = math.radians(t)</code></pre>
+<p>度をラジアンに直しています。ラジアンは三角関数が理解できる単位です。</p>
+<hr>
+
+<pre><code>    x = 16 * math.sin(rad) ** 3
+    y = 13 * math.cos(rad) - 5 * math.cos(2*rad)
+        - 2 * math.cos(3*rad) - math.cos(4*rad)</code></pre>
+<p>この数式がハートの形を作っています。数字を変えると横幅や高さが変わります。</p>
+<hr>
+
+<pre><code>    points.append((x, y))</code></pre>
+<p>計算した座標を順番に <code>points</code> へ入れています。</p>
+<hr>
+
+<pre><code>width, height = 60, 30
+canvas = [[" " for _ in range(width)] for _ in range(height)]</code></pre>
+<p>出力の大きさを決めています。<code>canvas</code> は空白で埋めた画面。数字を変えると余白が変わります。</p>
+<hr>
+
+<pre><code>for x, y in points:
+    col = int(width/2 + x)
+    row = int(height/2 - y/2)
+    if 0 <= row < height and 0 <= col < width:
+        canvas[row][col] = "*"</code></pre>
+<p>座標の位置に「<code>*</code>」を打っています。記号を <code>"♥"</code> に変えると、ハートがハートで描けます。</p>
+<hr>
+
+<pre><code>msg = "I love you!"
+mid_row = height // 2
+mid_col = (width - len(msg)) // 2
+for i, ch in enumerate(msg):
+    canvas[mid_row][mid_col + i] = ch</code></pre>
+<p>中央にメッセージを置いています。文字列 <code>msg</code> を変えると、ハートの中の言葉が変わります。</p>
+<hr>
+
+<pre><code>for row in canvas:
+    print("".join(row))</code></pre>
+<p>すべての行をまとめて画面に出しています。<code>join()</code> はリストの中の文字をひと続きにする命令です。</p>
+<hr>
+
+<h2>全体のコード（まとめ）</h2>
+<p>ここまでの説明をひとつにまとめた完全版です。コピーしてそのまま実行できます。</p>
+
+<pre><code>import math
+
+points = []
+for t in range(0, 360, 10):
+    rad = math.radians(t)
+    x = 16 * math.sin(rad) ** 3
+    y = 13 * math.cos(rad) - 5 * math.cos(2*rad) \
+        - 2 * math.cos(3*rad) - math.cos(4*rad)
+    points.append((x, y))
+
+width, height = 60, 30
+canvas = [[" " for _ in range(width)] for _ in range(height)]
+
+for x, y in points:
+    col = int(width / 2 + x)
+    row = int(height / 2 - y / 2)
+    if 0 <= row < height and 0 <= col < width:
+        canvas[row][col] = "*"
+
+msg = "I love you!"
+mid_row = height // 2
+mid_col = (width - len(msg)) // 2
+for i, ch in enumerate(msg):
+    canvas[mid_row][mid_col + i] = ch
+
+for row in canvas:
+    print("".join(row))
+</code></pre>
+
+<div class="practice">
+<h3>練習</h3>
+<ul>
+<li>メッセージを変えて出力してみましょう。</li>
+<li>ハートを構成する記号を変更してみましょう。</li>
+</ul>
+</div>
+
+</body>
+</html>
