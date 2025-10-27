@@ -51,7 +51,12 @@ hr {
 <body>
 
 <h1>標準ライブラリ math の応用：ハートを描こう</h1>
+<h2>出力例：</h2>
+<p>プログラムを実行すると、下のように表示されます。</p>
 
+<div style="text-align:center; margin: 1.5em 0;">
+  <img src="heart1.png" alt="出力例：ハートと I love you!" style="width:220px; height:auto; border:1px solid #ccc; border-radius:4px; background:#fff; padding:6px;">
+</div>
 <pre><code>import math</code></pre>
 <p><code>math</code> モジュールを使えるようにします。これを消すと <code>sin</code> や <code>cos</code> が使えず、エラーになります。</p>
 <hr>
@@ -66,6 +71,15 @@ hr {
 
 <pre><code>    rad = math.radians(t)</code></pre>
 <p>度をラジアンに直しています。ラジアンは三角関数が理解できる単位です。</p>
+<p style="margin:.4em 0 1em; color:#555;">
+  対応関係：角度: 0° → radian: 0、  
+  角度: 90° → radian: π/2、  
+  角度: 180° → radian: π、  
+  角度: 270° → radian: 3π/2、  
+  角度: 360° → radian: 2π<br>
+  （変換式：<code>rad = 度 × π / 180</code>）
+</p>
+
 <hr>
 
 <pre><code>    x = 16 * math.sin(rad) ** 3
@@ -73,6 +87,7 @@ hr {
         - 2 * math.cos(3*rad) - math.cos(4*rad)</code></pre>
 <p>この数式がハートの形を作っています。数字を変えると横幅や高さが変わります。</p>
 <hr>
+
 
 <pre><code>    points.append((x, y))</code></pre>
 <p>計算した座標を順番に <code>points</code> へ入れています。</p>
@@ -88,7 +103,7 @@ canvas = [[" " for _ in range(width)] for _ in range(height)]</code></pre>
     row = int(height/2 - y/2)
     if 0 <= row < height and 0 <= col < width:
         canvas[row][col] = "*"</code></pre>
-<p>座標の位置に「<code>*</code>」を打っています。記号を <code>"♥"</code> に変えると、ハートがハートで描けます。</p>
+<p>座標の位置に「<code>*</code>」を打っています。記号を <code>"♥"</code> に変えると、ハートがハートで描けます。<br><a href="heart_animation.html" target="_blank">▶ ハートが描かれていくアニメーションを見る</a></p>
 <hr>
 
 <pre><code>msg = "I love you!"
@@ -135,7 +150,14 @@ for i, ch in enumerate(msg):
 for row in canvas:
     print("".join(row))
 </code></pre>
+<hr>
 
+<h2>出力例：</h2>
+<p>プログラムを実行すると、下のように表示されます。</p>
+
+<div style="text-align:center; margin: 1.5em 0;">
+  <img src="heart1.png" alt="出力例：ハートと I love you!" style="width:220px; height:auto; border:1px solid #ccc; border-radius:4px; background:#fff; padding:6px;">
+</div>
 <div class="practice">
 <h3>練習</h3>
 <ul>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ハートを描こう（アニメーション＋座標）</title>
+<style>
+body {
+  text-align: center;
+  background: #fafafa;
+  font-family: "Yu Gothic", sans-serif;
+}
+canvas {
+  background: #fff;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+<h2>ハートの点を一つずつ描いてみよう</h2>
+<canvas id="heart" width="500" height="400"></canvas>
+
+<script>
+const canvas = document.getElementById('heart');
+const ctx = canvas.getContext('2d');
+const width = canvas.width;
+const height = canvas.height;
+const centerX = width / 2;
+const centerY = height / 2;
+
+// グリッド線を描画
+function drawGrid() {
+  ctx.strokeStyle = "#eee";
+  for (let x = 0; x <= width; x += 20) {
+    ctx.beginPath();
+    ctx.moveTo(x, 0);
+    ctx.lineTo(x, height);
+    ctx.stroke();
+  }
+  for (let y = 0; y <= height; y += 20) {
+    ctx.beginPath();
+    ctx.moveTo(0, y);
+    ctx.lineTo(width, y);
+    ctx.stroke();
+  }
+  // 中心線
+  ctx.strokeStyle = "#

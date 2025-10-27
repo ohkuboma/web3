@@ -43,8 +43,11 @@
                 </div>
             </div>
  
-            <h3><a href="https://youtu.be/tOULTwsiSN4?si=pqa4w3VSbBxTY3_i" class="video-link"><span class="video-icon"><i class="fas fa-play-circle"></i></span>解説動画:（26:14～35:58）<br>制御構文（for文）</a></h3>
+            <h3><a href="https://youtu.be/tOULTwsiSN4?si=pqa4w3VSbBxTY3_i" class="video-link"><span class="video-icon"><i class="fas fa-play-circle"></i></span>解説動画:（～6:47）<br>for文の基礎　in i for range(len(names)):</a></h3>
+<h3><a href="https://youtu.be/tOULTwsiSN4?si=4k8BfNmJErLrMjOb&t=633" class="video-link"><span class="video-icon"><i class="fas fa-play-circle"></i></span>解説動画:（10:33～11:58）<br>for文の基礎 in name in names:</a></h3>
             <p style = "font-size: 10px;">ビデオの授業内での利用を快く許可してくださった今西航平先生に感謝申し上げます。<br> 出典：【完全版】この動画1本でPythonの基礎を習得！忙しい人のための速習コース（Python入門）@imanyu_programming</p>
+
+
             <h2 id="繰り返し処理の基本"> リストの復習</h2>
             <h3 id="リストの定型"> リストの定型</h3>
             <div class="column" data-title="リストの復習">
@@ -130,12 +133,14 @@ print('私の名前は' + name + 'です')　//一般的な文字列と変数の
                 <ol>
                     <li>テキストセルを挿入し、markdown editor に<code>### 繰り返し要素を取り出す</code>　と入力</li>
                     <li>コードセルを挿入し、リスト names を作成し、自分にとって懐かしい人5名の苗字を要素とするリストになるように、names の要素を設定しましょう。 </li>
-                    <li> 例を参照し、range メソッドを利用して、リストnames の要素をひとつづつ取り出して表示しましょう。</li>
+                    <li> 例を参照し、for i in range(len(names)): を利用して、リストnames の要素をひとつづつ取り出して表示しましょう。</li>
+                   <li> 例を参照し、for name in names():を利用して、リストnames の要素をひとつづつ取り出して表示しましょう。</li>
+
                   
                 </ol>
             </div>
 <h2 id="繰り返し処理の基本"> リストの要素を繰り返し取り出す（応用）zip enumerate </h2>
-            <h3><a href="https://youtu.be/tEVccqpss2w?si=cP8cmQEjXcRBRyMo&t=11" class="video-link"><span class="video-icon"><i class="fas fa-play-circle"></i></span>解説動画:（～11:58）<br>制御構文（for文/応用）</a></h3>
+            <h3><a href="https://youtu.be/tEVccqpss2w?si=r0o4PNFdNconTHQo" class="video-link"><span class="video-icon"><i class="fas fa-play-circle"></i></span>解説動画:（10:33～11:58）<br>制御構文（for文/応用）</a></h3>
             <p style = "font-size: 10px;">ビデオの授業内での利用を快く許可してくださった今西航平先生に感謝申し上げます。<br> 出典：【完全版】この動画1本でPythonの基礎を習得！忙しい人のための速習コース（Python入門）@imanyu_programming</p>
 
 <h3 id="繰り返し取り出す">繰り返し取り出す　zip</h3>
@@ -206,13 +211,13 @@ student_Id = ['51020014', '51020777', '51020687', '51020349', '51020347']
 </code></pre>
 </div>
 
-<h3 id="実習6  ループ処理"><div class="fas fa-laptop-code"></div> 実習 7 ループ処理(応用)</h3>
+<h3 id="実習7  ループ処理（応用）"><div class="fas fa-laptop-code"></div> 実習 7 ループ処理(応用)</h3>
 <div class="exercise-box">
  <p>Execize-Python.ipynb のノートブックにつづけて以下の実習をしなさい</p>
 <ol>
-                    <li>テキストセルを挿入し、markdown editor に<code>### 繰り返し要素を取り出す</code>　と入力</li>
+                    <li>テキストセルを挿入し、markdown editor に<code>### 繰り返し要素を取り出す 2</code>　と入力</li>
                     <li>コードセルを挿入し、リスト names を作成し、自分にとって懐かしい人5名の苗字を要素とするリストになるように、names の要素を設定しましょう。 </li>
-                    <li> 例を参照し、range メソッドを利用して、リストnames の要素をひとつづつ取り出して表示しましょう。</li>
+ 
                     <li> 例を参照し、zip メソッドを利用して、
 リスト status, animals, habitats の要素をひとつずつ取り出して表示しましょう。
 <pre>リスト：

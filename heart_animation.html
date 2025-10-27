@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ハートを描こう（アニメーション＋座標）</title>
+<style>
+body {
+  text-align: center;
+  background: #fafafa;
+  font-family: "Yu Gothic", sans-serif;
+}
+canvas {
+  background: #fff;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+<h2>ハートの点を一つずつ描いてみよう</h2>
+<canvas id="heart" width="500" height="400"></canvas>
+
+<script>
+const canvas = document.getElementById('heart');
+const ctx = canvas.getContext('2d');
+const width = canvas.width;
+const height = canvas.height;
+const centerX = width / 2;
+const centerY = height / 2;
+
+// グリッド線を描画
+function drawGrid() {
+  ctx.strokeStyle = "#eee";
+  for (let x = 0; x <= width; x += 20) {
+    ctx.beginPath();
+    ctx.moveTo(x, 0);
+    ctx.lineTo(x, height);
+    ctx.stroke();
+  }
+  for (let y = 0; y <= height; y += 20) {
+    ctx.beginPath();
+    ctx.moveTo(0, y);
+    ctx.lineTo(width, y);
+    ctx.stroke();
+  }
+  // 中心線
+  ctx.strokeStyle = "#999";
+  ctx.beginPath();
+  ctx.moveTo(centerX, 0);
+  ctx.lineTo(centerX, height);
+  ctx.moveTo(0, centerY);
+  ctx.lineTo(width, centerY);
+  ctx.stroke();
+}
+
+// Pythonと同じハートの数式
+function heartPoints() {
+  const points = [];
+  for (let t = 0; t <= 360; t += 10) {
+    const rad = t * Math.PI / 180;
+    const x = 16 * Math.pow(Math.sin(rad), 3);
+    const y = 13 * Math.cos(rad) - 5 * Math.cos(2 * rad)
+            - 2 * Math.cos(3 * rad) - Math.cos(4 * rad);
+    points.push({x, y});
+  }
+  return points;
+}
+
+const points = heartPoints();
+let i = 0;
+
+// メイン描画関数
+function drawFrame() {
+  ctx.clearRect(0, 0, width, height);
+  drawGrid();
+
+  // すでに描かれた点（赤）
+  ctx.fillStyle = "red";
+  for (let j = 0; j < i; j++) {
+    const px = centerX + points[j].x * 10;
+    const py = centerY - points[j].y * 10;
+    ctx.fillRect(px - 2, py - 2, 4, 4);
+  }
+
+  // 現在の点（青）
+  if (i < points.length) {
+    const p = points[i];
+    const px = centerX + p.x * 10;
+    const py = centerY - p.y * 10;
+
+    ctx.fillStyle = "blue";
+    ctx.beginPath();
+    ctx.arc(px, py, 5, 0, Math.PI * 2);
+    ctx.fill();
+
+    // 座標の表示
+    ctx.fillStyle = "#222";
+    ctx.font = "16px monospace";
+    ctx.fillText(`(${p.x.toFixed(2)}, ${p.y.toFixed(2)})`, 20, 30);
+
+    i++;
+    setTimeout(drawFrame, 500); // ← ゆっくり0.5秒ごとに更新
+  } else {
+    ctx.fillStyle = "#222";
+    ctx.fillText("ハート完成！", 20, 30);
+  }
+}
+
+drawFrame();
+</script>
+
+</body>
+</html>
