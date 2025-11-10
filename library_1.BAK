@@ -342,7 +342,7 @@ print(left.days)        # .days で差分から「日数」だけを取り出し
             <div class="column" data-title="教科書参照ページ">
                 <div class="textbook-section">
                     <ul>
-                        <li>教科書参照ページP.130-P.140:「関数の書き方を覚えよう」</li>
+                        <li>教科書参照ページP.158-P.180:「標準ライブラリ」</li>
                         <li>参考サイト：python早見帳  <a href="https://chokkan.github.io/python/04function.html" target="_blank">４.関数</a></li>
                     </ul>
                 </div>
@@ -350,7 +350,7 @@ print(left.days)        # .days で差分から「日数」だけを取り出し
             <div class="page-navigation">
                 <button onclick="window.scrollTo(0, 0)" class="top-button"><i class="fas fa-arrow-up"></i></button>
                 <button onclick="location.href='tuple_dict_set.html'"><i class="fas fa-arrow-left"></i> 前へ：関数</button>
-                <button onclick="location.href='function.html'"><i class="fas fa-arrow-right"></i> 次へ：標準ライブラリ2</button>
+                <button onclick="location.href='function.html'"><i class="fas fa-arrow-right"></i> 次へ：標準ライブラリ 2</button>
             </div>
         </main>
     </div>
