@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>標準ライブラリ【2】　テキストを扱う | Python 入門講座（ohkuboma）</title>
+    <title>テキストを扱う | Python 入門講座（ohkuboma）</title>
     <link rel="stylesheet" href="pages.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
@@ -108,7 +108,7 @@
     <header>
         <div class="header-top">
             <button onclick="location.href='index.html'" class="home-button"><i class="fas fa-home"></i> HOME</button>
-            <h1><i class="fa-solid fa-calendar-days"></i>　標準ライブラリ【2】　テキストを扱う</h1>
+            <h1><i class="fa-solid fa-calendar-days"></i>　テキストを扱う</h1>
         </div>
     </header>
     
@@ -130,10 +130,9 @@
                     <span>講義進度: 第9回</span>
 
                 </div>
-                <p>標準ライブラリによるテキスト処理の主な目的は、<strong>文字や記号としての加工や整形</strong>です。  
-扱う単位は「文字列」や「単語（文字のまとまり）」であり、Pythonの <code>str</code> 型を直接操作します。  
-一方、<strong>自然言語処理（NLP）ライブラリ</strong>では、テキストを<strong>意味として捉え、分析の対象</strong>とします。
-
+                <p>標準ライブラリによるテキスト処理の主な目的は、文字や記号としての加工や整形です。
+扱う単位は「文字列」や「単語（文字のまとまり）」であり、Python の str 型を直接操作します。
+一方、自然言語処理（NLP）ライブラリでは、テキストを「意味」として捉え、分析の対象とします。
                    
             </p>
             </div>
@@ -141,9 +140,69 @@
             <p style = "font-size: 10px;"> リンク先：24. Pythonで文字列の操作をしよう | 中学生でもわかるPython入門シリーズ@imanyu_programming</p>
            <!-- <h3><a href="https://youtu.be/yeZ3STy3k44?t=5932&si=PEN1UlHXQjnGkzAZ" class="video-link"><span class="video-icon"> </span>解説動画:（1:38:58～1:58:39）<br>ライブラリ</a></h3>
             <p style = "font-size: 10px;"> 出典：【完全版】この動画1本でPythonの基礎を習得！忙しい人のための速習コース（Python入門）@imanyu_programming</p>-->
-            <h2 id="標準ライブラリとNLPライブラリの比較"> 標準ライブラリとNLPライブラリの比較</h2>
 
-<table class="textlib-table">
+<h2>文字列メソッドを使ったテキスト処理</h2>
+<table>
+  <thead>
+    <tr>
+      <th>処理内容</th>
+      <th>使うメソッド</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>大文字・小文字の変換</td>
+      <td><code>str.upper()</code>, <code>str.lower()</code></td>
+    </tr>
+    <tr>
+      <td>文字列の分割・結合</td>
+      <td><code>str.split()</code>, <code>str.join()</code></td>
+    </tr>
+    <tr>
+      <td>文字列の整形</td>
+      <td><code>str.format()</code></td>
+    </tr>
+    <tr>
+      <td>特定文字の除去・置換</td>
+      <td><code>str.replace()</code>, <code>str.translate()</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>標準ライブラリを使ったテキスト処理</h2>
+<table>
+  <thead>
+    <tr>
+      <th>処理内容</th>
+      <th>使うモジュール・関数</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>パターン検索</td>
+      <td><code>re</code>（正規表現モジュール）</td>
+    </tr>
+    <tr>
+      <td>整形・折り返し</td>
+      <td><code>textwrap</code></td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="re と textwrap モジュールのインポート"> モジュールのインポートの例</h2>
+
+
+
+<div class="column" data-title="re と textwrap モジュールのインポート">
+    <div class="code-block">
+<pre><code>import re, textwrap
+</code></pre>
+    re と textwrap は Python の標準ライブラリに含まれているため、インストール不要で import だけで使えます。<br>
+    import re, textwrap は、これらのモジュールをこのスクリプトで利用可能にする <strong>import 文</strong> です。
+    </div>
+</div>
+
+<h2>標準ライブラリと自然言語処理ライブラリの比較</h2>
+<table>
   <thead>
     <tr>
       <th>観点</th>
@@ -164,134 +223,148 @@
     </tr>
     <tr>
       <td>例</td>
-      <td><code>re</code>, <code>string</code>, <code>textwrap</code></td>
-      <td><code>spaCy</code>, <code>MeCab</code>, <code>nltk</code></td>
+      <td><code>re</code>, <code>textwrap</code></td>
+      <td><code>spaCy</code>, <code>MeCab</code>, <code>NLTK</code></td>
     </tr>
     <tr>
       <td>出力</td>
-      <td>「文字列」や「リスト」</td>
-      <td>「文法構造」や「意味ベクトル」</td>
+      <td>文字列・リスト</td>
+      <td>文法構造・意味ベクトル</td>
     </tr>
   </tbody>
 </table>
 
 
+<h2 id="実習12 テキスト処理"><div class="fas fa-laptop-code"></div> 実習12 テキスト処理</h2>
+<div class="exercise-box">
+    <p>以下の例題と練習問題を参照しノートブックのつづきに練習問題１～6の実習をしなさい。<br>
+    <ul>
+        <li>テキストセルに### 実習12 テキスト処理</li>
+        <li>各練習問題の前にもテキストセルを挿入し、#### 各練習問題のタイトル</li>
+    </ul>を入れましょう。</p>
+</div>
 
-
-
-<h2 id="標準ライブラリの活用したテキスト処理"> 標準ライブラリ一を活用したテキスト処理</h2>
-
-<table class="textlib-table">
-  <thead>
-    <tr>
-      <th>処理内容</th>
-      <th>使うモジュール・関数・メソッド</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>大文字・小文字の変換</td>
-      <td><code>str.upper()</code>, <code>str.lower()</code></td>
-    </tr>
-    <tr>
-      <td>文字列の分割・結合</td>
-      <td><code>str.split()</code>, <code>str.join()</code></td>
-    </tr>
-    <tr>
-      <td>パターン検索</td>
-      <td><code>re</code>（正規表現モジュール）</td>
-    </tr>
-    <tr>
-      <td>整形・インデント</td>
-      <td><code>textwrap</code>, <code>str.format()</code></td>
-    </tr>
-    <tr>
-      <td>特定文字の除去・置換</td>
-      <td><code>str.replace()</code>, <code>str.translate()</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="re と textwrap モジュールのインポート"> re と textwrap モジュールのインポート</h2>
-
-
-            <div class="column" data-title="re と textwrap モジュールのインポート">
-                    <div class="code-block">
-                    <pre><code>import re, textwrap
-   </code></pre> 
-re と textwrap は Python の標準ライブラリに含まれているため、インストール不要で import だけで使えます。<br>
-import re, textwrap は、これらのモジュールをこのスクリプトで利用可能にする **import 文** です。      
-                </div>
-            </div>
-
-<h2 id="文字の変換（大文字・小文字）">文字の変換（大文字・小文字）例題１</h2>
-
+<h2 id="例題１ 文字の変換（大文字・小文字）">文字の変換（大文字・小文字）例題１</h2>
 <div class="code-example">
  <p class="title">大文字・小文字の変換</p>
-  <pre><code>import re, textwrap
-text = "apple orange banana"
-
+ <p>
+ <ul>
+ <li>str.upper() : 大文字にする文字列メソッド</li>
+ <li>str.lower() : 小文字にする文字列メソッド</li>
+ </ul>
+ </p>
+  <pre><code>text = "apple orange banana"
 print("upper:", text.upper())
 print("lower:", text.lower())</code></pre>
-
-  <pre class='output'>【出力結果】
+#.upper().lower() は文字列（str）に最初から備わっているメソッド
+  <pre class="output">【出力結果】
 upper: APPLE ORANGE BANANA
 lower: apple orange banana</pre>
-            </div>
+</div>
 
-<h2 id="文字列の分割・結合　例題2">文字列の分割・結合　例題2</h2>
+
+<div class="exercise-box">
+    <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
+    <ol>
+        <li>テキストセルを挿入して、<code>### 実習12 テキスト処理　</code> と入力しましょう</li>
+        <li>テキストセルを挿入して、<code>#### 練習①：文字の変換（upper / lower）</code> と入力しましょう。</li>
+        <li>コードセルを挿入して以下の処理を行う。<br>
+        # 次の文字列をすべて大文字に変換して出力してください。<br>
+        text = "I love Python programming"</li>
+    </ol>
+</div>
+
+<h2 id="例題2 文字列の分割・結合　">文字列の分割・結合　例題2</h2>
 <div class="code-example">
   <p class="title">文字列の分割・結合</p>
-
-  <pre><code>import re, textwrap
+  <p>
+  <ul>
+    <li>str.split()（文字列を分割する文字列メソッド）</li>
+    <li>str.join()（文字列を結合する文字列メソッド)</li>
+  </ul>
+  </p>
+  <pre><code>
 text = "apple orange banana"
 
 words = text.split()
 print("split:", words)
 # 空白で分割 → リストになる
 
-print("join (ハイフン):", "-".join(words))
+print("join:", "-".join(words))
 # ハイフンで結合
 
-print("join (改行):")
-print("\n".join(words))
-# 改行で結合 → 一行ずつ表示</code></pre>
-
+print("join:")
+print("
+".join(words))
+# 改行で結合 → 一行ずつ表示
+</code></pre>
   <pre class="output">【出力結果】
 split: ['apple', 'orange', 'banana']
-join (ハイフン): apple-orange-banana
-join (改行):
+join: apple-orange-banana
+join:
 apple
 orange
 banana</pre>
 </div>
-<h2 id="パターン検索（正規表現）例題3">パターン検索（正規表現）例題3</h2>
+
+<div class="exercise-box">
+    <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
+    <ol>
+        <li>テキストセルを挿入して、<code>練習②：文字列の分割と結合（split / join）</code> と入力しましょう<br>
+        コードセルを挿入して以下の処理を行う。<br>
+        # "cat dog bird" を空白で分割し、リストに出力しなさい。<br>
+        # " - "（ハイフン）で結合して出力しなさい。</li>
+    </ol>
+</div>
+
+
+<h2 id="例題3 パターン検索（正規表現）">パターン検索（正規表現）例題3</h2>
 <div class="code-example">
   <p class="title">パターン検索（正規表現）</p>
 
-  <pre><code>import re, textwrap
+  <pre><code>import re
 sentence = "I like apples and bananas."
 
-found = re.findall(r"\b[a-z]+es\b", sentence)
+found = re.findall(r"[a-z]+es", sentence)
 print("re.findall:", found)
-# 説明: \b=単語境界, [a-z]+=小文字1文字以上, esで終わる単語を抽出
-# 前提: 英文/小文字を対象（必要なら lower() を使用）</code></pre>
+
+# この正規表現は：
+#  : 単語の区切り
+# [a-z]+ : 小文字のアルファベット1文字以上
+# es : es で終わる
+#  : また単語の区切り
+</code></pre>
 
   <pre class="output">【出力結果】
 re.findall: ['apples']</pre>
 </div>
-<h2 id="整形（textwrap）例題4">整形（textwrap）例題4</h2>
+
+<div class="exercise-box">
+    <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
+    <ol>
+        <li>テキストセルを挿入して、<code>練習③：パターン検索（正規表現）</code> と入力しましょう<br>
+        コードセルを挿入して以下の処理を行う。<br>
+        # 次の文から、「es」で終わる単語をすべて抽出してください。<br>
+        sentence = "She watches movies and writes notes."</li>
+    </ol>
+</div>
+
+<h2 id="例題4 整形（textwrap）">整形（textwrap）例題4</h2>
 <div class="code-example">
   <p class="title">整形（textwrap）</p>
 
-  <pre><code>import re, textwrap
+  <pre><code>import textwrap
+
 text = "Python makes text handling simple and clear."
 
 wrapped = textwrap.fill(text, width=25)
-print("textwrap整形:\n", wrapped)
+print("textwrap整形:
+", wrapped)
 # textwrap.fill() → 指定幅で自動改行
-# print() 内の \n は「改行コード」：改行位置を指示する特殊文字
-# 前提: 長い文字列を一定幅で折り返して表示したい場合</code></pre>
+# print() 内の 
+ は「改行コード」：改行位置を指示する特殊文字
+# 前提: 長い文字列を一定幅で折り返して表示したい場合
+</code></pre>
 
   <pre class="output">【出力結果】
 textwrap整形:
@@ -299,327 +372,139 @@ textwrap整形:
  handling simple and
  clear.</pre>
 </div>
-<h2 id="書式化（format)　例題5">書式化（format)　例題5</h2>
+
+<div class="exercise-box">
+    <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
+    <ol>
+        <li>テキストセルを挿入して、<code>練習④：整形（textwrap）</code> と入力しましょう<br>
+        コードセルを挿入して以下の処理を行う。<br>
+        # 次の長い文章を、20文字ごとに自動で改行して出力してください。<br>
+        text = "Learning Python helps you write clear and effective code."</li>
+    </ol>
+</div>
+
+<h2 id="例題 書式化（format)">書式化（format）例題5</h2>
 <div class="code-example">
   <p class="title">書式化（format）</p>
-
-  <pre><code>import re, textwrap
-
-formatted = "My name is {}, I like {}.".format("Mari", "tea")
+  <pre><code>formatted = "My name is {}, I like {}.".format("Mari", "tea")
 print("format:", formatted)
 
 # str.format() → 文字列中の {} を順に置き換える
 # 前提: 変数の値を文中に埋め込みたい場合
-# 補足: f文字列（例: f"My name is {name}"）も同じ目的で使える
-# \n を使えば改行した出力も可能（例: print("Hello\\nWorld")）</code></pre>
-
+# 補足: f文字列（例: f"My name is {name}") も同じ目的で使える
+# 
+ を使えば改行した出力も可能（例: print("Hello
+World")）
+</code></pre>
   <pre class="output">【出力結果】
 format: My name is Mari, I like tea.</pre>
 </div>
-<h2 id="特定文字の除去・置換 例題6">　特定文字の除去・置換 例題6</h2>
+
+<div class="exercise-box">
+    <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
+    <ol>
+        <li>テキストセルを挿入して、<code>練習⑤：書式化（format）</code> と入力しましょう<br>
+        コードセルを挿入して以下の処理を行う。<br>
+        # 名前、年齢、好きな飲み物を変数に入れて、<br>
+        # 「私は〇〇です。〇歳で、〇〇が好きです。」と出力してください。</li>
+    </ol>
+</div>
+
+<!-- 追加: 例題6〜正規表現表まで -->
+<h2 id="例題6 特定文字の除去・置換">特定文字の除去・置換 例題6</h2>
 <div class="code-example">
   <p class="title">特定文字の除去・置換（replace, translate）</p>
-
-  <pre><code>import re, textwrap
-msg = "Hello, Python!"
+  <pre><code>msg = "Hello, Python!"
 
 print("replace:", msg.replace("Python", "World"))
-	# replace() → 特定の文字列を別の文字列に置き換える
+
+# replace() → 特定の文字列を別の文字列に置き換える
 
 tbl = str.maketrans({"H": "☆", "!": "♪"})
 print("translate:", msg.translate(tbl))
-	# translate() → 文字単位で複数同時に置換
-
-	# \n を使えば、置換結果を改行して表示することも可能
-	# 例: print("Hello\nWorld") → 2行に分けて出力</code></pre>
-
+# translate() → 文字単位で複数同時に置換
+</code></pre>
   <pre class="output">【出力結果】
 replace: Hello, World!
 translate: ☆ello, Python♪</pre>
 </div>
 
-
- <h3 id="エスケープ文字（Escape Sequence）の基本"> エスケープ文字（Escape Sequence）の基本</h3>
-<table class="textlib-table">
-  <thead>
-  <colgroup>
-    <col style="width: 18%;">
-    <col style="width: 82%;">
-  </colgroup>
-    <tr>
-      <th>記述</th>
-      <th>意味</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>\n</code></td>
-      <td>改行（newline）</td>
-    </tr>
-    <tr>
-      <td><code>\t</code></td>
-      <td>タブ（tab）</td>
-    </tr>
-    <tr>
-      <td><code>\\</code></td>
-      <td>バックスラッシュそのもの</td>
-    </tr>
-    <tr>
-      <td><code>\"</code></td>
-      <td>ダブルクォートを文字として扱う</td>
-    </tr>
-    <tr>
-      <td><code>\'</code></td>
-      <td>シングルクォートを文字として扱う</td>
-    </tr>
-    <tr>
-      <td><code>\r</code></td>
-      <td>復帰（キャリッジリターン）</td>
-    </tr>
-    <tr>
-      <td><code>\f</code></td>
-      <td>改ページ（フォームフィード）</td>
-    </tr>
-    <tr>
-      <td><code>\b</code></td>
-      <td>バックスペース（※正規表現の <code>\b</code> とは別）</td>
-    </tr>
-    <tr>
-      <td><code>\uXXXX</code></td>
-      <td>Unicodeコードポイント指定（例：<code>\u3042</code> → あ）</td>
-    </tr>
-  </tbody>
-</table>
-
-
- <h3 id="正規表現"> 正規表現</h3>
-<table class="textlib-table">
-  <thead>
-  <colgroup>
-    <col style="width: 18%;">
-    <col style="width: 82%;">
-  </colgroup>
-    <tr>
-      <th>記号</th>
-      <th>意味</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>.</code></td>
-      <td>任意の1文字（改行以外）</td>
-    </tr>
-    <tr>
-      <td><code>\d</code></td>
-      <td>数字（0〜9）</td>
-    </tr>
-    <tr>
-      <td><code>\s</code></td>
-      <td>空白（スペース・タブ・改行など）</td>
-    </tr>
-    <tr>
-      <td><code>\w</code></td>
-      <td>英数字とアンダースコア</td>
-    </tr>
-    <tr>
-      <td><code>^</code></td>
-      <td>行の先頭</td>
-    </tr>
-    <tr>
-      <td><code>$</code></td>
-      <td>行の末尾</td>
-    </tr>
-    <tr>
-      <td><code>*</code></td>
-      <td>直前の文字が0回以上繰り返し</td>
-    </tr>
-    <tr>
-      <td><code>+</code></td>
-      <td>直前の文字が1回以上繰り返し</td>
-    </tr>
-    <tr>
-      <td><code>?</code></td>
-      <td>直前の文字が0回または1回</td>
-    </tr>
-    <tr>
-      <td><code>{n}</code></td>
-      <td>直前の文字がn回繰り返し</td>
-    </tr>
-    <tr>
-      <td><code>{n,m}</code></td>
-      <td>n回以上m回以下繰り返し</td>
-    </tr>
-    <tr>
-      <td><code>[abc]</code></td>
-      <td>a, b, c のいずれか1文字</td>
-    </tr>
-    <tr>
-      <td><code>[^abc]</code></td>
-      <td>a, b, c 以外の1文字</td>
-    </tr>
-    <tr>
-      <td><code>|</code></td>
-      <td>または（OR）</td>
-    </tr>
-    <tr>
-      <td><code>\b</code></td>
-      <td>単語の境界（word boundary）</td>
-    </tr>
-    <tr>
-      <td><code>()</code></td>
-      <td>グループ化（部分一致）</td>
-    </tr>
-  </tbody>
-</table>
-
-
-            <h3 id="円の半径から面積を求める"><i class="fa-solid fa-clock"></i> 円の半径から面積を求める</h3>
-            <div class="code-example"><img src="math01.png">
-               
-            </div>
-
-            
-         <h3 id="実習10 円の面積">
-                <div class="fas fa-laptop-code"></div> 実習10 円の面積</h3>
-            <div class="exercise-box">
-                <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
-                <ol>
- <li>テキストセルを挿入して、<code>### 実習10 円の面積</code> と入力しよう。みんなが大好きなピザのサイズを使って、Pythonで計算してみるよ。</li>
-
-<li>コードセルを挿入して、変数 <code>radius</code> を作ってみよう。これはピザの半径（cm）を表すんだ。</li>
-
-<li>次に、ピザの面積を計算する式を作って、<code>area</code> という変数に代入しよう。<code>math</code> モジュールを使って、<code>math.pi</code> と <code>math.pow()</code> を組み合わせてね。</li>
-
-<li>計算結果が小数になったら、最後に <code>round()</code> 関数を使って「だいたいこのくらい」って感じで、整数にして表示してみよう。</li>
-
-<li>どれくらいの面積か、print関数を使って表示してね。「このピザは約○○cm²です」って感じでね🍕</li>
-
-                    </ol>
-
-            </div>
-           
-           
-<h2 id="標準ライブラリの例2"> 標準ライブラリ一の活用例（datetime）</h2>
-
-            <h3 id="datetime モジュールのインポート"> datetime モジュールのインポート</h3>
-            <div class="column" data-title="datetime モジュール">
-                    <div class="code-block">
-                    <pre><code>from datetime import date,datetime,timedelta
-   </code></pre> 
-datetime モジュールは 最初から Python に入っているので、インポートするだけで使えます。  
-from datetime import date, datetime, timedelta は、  
-datetime モジュールの中の機能（date・datetime・timedelta）を “使う準備” をするための合図です。      
-                </div>
-            </div>
- <h3 id="datetime モジュールで使える機能一覧"> datetime モジュールで使える機能一覧</h3>
-<table border="1" cellpadding="8" cellspacing="0">
-  <thead>
-    <tr>
-      <th>機能名</th>
-      <th>書き方</th>
-      <th>型（タイプ）</th>
-      <th>内容・説明</th>
-      <th>使う場面の例</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>今日の日付</td>
-      <td><code>date.today()</code></td>
-      <td><code>datetime.date</code></td>
-      <td>今日の年月日だけを取得</td>
-      <td>学期の開始・終了日などに使う</td>
-    </tr>
-    <tr>
-      <td>今の日時</td>
-      <td><code>datetime.now()</code></td>
-      <td><code>datetime.datetime</code></td>
-      <td>今日の年月日＋時刻を取得</td>
-      <td>時間まで正確に記録したいとき</td>
-    </tr>
-    <tr>
-      <td>時間の差</td>
-      <td><code>timedelta(days=7)</code></td>
-      <td><code>datetime.timedelta</code></td>
-      <td>指定日数のずれを作る</td>
-      <td>1週間後、30日前などを計算</td>
-    </tr>
-    <tr>
-      <td>日付の引き算</td>
-      <td><code>日付2 - 日付1</code></td>
-      <td><code>timedelta</code></td>
-      <td>2つの日付の差を計算</td>
-      <td>誕生日まであと何日？など</td>
-    </tr>
-    <tr>
-      <td>日付の加算</td>
-      <td><code>日付 + timedelta(...)</code></td>
-      <td><code>datetime.date</code></td>
-      <td>日付にズレを加えて未来を求める</td>
-      <td>提出日・試験日などの予測</td>
-    </tr>
-  </tbody>
-</table>
-
-            <h3 id="pythonで日付に関する計算をする"><i class="fa-solid fa-clock"></i> pythonで日付に関する計算をする</h3>
-            <div class="code-example"><code><pre>
-from datetime import date, datetime, timedelta 
-	      date（日付）, datetime（日時）, timedelta（時間の差）をインポート
-
-today = date.today()                         # 今日の日付を取得（date型）
-print(today)                                 # 出力例：2025-11-05
-
-now = datetime.now()                         # 現在の日時を取得（datetime型）
-print(now)                                   # 出力例：2025-11-05 23:06:30.123456
-
-nextweek = today + timedelta(days=7)         # 7日分の「時間差」を today に加えるprint(nextweek)                              # 出力例：2025-11-12
-</pre></code>
-	</div>
-            <h3 id="pythonで日付の差分を計算する"><i class="fa-solid fa-clock"></i> pythonで日付の差分を計算する</h3>
-            <div class="code-example"><code><pre>
-from datetime import datetime
-
-lastday = datetime(2026, 1, 22)
-today = datetime.now()
-
-left = lastday - today  # 日時の差（timedelta型）が計算される
-print(left.days)        # .days で差分から「日数」だけを取り出して表示する
-</pre></code>
-	</div>
-
-         <h3 id="実習11 次の誕生日までの日数">
-                <div class="fas fa-laptop-code"></div> 実習11 次の誕生日までの日数</h3>
-            <div class="exercise-box">
-
-上の例題を参考に、自分の次の誕生日までの日数を求めましょう
-
-
+<div class="exercise-box">
+    <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
+    <ol>
+        <li>テキストセルを挿入して、<code>練習⑥：置換（replace / translate）</code> と入力しましょう<br>
+        # "Coding is fun!" から "fun" を "awesome" に置き換え、さらに translate() を使って "!" を "♪" に変えて出力してください。<br>
+        msg = "Coding is fun!"</li>
+    </ol>
 </div>
 
-            <h2 id="参考文献">参考文献</h2>
-            <div class="column" data-title="教科書参照ページ">
-                <div class="textbook-section">
-                    <ul>
-                        <li>教科書参照ページP.130-P.140:「関数の書き方を覚えよう」</li>
-                        <li>参考サイト：python早見帳  <a href="https://chokkan.github.io/python/04function.html" target="_blank">４.関数</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="page-navigation">
-                <button onclick="window.scrollTo(0, 0)" class="top-button"><i class="fas fa-arrow-up"></i></button>
-                <button onclick="location.href='tuple_dict_set.html'"><i class="fas fa-arrow-left"></i> 前へ：標準ライブラリ 【1】</button>
-                <button onclick="location.href='function.html'"><i class="fas fa-arrow-right"></i> 次へ：外部ライブラリ 【1】</button>
-            </div>
-        </main>
+<h3 id="エスケープ文字（Escape Sequence）の基本">エスケープ文字（Escape Sequence）の基本</h3>
+<table class="textlib-table">
+  <thead><tr><th>記述</th><th>意味</th></tr></thead>
+  <tbody>
+    <tr><td><code>\n</code></td><td>改行（newline）</td></tr>
+    <tr><td><code>\t</code></td><td>タブ（tab）</td></tr>
+    <tr><td><code>\\</code></td><td>バックスラッシュそのもの</td></tr>
+    <tr><td><code>\"</code></td><td>ダブルクォートを文字として扱う</td></tr>
+    <tr><td><code>\'</code></td><td>シングルクォートを文字として扱う</td></tr>
+    <tr><td><code>\r</code></td><td>復帰（キャリッジリターン）</td></tr>
+    <tr><td><code>\f</code></td><td>改ページ（フォームフィード）</td></tr>
+    <tr><td><code>\b</code></td><td>バックスペース（※正規表現の <code>\b</code> とは別）</td></tr>
+    <tr><td><code>\uXXXX</code></td><td>Unicodeコードポイント指定</td></tr>
+  </tbody>
+</table>
+
+<h3 id="正規表現">正規表現</h3>
+<table class="textlib-table">
+  <thead><tr><th>記号</th><th>意味</th></tr></thead>
+  <tbody>
+    <tr><td><code>.</code></td><td>任意の1文字（改行以外）</td></tr>
+    <tr><td><code>\d</code></td><td>数字（0〜9）</td></tr>
+    <tr><td><code>\s</code></td><td>空白（スペース・タブ・改行など）</td></tr>
+    <tr><td><code>\w</code></td><td>英数字とアンダースコア</td></tr>
+    <tr><td><code>^</code></td><td>行の先頭</td></tr>
+    <tr><td><code>$</code></td><td>行の末尾</td></tr>
+    <tr><td><code>*</code></td><td>直前の文字が0回以上繰り返し</td></tr>
+    <tr><td><code>+</code></td><td>直前の文字が1回以上繰り返し</td></tr>
+    <tr><td><code>?</code></td><td>直前の文字が0回または1回</td></tr>
+    <tr><td><code>{n}</code></td><td>直前の文字がn回繰り返し</td></tr>
+    <tr><td><code>{n,m}</code></td><td>n回以上m回以下繰り返し</td></tr>
+    <tr><td><code>[abc]</code></td><td>a, b, c のいずれか1文字</td></tr>
+    <tr><td><code>[^abc]</code></td><td>a, b, c 以外の1文字</td></tr>
+    <tr><td><code>|</code></td><td>または（OR）</td></tr>
+    <tr><td><code>\b</code></td><td>単語の境界（word boundary）</td></tr>
+    <tr><td><code>()</code></td><td>グループ化（部分一致）</td></tr>
+  </tbody>
+</table>
+
+
+<h2 id="参考文献">参考文献</h2>
+<div class="column" data-title="教科書参照ページ">
+    <div class="textbook-section">
+        <ul>
+            <li>教科書参照ページP.168-P.180:</li>
+            <li>参考サイト：python早見帳  <a href="https://chokkan.github.io/python/08str.html#" target="_blank">8.文字列</a></li>
+        </ul>
     </div>
+</div>
 
-    <footer>
-        <div class="footer-content">
-            <p>Python 入門講座 &copy; 2025</p>
-            <p><i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by ohkuboma</p>
-        </div>
-    </footer>
+<div class="page-navigation">
+    <button onclick="window.scrollTo(0, 0)" class="top-button"><i class="fas fa-arrow-up"></i></button>
+    <button onclick="location.href='library_1.html'"><i class="fas fa-arrow-left"></i> 前へ：標準ライブラリ 【math, datetime】</button>
+    <button onclick="location.href='library_2.html'"><i class="fas fa-arrow-right"></i> 次へ：外部ライブラリ 【1】</button>
+</div>
 
-    <script src="pages.js"></script>
+</main>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <p>Python 入門講座 &copy; 2025</p>
+        <p><i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by ohkuboma</p>
+    </div>
+</footer>
+
+<script src="pages.js"></script>
+
 </body>
 </html>
