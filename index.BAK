@@ -24,7 +24,8 @@
             <button onclick="location.href='for.html'">繰り返し</button>
             <button onclick="location.href='tuple_dict_set.html'">タプル・辞書・セット</button>
             <button onclick="location.href='function.html'">関数</button>
-<br>
+</div>
+<div class="lecture-buttons">
   <button class="applied-button" onclick="location.href='library_1.html'">標準ライブラリ【1】</button>
             <button class="applied-button" onclick="location.href=''">標準ライブラリ【2】</button>
  <button class="applied-button" onclick="location.href=''">外部ライブラリ【1】</button>

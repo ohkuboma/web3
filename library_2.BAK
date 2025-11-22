@@ -152,11 +152,19 @@
   <tbody>
     <tr>
       <td>大文字・小文字の変換</td>
-      <td><code>str.upper()</code>, <code>str.lower()</code></td>
+      <td><code>str.upper()</code>，<code>str.lower()</code></td>
+    </tr>
+    <tr>
+      <td>前後の空白の削除</td>
+      <td>
+        <code>str.strip()</code>，
+        <code>str.lstrip()</code>，
+        <code>str.rstrip()</code>
+      </td>
     </tr>
     <tr>
       <td>文字列の分割・結合</td>
-      <td><code>str.split()</code>, <code>str.join()</code></td>
+      <td><code>str.split()</code>，<code>str.join()</code></td>
     </tr>
     <tr>
       <td>文字列の整形</td>
@@ -164,11 +172,14 @@
     </tr>
     <tr>
       <td>特定文字の除去・置換</td>
-      <td><code>str.replace()</code>, <code>str.translate()</code></td>
+      <td><code>str.replace()</code>，<code>str.translate()</code></td>
+    </tr>
+    <tr>
+      <td>文字列のチェック（先頭・末尾）</td>
+      <td><code>str.startswith()</code>，<code>str.endswith()</code></td>
     </tr>
   </tbody>
 </table>
-
 <h2>標準ライブラリを使ったテキスト処理</h2>
 <table>
   <thead>
@@ -237,14 +248,14 @@
 
 <h2 id="実習12 テキスト処理"><div class="fas fa-laptop-code"></div> 実習12 テキスト処理</h2>
 <div class="exercise-box">
-    <p>以下の例題と練習問題を参照しノートブックのつづきに練習問題１～6の実習をしなさい。<br>
+    <p>以下の例題と練習問題を参照しノートブックのつづきに練習問題1～8の実習をしなさい。<br>
     <ul>
         <li>テキストセルに### 実習12 テキスト処理</li>
         <li>各練習問題の前にもテキストセルを挿入し、#### 各練習問題のタイトル</li>
     </ul>を入れましょう。</p>
 </div>
 
-<h2 id="例題１ 文字の変換（大文字・小文字）">文字の変換（大文字・小文字）例題１</h2>
+<h2 id="例題1 文字の変換（大文字・小文字）">文字の変換（大文字・小文字）例題1</h2>
 <div class="code-example">
  <p class="title">大文字・小文字の変換</p>
  <p>
@@ -255,18 +266,17 @@
  </p>
   <pre><code>text = "apple orange banana"
 print("upper:", text.upper())
-print("lower:", text.lower())</code></pre>
-#.upper().lower() は文字列（str）に最初から備わっているメソッド
+print("lower:", text.lower())
+</code></pre>
+
   <pre class="output">【出力結果】
 upper: APPLE ORANGE BANANA
 lower: apple orange banana</pre>
 </div>
 
-<h3 id="実習12 テキスト処理"><div class="fas fa-laptop-code"></div> 実習12 テキスト処理</h3>
 <div class="exercise-box">
     <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
     <ol>
-        <li>テキストセルを挿入して、<code>### 実習12 テキスト処理　</code> と入力しましょう</li>
         <li>テキストセルを挿入して、<code>#### 練習①：文字の変換（upper / lower）</code> と入力しましょう。</li>
         <li>コードセルを挿入して以下の処理を行う。<br>
         # 次の文字列をすべて大文字に変換して出力してください。<br>
@@ -274,7 +284,50 @@ lower: apple orange banana</pre>
     </ol>
 </div>
 
-<h2 id="例題2 文字列の分割・結合　">文字列の分割・結合　例題2</h2>
+<h2 id="例題2 前後の空白の削除">前後の空白の削除 例題2</h2>
+<div class="code-example">
+  <p class="title">前後の空白の削除</p>
+  <p>
+  <ul>
+    <li>str.strip()（前後の空白を削除する文字列メソッド）</li>
+    <li>str.lstrip()（左側の空白を削除する文字列メソッド）</li>
+    <li>str.rstrip()（右側の空白を削除する文字列メソッド）</li>
+  </ul>
+  </p>
+  <pre><code>text = "   hello world   "
+
+print("元の文字列:", repr(text))
+　# repr(text) は、前後の空白や \n などの見えない文字も含めて、
+文字列をそのままの形で表示してくれる関数です。
+
+print("strip :", repr(text.strip()))
+　# 前後の空白を削除
+
+print("lstrip:", repr(text.lstrip()))
+　# 左側の空白だけ削除
+
+print("rstrip:", repr(text.rstrip()))
+　# 右側の空白だけ削除</code></pre>
+  <pre class="output">【出力結果】
+元の文字列: '   hello world   '
+strip : 'hello world'
+lstrip: 'hello world   '
+rstrip: '   hello world'</pre>
+</div>
+
+<div class="exercise-box">
+    <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
+    <ol>
+        <li>テキストセルを挿入して、<code>#### 練習②：前後の空白の削除（strip / lstrip / rstrip）</code> と入力しましょう。</li>
+        <li>コードセルを挿入して以下の処理を行う。<br>
+        # 文字列 <code>"   cat dog   "</code> を変数 <code>text</code> に代入しなさい。<br>
+        # <code>print(text)</code> と <code>print(repr(text))</code> で元の文字列を出力しなさい。<br>
+        # <code>strip()</code> を使って前後の空白を削除して出力しなさい。<br>
+        # <code>lstrip()</code> と <code>rstrip()</code> を使って、左側だけ・右側だけの空白を削除して出力しなさい。</li>
+    </ol>
+</div>
+
+<h2 id="例題3 文字列の分割・結合">文字列の分割・結合 例題3</h2>
 <div class="code-example">
   <p class="title">文字列の分割・結合</p>
   <p>
@@ -283,8 +336,7 @@ lower: apple orange banana</pre>
     <li>str.join()（文字列を結合する文字列メソッド)</li>
   </ul>
   </p>
-  <pre><code>
-text = "apple orange banana"
+  <pre><code>text = "apple orange banana"
 
 words = text.split()
 print("split:", words)
@@ -294,10 +346,8 @@ print("join:", "-".join(words))
 # ハイフンで結合
 
 print("join:")
-print("
-".join(words))
-# 改行で結合 → 一行ずつ表示
-</code></pre>
+print("\n".join(words))
+# 改行で結合 → 一行ずつ表示</code></pre>
   <pre class="output">【出力結果】
 split: ['apple', 'orange', 'banana']
 join: apple-orange-banana
@@ -310,30 +360,126 @@ banana</pre>
 <div class="exercise-box">
     <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
     <ol>
-        <li>テキストセルを挿入して、<code>練習②：文字列の分割と結合（split / join）</code> と入力しましょう<br>
-        コードセルを挿入して以下の処理を行う。<br>
+        <li>テキストセルを挿入して、<code>#### 練習③：文字列の分割と結合（split / join）</code> と入力しましょう。</li>
+        <li>コードセルを挿入して以下の処理を行う。<br>
         # "cat dog bird" を空白で分割し、リストに出力しなさい。<br>
         # " - "（ハイフン）で結合して出力しなさい。</li>
     </ol>
 </div>
 
+<h2 id="例題4 書式化（format）">書式化（format）例題4</h2>
+<div class="code-example">
+  <p class="title">書式化（format）</p>
+  <pre><code>formatted = "My name is {}, I like {}.".format("Mari", "tea")
+print("format:", formatted)
 
-<h2 id="例題3 パターン検索（正規表現）">パターン検索（正規表現）例題3</h2>
+# str.format() → 文字列中の {} を順に置き換える
+# 前提: 変数の値を文中に埋め込みたい場合
+# 補足: f文字列（例: f"My name is {name}") も同じ目的で使える
+# "\n" を使えば改行した出力も可能（例: print("Hello\nWorld")）</code></pre>
+  <pre class="output">【出力結果】
+format: My name is Mari, I like tea.</pre>
+</div>
+
+<div class="exercise-box">
+    <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
+    <ol>
+        <li>テキストセルを挿入して、<code>#### 練習④：書式化（format）</code> と入力しましょう。</li>
+        <li>コードセルを挿入して以下の処理を行う。<br>
+        # 名前、年齢、好きな飲み物を変数に入れて、<br>
+        # 「私は〇〇です。〇歳で、〇〇が好きです。」と出力してください。</li>
+    </ol>
+</div>
+
+<h2 id="例題5 特定文字の除去・置換">特定文字の除去・置換 例題5</h2>
+<div class="code-example">
+  <p class="title">特定文字の除去・置換（replace, translate）</p>
+  <pre><code>msg = "Hello, Python!"
+
+print("replace:", msg.replace("Python", "World"))
+
+# replace() → 特定の文字列を別の文字列に置き換える
+
+tbl = str.maketrans({"H": "☆", "!": "♪"})
+print("translate:", msg.translate(tbl))
+# translate() → 文字単位で複数同時に置換</code></pre>
+  <pre class="output">【出力結果】
+replace: Hello, World!
+translate: ☆ello, Python♪</pre>
+</div>
+
+<div class="exercise-box">
+    <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
+    <ol>
+        <li>テキストセルを挿入して、<code>#### 練習⑤：置換（replace / translate）</code> と入力しましょう。</li>
+        <li>コードセルを挿入して以下の処理を行う。<br>
+        # "Coding is fun!" から "fun" を "awesome" に置き換え、さらに translate() を使って "!" を "♪" に変えて出力してください。<br>
+        msg = "Coding is fun!"</li>
+    </ol>
+</div>
+
+<h2 id="例題6 文字列のチェック（先頭・末尾）">文字列のチェック（先頭・末尾） 例題6</h2>
+<div class="code-example">
+  <p class="title">文字列のチェック（先頭・末尾）</p>
+  <p>
+  <ul>
+    <li>str.startswith()（文字列が特定の文字で始まっているか調べる）</li>
+    <li>str.endswith()（文字列が特定の文字で終わっているか調べる）</li>
+  </ul>
+  </p>
+  <pre><code>text = "report_2025_final.pdf"
+
+print("文字列:", text)
+
+print("startswith('report'):", text.startswith("report"))
+# "report" で始まっているか？
+
+print("startswith('2025'):", text.startswith("2025"))
+# "2025" で始まっているか？
+
+print("endswith('.pdf'):", text.endswith(".pdf"))
+# ".pdf" で終わっているか？
+
+print("endswith('.txt'):", text.endswith(".txt"))
+# ".txt" で終わっているか？</code></pre>
+  <pre class="output">【出力結果】
+文字列: report_2025_final.pdf
+startswith('report'): True
+startswith('2025'): False
+endswith('.pdf'): True
+endswith('.txt'): False</pre>
+</div>
+
+<div class="exercise-box">
+    <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
+    <ol>
+        <li>テキストセルを挿入して、<code>#### 練習⑥：文字列のチェック（startswith / endswith）</code> と入力しましょう。</li>
+        <li>コードセルを挿入して以下の処理を行う。<br>
+        # 文字列 <code>"https://example.com/index.html"</code> を変数 <code>url</code> に代入しなさい。<br>
+        # <code>url.startswith("https://")</code> の結果を出力しなさい。<br>
+        # <code>url.endswith(".html")</code> と <code>url.endswith(".php")</code> の結果を出力しなさい。<br>
+        # 好きなファイル名（例：<code>"data_01.csv"</code> など）を変数 <code>filename</code> に代入し、<br>
+        # そのファイルが <code>".csv"</code> で終わっているかどうかを <code>endswith()</code> で調べて出力しなさい。</li>
+    </ol>
+</div>
+
+<h2 id="発展 標準ライブラリを使ったテキスト処理">発展：標準ライブラリを使ったテキスト処理</h2>
+
+<h2 id="例題7 パターン検索（正規表現）">パターン検索（正規表現）例題7</h2>
 <div class="code-example">
   <p class="title">パターン検索（正規表現）</p>
 
   <pre><code>import re
 sentence = "I like apples and bananas."
 
-found = re.findall(r"[a-z]+es", sentence)
+found = re.findall(r"\b[a-z]+es\b", sentence)
 print("re.findall:", found)
 
 # この正規表現は：
-#  : 単語の区切り
+# \b : 単語の区切り
 # [a-z]+ : 小文字のアルファベット1文字以上
 # es : es で終わる
-#  : また単語の区切り
-</code></pre>
+# \b : また単語の区切り</code></pre>
 
   <pre class="output">【出力結果】
 re.findall: ['apples']</pre>
@@ -342,14 +488,14 @@ re.findall: ['apples']</pre>
 <div class="exercise-box">
     <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
     <ol>
-        <li>テキストセルを挿入して、<code>練習③：パターン検索（正規表現）</code> と入力しましょう<br>
-        コードセルを挿入して以下の処理を行う。<br>
+        <li>テキストセルを挿入して、<code>#### 練習⑦：パターン検索（正規表現）</code> と入力しましょう。</li>
+        <li>コードセルを挿入して以下の処理を行う。<br>
         # 次の文から、「es」で終わる単語をすべて抽出してください。<br>
         sentence = "She watches movies and writes notes."</li>
     </ol>
 </div>
 
-<h2 id="例題4 整形（textwrap）">整形（textwrap）例題4</h2>
+<h2 id="例題8 整形（textwrap）">整形（textwrap）例題8</h2>
 <div class="code-example">
   <p class="title">整形（textwrap）</p>
 
@@ -358,13 +504,10 @@ re.findall: ['apples']</pre>
 text = "Python makes text handling simple and clear."
 
 wrapped = textwrap.fill(text, width=25)
-print("textwrap整形:
-", wrapped)
+print("textwrap整形:\n", wrapped)
 # textwrap.fill() → 指定幅で自動改行
-# print() 内の 
- は「改行コード」：改行位置を指示する特殊文字
-# 前提: 長い文字列を一定幅で折り返して表示したい場合
-</code></pre>
+# print() 内の "\n" は「改行コード」：改行位置を指示する特殊文字
+# 前提: 長い文字列を一定幅で折り返して表示したい場合</code></pre>
 
   <pre class="output">【出力結果】
 textwrap整形:
@@ -376,67 +519,17 @@ textwrap整形:
 <div class="exercise-box">
     <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
     <ol>
-        <li>テキストセルを挿入して、<code>練習④：整形（textwrap）</code> と入力しましょう<br>
-        コードセルを挿入して以下の処理を行う。<br>
+        <li>テキストセルを挿入して、<code>#### 練習⑧：整形（textwrap）</code> と入力しましょう。</li>
+        <li>コードセルを挿入して以下の処理を行う。<br>
         # 次の長い文章を、20文字ごとに自動で改行して出力してください。<br>
         text = "Learning Python helps you write clear and effective code."</li>
     </ol>
 </div>
 
-<h2 id="例題 書式化（format)">書式化（format）例題5</h2>
-<div class="code-example">
-  <p class="title">書式化（format）</p>
-  <pre><code>formatted = "My name is {}, I like {}.".format("Mari", "tea")
-print("format:", formatted)
 
-# str.format() → 文字列中の {} を順に置き換える
-# 前提: 変数の値を文中に埋め込みたい場合
-# 補足: f文字列（例: f"My name is {name}") も同じ目的で使える
-# 
- を使えば改行した出力も可能（例: print("Hello
-World")）
-</code></pre>
-  <pre class="output">【出力結果】
-format: My name is Mari, I like tea.</pre>
-</div>
 
-<div class="exercise-box">
-    <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
-    <ol>
-        <li>テキストセルを挿入して、<code>練習⑤：書式化（format）</code> と入力しましょう<br>
-        コードセルを挿入して以下の処理を行う。<br>
-        # 名前、年齢、好きな飲み物を変数に入れて、<br>
-        # 「私は〇〇です。〇歳で、〇〇が好きです。」と出力してください。</li>
-    </ol>
-</div>
 
-<!-- 追加: 例題6〜正規表現表まで -->
-<h2 id="例題6 特定文字の除去・置換">特定文字の除去・置換 例題6</h2>
-<div class="code-example">
-  <p class="title">特定文字の除去・置換（replace, translate）</p>
-  <pre><code>msg = "Hello, Python!"
 
-print("replace:", msg.replace("Python", "World"))
-
-# replace() → 特定の文字列を別の文字列に置き換える
-
-tbl = str.maketrans({"H": "☆", "!": "♪"})
-print("translate:", msg.translate(tbl))
-# translate() → 文字単位で複数同時に置換
-</code></pre>
-  <pre class="output">【出力結果】
-replace: Hello, World!
-translate: ☆ello, Python♪</pre>
-</div>
-
-<div class="exercise-box">
-    <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
-    <ol>
-        <li>テキストセルを挿入して、<code>練習⑥：置換（replace / translate）</code> と入力しましょう<br>
-        # "Coding is fun!" から "fun" を "awesome" に置き換え、さらに translate() を使って "!" を "♪" に変えて出力してください。<br>
-        msg = "Coding is fun!"</li>
-    </ol>
-</div>
 
 <h3 id="エスケープ文字（Escape Sequence）の基本">エスケープ文字（Escape Sequence）の基本</h3>
 <table class="textlib-table">
