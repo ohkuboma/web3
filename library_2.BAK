@@ -297,17 +297,18 @@ lower: apple orange banana</pre>
   <pre><code>text = "   hello world   "
 
 print("元の文字列:", repr(text))
-　# repr(text) は、前後の空白や \n などの見えない文字も含めて、
-文字列をそのままの形で表示してくれる関数です。
+# repr(text) は、前後の空白や \n などの見えない文字も含めて、
+# 文字列をそのままの形で表示してくれる関数です。
 
 print("strip :", repr(text.strip()))
-　# 前後の空白を削除
+# 前後の空白を削除
 
 print("lstrip:", repr(text.lstrip()))
-　# 左側の空白だけ削除
+# 左側の空白だけ削除
 
 print("rstrip:", repr(text.rstrip()))
-　# 右側の空白だけ削除</code></pre>
+# 右側の空白だけ削除</code></pre>
+
   <pre class="output">【出力結果】
 元の文字列: '   hello world   '
 strip : 'hello world'
