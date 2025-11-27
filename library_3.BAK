@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>外部ライブラリ | Python 入門講座（ohkuboma）</title>
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+<style>
+  /* このページ専用の修正 */
+
+  /* メインコンテンツ：ラベルを見せつつテーブルも収まる */
+  .content {
+    overflow-x: auto;
+    overflow-y: visible;
+    position: relative;
+  }
+
+  /* 表を画面幅内に収める */
+  table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    word-break: break-word;
+  }
+
+  /* コラム（青枠）部分の調整 */
+  .column {
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: visible;   /* ← コラム内でラベルを切らない */
+    position: relative;    /* ← ::before の基準にする */
+  }
+
+  /* コラムラベルがきちんと浮くように */
+  .column::before {
+    position: absolute;
+    top: -0.7rem;
+    left: 1rem;
+    z-index: 2;
+  }
+
+
+  /* ▼ この表だけに適用されるスタイル ▼ */
+.textlib-table {
+  border-collapse: collapse;
+  width: 80%;
+  max-width: 800px;
+  margin: 1.5em 0; /* ← autoを消して左寄せ */
+  text-align: left;
+  font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
+  border: 1px solid #ddd;
+}
+
+
+  table.textlib-table th,
+  table.textlib-table td {
+    border: 1px solid #ddd;
+    padding: 10px 14px;
+ white-space: nowrap;   /* 折り返しを禁止 */
+  }
+
+  table.textlib-table thead th {
+    background-color: #e9f0f8;
+    font-weight: 600;
+  }
+
+  table.textlib-table code {
+    background: #f5f5f5;
+    padding: 2px 4px;
+    border-radius: 3px;
+  }
+.code-example {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5em;
+}
+
+.code-example .title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.5em;
+  color: #333;
+}
+
+.code-example pre {
+  background: #f9fafc;
+  border-radius: 8px;
+  padding: 12px;
+  font-family: Consolas, monospace;
+  font-size: 0.95rem;
+  overflow-x: auto;
+}
+
+.code-example .output {
+  background: #f0f0f0;
+  border-left: 4px solid #ccc;
+  margin-top: 0.6em;
+}
+
+</style>
+
+
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <button onclick="location.href='index.html'" class="home-button"><i class="fas fa-home"></i> HOME</button>
+            <h1><i class="fa-solid fa-calendar-days"></i>　外部ライブラリ</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- 左サイドバー（目次） -->
+        <nav class="sidebar">
+            <h2><i class="fas fa-list-ul"></i> 目次</h2>
+            <ul class="toc" id="tableOfContents">
+                <!-- JavaScriptで動的に生成される目次 -->
+            </ul>
+        </nav>
+        
+        <!-- 右側のメインコンテンツ -->
+        <main class="content">
+            <div class="page-header">
+                <h2><i class="fa-solid fa-calendar-days"></i> 外部ライブラリ</h2>
+                <div class="progress-indicator">
+                    <div class="progress-bar" style="width: 40%"></div>
+                    <span>講義進度: 第10回</span>
+
+                </div>
+                <p>ライブラリとは、Pythonでよく使う機能をまとめた「道具箱」のことです。あらかじめPythonに付属しているものを標準ライブラリ、自分でインストールして追加するものを外部ライブラリと呼びます。ライブラリを使うことで、数学計算やデータ分析、グラフ描画、Webとの通信などを、少ないコードで効率よく行うことができます。</p>
+
+<p>ライブラリと近い仲間として、フレームワークと呼ばれるものもあります。フレームワークはアプリ全体の「骨組み」を用意してくれるもので、決められた型にそってプログラムを書いていきます。Pythonでは、Webアプリをつくるためのフレームワークとして Flask や Django がよく使われます。</p>
+
+<p>さらに、プログラムを書いて動かすための開発環境（例：Jupyter Notebook や Google Colab など）もあります。開発環境は、コードを編集したり、実行結果やグラフを確認したり、メモを書きながら試行錯誤したいときに使います。
+            </p>
+            </div>
+<h3><a href="https://youtu.be/EI40pSM8TJc?si=lFLWcGsmqjrxWrFW" class="video-link"><span class="video-icon"> </span>解説動画:（11:06）<br>22. 外部ライブラリ(Pandas) | 中学生でもわかるPython入門シリーズ</a></h3>
+<h3><a href="https://youtu.be/Z2ourGFyeBQ?si=qn9W-zMPbqY_51nc" class="video-link"><span class="video-icon"> </span>解説動画:（11:05）<br>23. 外部ライブラリ(Matplotlib) | 中学生でもわかるPython入門シリーズ</a></h3>
+      <p style = "font-size: 10px;"> 出典：【完全版】この動画1本でPythonの基礎を習得！忙しい人のための速習コース（Python入門）@imanyu_programming<br> ビデオの授業内での利用を快く許可してくださった今西航平先生に感謝申し上げます。</p>
+           <!-- <h3><a href="https://youtu.be/yeZ3STy3k44?t=5932&si=PEN1UlHXQjnGkzAZ" class="video-link"><span class="video-icon"> </span>解説動画:（1:38:58～1:58:39）<br>ライブラリ</a></h3>
+            <p style = "font-size: 10px;"> 出典：【完全版】この動画1本でPythonの基礎を習得！忙しい人のための速習コース（Python入門）@imanyu_programming</p>-->
+
+<h2>外部ライブラリのいろいろ</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ライブラリ</th>
+      <th>主な用途</th>
+      <th>まじめな説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>numpy</td>
+      <td>数値計算</td>
+      <td>配列や行列を高速に計算するためのライブラリ。科学技術計算や機械学習の土台になる。</td>
+    </tr>
+    <tr>
+      <td>pandas</td>
+      <td>データ分析</td>
+      <td>表形式データ（CSVやExcelなど）を読み込み、集計・加工・分析するのに特化したライブラリ。</td>
+    </tr>
+    <tr>
+      <td>matplotlib</td>
+      <td>グラフ描画</td>
+      <td>折れ線グラフ・棒グラフ・散布図など、データを可視化するための基本的なグラフ描画ライブラリ。</td>
+    </tr>
+    <tr>
+      <td>seaborn</td>
+      <td>高機能グラフ描画</td>
+      <td>matplotlibをベースに、統計的なグラフをきれいに描画できるライブラリ。少ないコードで見やすいグラフを作れる。</td>
+    </tr>
+    <tr>
+      <td>openpyxl</td>
+      <td>Excel操作</td>
+      <td>Excelファイル（.xlsx形式）の読み書きや編集を行うライブラリ。セルの値や書式の変更も可能。</td>
+    </tr>
+    <tr>
+      <td>requests</td>
+      <td>HTTP通信</td>
+      <td>WebサイトやWeb APIとやりとりするためのライブラリ。URLにアクセスしてデータを取得したり送信できる。</td>
+    </tr>
+    <tr>
+      <td>beautifulsoup4</td>
+      <td>HTML解析</td>
+      <td>HTMLやXMLを解析し、必要な情報を抽出するライブラリ。Webスクレイピングに利用される。</td>
+    </tr>
+    <tr>
+      <td>selenium</td>
+      <td>ブラウザ操作</td>
+      <td>実際のブラウザを自動操作して、ログインが必要なページの取得やテスト自動化を行うライブラリ。</td>
+    </tr>
+    <tr>
+      <td>Flask</td>
+      <td>Webアプリ開発（軽量）</td>
+      <td>小規模〜中規模のWebアプリやAPIを素早く構築できる軽量なWebフレームワーク。</td>
+    </tr>
+    <tr>
+      <td>Django</td>
+      <td>Webアプリ開発（本格派）</td>
+      <td>認証・管理画面・DB連携などが一通り揃った大規模向けWebフレームワーク。</td>
+    </tr>
+    <tr>
+      <td>scikit-learn</td>
+      <td>機械学習</td>
+      <td>分類・回帰・クラスタリングなど、基本的な機械学習アルゴリズムをまとめたライブラリ。</td>
+    </tr>
+    <tr>
+      <td>Pillow</td>
+      <td>画像処理</td>
+      <td>画像の読み込み・保存・リサイズ・切り抜き・フィルタなどを行う画像処理ライブラリ。</td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+<h2 id="実習13 外部ライブラリ(Pandas)"><div class="fas fa-laptop-code"></div> 実習13 外部ライブラリ(Pandas)</h2>
+<div class="exercise-box">
+    <p>ビデオを参照しながら、ノートブックの続きに実習をしましょう。<br>
+    <ul>
+        <li>テキストセルに実習13 外部ライブラリ(Pandas)</li>
+        <li>各練習問題の前にもテキストセルを挿入し、#### 各練習問題のタイトル</li>
+    </ul>を入れましょう。</p>
+</div>
+
+<h2 id="例題1 文字の変換（大文字・小文字）">文字の変換（大文字・小文字）例題1</h2>
+<div class="code-example">
+ <p class="title">大文字・小文字の変換</p>
+ <p>
+ <ul>
+ <li>str.upper() : 大文字にする文字列メソッド</li>
+ <li>str.lower() : 小文字にする文字列メソッド</li>
+ </ul>
+ </p>
+  <pre><code>text = "apple orange banana"
+print("upper:", text.upper())
+print("lower:", text.lower())
+</code></pre>
+
+  <pre class="output">【出力結果】
+upper: APPLE ORANGE BANANA
+lower: apple orange banana</pre>
+</div>
+
+<div class="exercise-box">
+    <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
+    <ol>
+        <li>テキストセルを挿入して、<code>#### 練習①：文字の変換（upper / lower）</code> と入力しましょう。</li>
+        <li>コードセルを挿入して以下の処理を行う。<br>
+        # 次の文字列をすべて大文字に変換して出力してください。<br>
+        text = "I love Python programming"</li>
+    </ol>
+</div>
+
+<h2 id="例題2 前後の空白の削除">前後の空白の削除 例題2</h2>
+<div class="code-example">
+  <p class="title">前後の空白の削除</p>
+  <p>
+  <ul>
+    <li>str.strip()（前後の空白を削除する文字列メソッド）</li>
+    <li>str.lstrip()（左側の空白を削除する文字列メソッド）</li>
+    <li>str.rstrip()（右側の空白を削除する文字列メソッド）</li>
+  </ul>
+  </p>
+  <pre><code>text = "   hello world   "
+
+print("元の文字列:", repr(text))
+# repr(text) は、前後の空白や \n などの見えない文字も含めて、
+# 文字列をそのままの形で表示してくれる関数です。
+
+print("strip :", repr(text.strip()))
+# 前後の空白を削除
+
+print("lstrip:", repr(text.lstrip()))
+# 左側の空白だけ削除
+
+print("rstrip:", repr(text.rstrip()))
+# 右側の空白だけ削除</code></pre>
+
+  <pre class="output">【出力結果】
+元の文字列: '   hello world   '
+strip : 'hello world'
+lstrip: 'hello world   '
+rstrip: '   hello world'</pre>
+</div>
+
+<div class="exercise-box">
+    <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
+    <ol>
+        <li>テキストセルを挿入して、<code>#### 練習②：前後の空白の削除（strip / lstrip / rstrip）</code> と入力しましょう。</li>
+        <li>コードセルを挿入して以下の処理を行う。<br>
+        # 文字列 <code>"   cat dog   "</code> を変数 <code>text</code> に代入しなさい。<br>
+        # <code>print(text)</code> と <code>print(repr(text))</code> で元の文字列を出力しなさい。<br>
+        # <code>strip()</code> を使って前後の空白を削除して出力しなさい。<br>
+        # <code>lstrip()</code> と <code>rstrip()</code> を使って、左側だけ・右側だけの空白を削除して出力しなさい。</li>
+    </ol>
+</div>
+
+<h2 id="例題3 文字列の分割・結合">文字列の分割・結合 例題3</h2>
+<div class="code-example">
+  <p class="title">文字列の分割・結合</p>
+  <p>
+  <ul>
+    <li>str.split()（文字列を分割する文字列メソッド）</li>
+    <li>str.join()（文字列を結合する文字列メソッド)</li>
+  </ul>
+  </p>
+  <pre><code>text = "apple orange banana"
+
+words = text.split()
+print("split:", words)
+# 空白で分割 → リストになる
+
+print("join:", "-".join(words))
+# ハイフンで結合
+
+print("join:")
+print("\n".join(words))
+# 改行で結合 → 一行ずつ表示</code></pre>
+  <pre class="output">【出力結果】
+split: ['apple', 'orange', 'banana']
+join: apple-orange-banana
+join:
+apple
+orange
+banana</pre>
+</div>
+
+<div class="exercise-box">
+    <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
+    <ol>
+        <li>テキストセルを挿入して、<code>#### 練習③：文字列の分割と結合（split / join）</code> と入力しましょう。</li>
+        <li>コードセルを挿入して以下の処理を行う。<br>
+        # "cat dog bird" を空白で分割し、リストに出力しなさい。<br>
+        # " - "（ハイフン）で結合して出力しなさい。</li>
+    </ol>
+</div>
+
+<h2 id="例題4 書式化（format）">書式化（format）例題4</h2>
+<div class="code-example">
+  <p class="title">書式化（format）</p>
+  <pre><code>formatted = "My name is {}, I like {}.".format("Mari", "tea")
+print("format:", formatted)
+
+# str.format() → 文字列中の {} を順に置き換える
+# 前提: 変数の値を文中に埋め込みたい場合
+# 補足: f文字列（例: f"My name is {name}") も同じ目的で使える
+# "\n" を使えば改行した出力も可能（例: print("Hello\nWorld")）</code></pre>
+  <pre class="output">【出力結果】
+format: My name is Mari, I like tea.</pre>
+</div>
+
+<div class="exercise-box">
+    <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
+    <ol>
+        <li>テキストセルを挿入して、<code>#### 練習④：書式化（format）</code> と入力しましょう。</li>
+        <li>コードセルを挿入して以下の処理を行う。<br>
+        # 名前、年齢、好きな飲み物を変数に入れて、<br>
+        # 「私は〇〇です。〇歳で、〇〇が好きです。」と出力してください。</li>
+    </ol>
+</div>
+
+<h2 id="例題5 特定文字の除去・置換">特定文字の除去・置換 例題5</h2>
+<div class="code-example">
+  <p class="title">特定文字の除去・置換（replace, translate）</p>
+  <pre><code>msg = "Hello, Python!"
+
+print("replace:", msg.replace("Python", "World"))
+
+# replace() → 特定の文字列を別の文字列に置き換える
+
+tbl = str.maketrans({"H": "☆", "!": "♪"})
+print("translate:", msg.translate(tbl))
+# translate() → 文字単位で複数同時に置換</code></pre>
+  <pre class="output">【出力結果】
+replace: Hello, World!
+translate: ☆ello, Python♪</pre>
+</div>
+
+<div class="exercise-box">
+    <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
+    <ol>
+        <li>テキストセルを挿入して、<code>#### 練習⑤：置換（replace / translate）</code> と入力しましょう。</li>
+        <li>コードセルを挿入して以下の処理を行う。<br>
+        # "Coding is fun!" から "fun" を "awesome" に置き換え、さらに translate() を使って "!" を "♪" に変えて出力してください。<br>
+        msg = "Coding is fun!"</li>
+    </ol>
+</div>
+
+<h2 id="例題6 文字列のチェック（先頭・末尾）">文字列のチェック（先頭・末尾） 例題6</h2>
+<div class="code-example">
+  <p class="title">文字列のチェック（先頭・末尾）</p>
+  <p>
+  <ul>
+    <li>str.startswith()（文字列が特定の文字で始まっているか調べる）</li>
+    <li>str.endswith()（文字列が特定の文字で終わっているか調べる）</li>
+  </ul>
+  </p>
+  <pre><code>text = "report_2025_final.pdf"
+
+print("文字列:", text)
+
+print("startswith('report'):", text.startswith("report"))
+# "report" で始まっているか？
+
+print("startswith('2025'):", text.startswith("2025"))
+# "2025" で始まっているか？
+
+print("endswith('.pdf'):", text.endswith(".pdf"))
+# ".pdf" で終わっているか？
+
+print("endswith('.txt'):", text.endswith(".txt"))
+# ".txt" で終わっているか？</code></pre>
+  <pre class="output">【出力結果】
+文字列: report_2025_final.pdf
+startswith('report'): True
+startswith('2025'): False
+endswith('.pdf'): True
+endswith('.txt'): False</pre>
+</div>
+
+<div class="exercise-box">
+    <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
+    <ol>
+        <li>テキストセルを挿入して、<code>#### 練習⑥：文字列のチェック（startswith / endswith）</code> と入力しましょう。</li>
+        <li>コードセルを挿入して以下の処理を行う。<br>
+        # 文字列 <code>"https://example.com/index.html"</code> を変数 <code>url</code> に代入しなさい。<br>
+        # <code>url.startswith("https://")</code> の結果を出力しなさい。<br>
+        # <code>url.endswith(".html")</code> と <code>url.endswith(".php")</code> の結果を出力しなさい。<br>
+        # 好きなファイル名（例：<code>"data_01.csv"</code> など）を変数 <code>filename</code> に代入し、<br>
+        # そのファイルが <code>".csv"</code> で終わっているかどうかを <code>endswith()</code> で調べて出力しなさい。</li>
+    </ol>
+</div>
+
+<h2 id="発展 標準ライブラリを使ったテキスト処理">発展：標準ライブラリを使ったテキスト処理</h2>
+
+<h2 id="例題7 パターン検索（正規表現）">パターン検索（正規表現）例題7</h2>
+<div class="code-example">
+  <p class="title">パターン検索（正規表現）</p>
+
+  <pre><code>import re
+sentence = "I like apples and bananas."
+
+found = re.findall(r"\b[a-z]+es\b", sentence)
+print("re.findall:", found)
+
+# この正規表現は：
+# \b : 単語の区切り
+# [a-z]+ : 小文字のアルファベット1文字以上
+# es : es で終わる
+# \b : また単語の区切り</code></pre>
+
+  <pre class="output">【出力結果】
+re.findall: ['apples']</pre>
+</div>
+
+<div class="exercise-box">
+    <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
+    <ol>
+        <li>テキストセルを挿入して、<code>#### 練習⑦：パターン検索（正規表現）</code> と入力しましょう。</li>
+        <li>コードセルを挿入して以下の処理を行う。<br>
+        # 次の文から、「es」で終わる単語をすべて抽出してください。<br>
+        sentence = "She watches movies and writes notes."</li>
+    </ol>
+</div>
+
+<h2 id="例題8 整形（textwrap）">整形（textwrap）例題8</h2>
+<div class="code-example">
+  <p class="title">整形（textwrap）</p>
+
+  <pre><code>import textwrap
+
+text = "Python makes text handling simple and clear."
+
+wrapped = textwrap.fill(text, width=25)
+print("textwrap整形:\n", wrapped)
+# textwrap.fill() → 指定幅で自動改行
+# print() 内の "\n" は「改行コード」：改行位置を指示する特殊文字
+# 前提: 長い文字列を一定幅で折り返して表示したい場合</code></pre>
+
+  <pre class="output">【出力結果】
+textwrap整形:
+ Python makes text
+ handling simple and
+ clear.</pre>
+</div>
+
+<div class="exercise-box">
+    <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
+    <ol>
+        <li>テキストセルを挿入して、<code>#### 練習⑧：整形（textwrap）</code> と入力しましょう。</li>
+        <li>コードセルを挿入して以下の処理を行う。<br>
+        # 次の長い文章を、20文字ごとに自動で改行して出力してください。<br>
+        text = "Learning Python helps you write clear and effective code."</li>
+    </ol>
+</div>
+
+
+
+
+
+
+<h3 id="エスケープ文字（Escape Sequence）の基本">エスケープ文字（Escape Sequence）の基本</h3>
+<table class="textlib-table">
+  <thead><tr><th>記述</th><th>意味</th></tr></thead>
+  <tbody>
+    <tr><td><code>\n</code></td><td>改行（newline）</td></tr>
+    <tr><td><code>\t</code></td><td>タブ（tab）</td></tr>
+    <tr><td><code>\\</code></td><td>バックスラッシュそのもの</td></tr>
+    <tr><td><code>\"</code></td><td>ダブルクォートを文字として扱う</td></tr>
+    <tr><td><code>\'</code></td><td>シングルクォートを文字として扱う</td></tr>
+    <tr><td><code>\r</code></td><td>復帰（キャリッジリターン）</td></tr>
+    <tr><td><code>\f</code></td><td>改ページ（フォームフィード）</td></tr>
+    <tr><td><code>\b</code></td><td>バックスペース（※正規表現の <code>\b</code> とは別）</td></tr>
+    <tr><td><code>\uXXXX</code></td><td>Unicodeコードポイント指定</td></tr>
+  </tbody>
+</table>
+
+<h3 id="正規表現">正規表現</h3>
+<table class="textlib-table">
+  <thead><tr><th>記号</th><th>意味</th></tr></thead>
+  <tbody>
+    <tr><td><code>.</code></td><td>任意の1文字（改行以外）</td></tr>
+    <tr><td><code>\d</code></td><td>数字（0〜9）</td></tr>
+    <tr><td><code>\s</code></td><td>空白（スペース・タブ・改行など）</td></tr>
+    <tr><td><code>\w</code></td><td>英数字とアンダースコア</td></tr>
+    <tr><td><code>^</code></td><td>行の先頭</td></tr>
+    <tr><td><code>$</code></td><td>行の末尾</td></tr>
+    <tr><td><code>*</code></td><td>直前の文字が0回以上繰り返し</td></tr>
+    <tr><td><code>+</code></td><td>直前の文字が1回以上繰り返し</td></tr>
+    <tr><td><code>?</code></td><td>直前の文字が0回または1回</td></tr>
+    <tr><td><code>{n}</code></td><td>直前の文字がn回繰り返し</td></tr>
+    <tr><td><code>{n,m}</code></td><td>n回以上m回以下繰り返し</td></tr>
+    <tr><td><code>[abc]</code></td><td>a, b, c のいずれか1文字</td></tr>
+    <tr><td><code>[^abc]</code></td><td>a, b, c 以外の1文字</td></tr>
+    <tr><td><code>|</code></td><td>または（OR）</td></tr>
+    <tr><td><code>\b</code></td><td>単語の境界（word boundary）</td></tr>
+    <tr><td><code>()</code></td><td>グループ化（部分一致）</td></tr>
+  </tbody>
+</table>
+
+
+<h2 id="参考文献">参考文献</h2>
+<div class="column" data-title="教科書参照ページ">
+    <div class="textbook-section">
+        <ul>
+            <li>教科書参照ページP.168-P.180:</li>
+            <li>参考サイト：python早見帳  <a href="https://chokkan.github.io/python/08str.html#" target="_blank">8.文字列</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="page-navigation">
+    <button onclick="window.scrollTo(0, 0)" class="top-button"><i class="fas fa-arrow-up"></i></button>
+    <button onclick="location.href='library_1.html'"><i class="fas fa-arrow-left"></i> 前へ：標準ライブラリ 【math, datetime】</button>
+    <button onclick="location.href='library_2.html'"><i class="fas fa-arrow-right"></i> 次へ：外部ライブラリ 【1】</button>
+</div>
+
+</main>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <p>Python 入門講座 &copy; 2025</p>
+        <p><i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by ohkuboma</p>
+    </div>
+</footer>
+
+<script src="pages.js"></script>
+
+</body>
+</html>
