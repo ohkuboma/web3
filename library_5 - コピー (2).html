@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【Plotly】 外部ライブラリ| Python 入門講座（ohkuboma）</title>
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+<style>
+  /* このページ専用の修正 */
+
+  /* メインコンテンツ：ラベルを見せつつテーブルも収まる */
+  .content {
+    overflow-x: auto;
+    overflow-y: visible;
+    position: relative;
+  }
+
+  /* 表を画面幅内に収める（このページ全体用） */
+  table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    word-break: break-word;
+  }
+
+  /* コラム（青枠）部分の調整 */
+  .column {
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: visible;   /* ← コラム内でラベルを切らない */
+    position: relative;    /* ← ::before の基準にする */
+  }
+
+  /* コラムラベルがきちんと浮くように */
+  .column::before {
+    position: absolute;
+    top: -0.7rem;
+    left: 1rem;
+    z-index: 2;
+  }
+
+  /* ▼ この表だけに適用されるスタイル ▼ */
+  .textlib-table {
+    border-collapse: collapse;
+    width: 80%;
+    max-width: 800px;
+    margin: 1.5em 0; /* ← autoを消して左寄せ */
+    text-align: left;
+    font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
+    border: 1px solid #ddd;
+  }
+
+  table.textlib-table th,
+  table.textlib-table td {
+    border: 1px solid #ddd;
+    padding: 10px 14px;
+    white-space: nowrap;   /* 折り返しを禁止 */
+  }
+
+  table.textlib-table thead th {
+    background-color: #e9f0f8;
+    font-weight: 600;
+  }
+
+  table.textlib-table code {
+    background: #f5f5f5;
+    padding: 2px 4px;
+    border-radius: 3px;
+  }
+
+  /* ▼ コード例まわり ▼ */
+  .code-example {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5em;
+    position: relative;   /* チップの基準 */
+    overflow-x: visible;  /* 横スクロール出さない */
+  }
+
+  .code-example .title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.5em;
+    color: #333;
+  }
+
+  .code-example pre {
+    background: #f9fafc;
+    border-radius: 8px;
+    padding: 12px;
+    font-family: Consolas, monospace;
+    font-size: 0.95rem;
+    overflow-x: auto;  /* コードだけは横スクロール OK */
+  }
+
+  .code-example .output {
+    background: #f0f0f0;
+    border-left: 4px solid #ccc;
+    margin-top: 0.6em;
+  }
+
+  /* 実行例チップ */
+  .code-example::before {
+    content: "実行例";
+    position: absolute;
+    top: -0.8rem;
+    left: 1rem;
+    background: #fff;
+    padding: 0.1rem 0.6rem;
+    font-size: 0.9rem;
+    z-index: 3;
+  }
+
+  /* 画像の表を枠にぴったり合わせる */
+  .code-example img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>
+
+</head>
+
+<body>
+    <header>
+        <div class="header-top">
+            <button onclick="location.href='index.html'" class="home-button"><i class="fas fa-home"></i> HOME</button>
+            <h1><i class="fa-solid fa-calendar-days"></i>　外部ライブラリ【Plotly】</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- 左サイドバー（目次） -->
+        <nav class="sidebar">
+            <h2><i class="fas fa-list-ul"></i> 目次</h2>
+            <ul class="toc" id="tableOfContents">
+                <!-- JavaScriptで動的に生成される目次 -->
+            </ul>
+        </nav>
+        
+        <!-- 右側のメインコンテンツ -->
+        <main class="content">
+            <div class="page-header">
+                <h2><i class="fa-solid fa-calendar-days"></i> 【Plotly】外部ライブラリ</h2>
+                <div class="progress-indicator">
+                    <div class="progress-bar" style="width: 80%"></div>
+                    <span>講義進度: 第12回</span>
+
+                </div>
+                <p>Plotly は Python で インタラクティブなグラフを描くためのライブラリです。
+Matplotlib と違い、グラフの上にマウスを乗せると値が表示されたり、特定の範囲を拡大できたりします。</p>
+
+<p>また、作成したグラフを HTML ファイルとして書き出し、ブラウザで“動くグラフ”として配布できるのが特徴です。</p>
+
+<p>この回では、前回までに学んだ Matplotlib の内容をふまえつつ、
+Plotly を使って「動かせる可視化」を体験します。
+            </p>
+            </div>
+<h2 id="完成例"><div class="fas fa-laptop-code"></div>california_housing_example.html</h2><div><img src = 'plotly_html2.png'></div>
+
+ 
+<h2 id="外部ライブラリの導入"><div class="fas fa-laptop-code"></div> 外部ライブラリ(Plotly,Pandas の導入)</h2>
+            <div class="column" data-title="Plotly,Pandas の導入">
+                <div class="code-block">
+                    <pre><code>import pandas as pd
+import plotly.express as px
+
+df = pd.read_csv("sample_data/california_housing_test.csv")
+
+df.head()
+</code></pre>       
+                </div>
+                <div class="code-example">
+                    <img src="plotly01.png" alt="">       
+                </div>
+            </div>
+<h2 id="Pandas で必要な列を取り出す"><div class="fas fa-laptop-code"></div> Pandas で必要な列(Column)を取り出す</h2>
+            <div class="column" data-title="Pandasで列を絞る">
+                <div class="code-block">
+                    <pre><code>cols = ["median_income", "housing_median_age", "median_house_value"]
+df_sub = df[cols]
+
+summary = df_sub.describe().round(2)
+summary
+
+</code></pre>       
+                </div>
+                <div class="code-example">
+                    <img src="plotly02.png" style="width:400px;" alt="">       
+                </div>
+            </div>
+<h2 id="Plotly で散布図を描く"><div class="fas fa-laptop-code"></div> Plotly で散布図を描く</h2>
+            <div class="column" data-title="Plotly で散布図を描く">
+                <div class="code-block">
+                    <pre><code>fig = px.scatter(
+    df_sub,
+    x="median_income",
+    y="median_house_value",
+    title="所得と住宅価格の関係（California housing）",
+    labels={
+        "median_income": "世帯所得（中央値）",
+        "median_house_value": "住宅価格（中央値）",
+    },
+    opacity=0.5,
+)
+fig.show()
+</code></pre>       
+                </div>
+                <div class="code-example">
+                    <img src="plotly03.png"  alt="">       
+                </div>
+            </div>
+
+<h2 id="表とグラフを HTML に書き出す"><div class="fas fa-laptop-code"></div> 表とグラフを HTML に書き出す</h2>
+            <div class="column" data-title="グラフのテンプレートを指定">
+                <div class="code-block">
+                    <pre><code>
+# グラフのテンプレートを指定
+fig.update_layout(template="plotly")
+</code></pre>
+</div></div>
+            <div class="column" data-title="グラフ部分を HTML 文字列として取得">
+                <div class="code-block">
+                    <pre><code>
+# グラフ部分を HTML 文字列として取得
+plot_html = fig.to_html(full_html=False, include_plotlyjs="cdn")
+# full_html=False: グラフ部分だけのHTMLを取得（HTML全体ではない）
+# include_plotlyjs="cdn": PlotlyのJSライブラリをCDN経由で読み込む（軽量化できる)
+</code></pre>
+</div></div>
+            <div class="column" data-title="describe の表を HTML テーブルに変換">
+                <div class="code-block">
+                    <pre><code>
+# describe の表を HTML テーブルに変換
+table_html = summary.to_html(classes="table", border=0)
+</code></pre>
+</div></div>
+
+            <div class="column" data-title="ページ全体の HTML を組み立て">
+                <div class="code-block">
+                    <pre><code>
+# ページ全体の HTML を組み立て
+</code></pre>
+<img src = 'plotly_html.png' alt="html部分の画像">
+</div></div>
+
+<div class="column" data-title="HTMLファイルとして保存">
+                <div class="code-block">
+                    <pre><code>
+
+# HTMLファイルとして保存
+with open("california_housing_example.html", "w", encoding="utf-8") as f:
+    f.write(html)</code></pre>
+
+                </div></div>
+
+
+<h2>california_housing_example.html が一時ファイルとして作成されたところ</h2>
+                <div class="code-example">
+                    <img src="plotly05.png" style="width:600px;"  alt="HTMLファイルが作成されたところ">       
+                </div>
+<h2>california_housing_example.html 作成までのGoogle Colabの記述例</h2>
+                <div class="code-example">
+                    <img src="plotly_html_source.png"  alt="Clabでの記述例">       
+                </div>
+                      
+<h2 id="実習16 外部ライブラリ(Plotly)"><div class="fas fa-laptop-code"></div> 実習16 外部ライブラリ(Plotly)</h2>
+<div class="exercise-box">
+    <p>ノートブックの続きに実習をし、完成したノートブックとcalifornia_housing_example.html を提出しましょうましょう。<br>
+    <ul>
+        <li>テキストセルに実習16 外部ライブラリ(Plotly)</li>
+        <li>各コードセルの前にもテキストセルを挿入し、役割が明確になるよう工夫しましょう。</li>
+</ul>
+</p>
+
+</div>
+
+
+
+
+
+<h2 id="参考文献">参考文献</h2>
+<div class="column" data-title="教科書参照ページ">
+    <div class="textbook-section">
+
+    </div>
+</div>
+
+<div class="page-navigation">
+    <button onclick="window.scrollTo(0, 0)" class="top-button"><i class="fas fa-arrow-up"></i></button>
+    <button onclick="location.href='library_4.html'"><i class="fas fa-arrow-left"></i> 前へ：外部ライブラリ 【Matplotlib】</button>
+    <button onclick="location.href='index.html'"><i class="fas fa-arrow-right"></i> 目次に戻る</button>
+</div>
+
+</main>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <p>Python 入門講座 &copy; 2025</p>
+        <p><i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by ohkuboma</p>
+    </div>
+</footer>
+
+<script src="pages.js"></script>
+
+</body>
+</html>

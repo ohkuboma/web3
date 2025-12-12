@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>外部ライブラリ【Plotly】 | Python 入門講座（ohkuboma）</title>
+    <title>【Plotly】 外部ライブラリ| Python 入門講座（ohkuboma）</title>
     <link rel="stylesheet" href="pages.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
@@ -17,7 +17,7 @@
     position: relative;
   }
 
-  /* 表を画面幅内に収める */
+  /* 表を画面幅内に収める（このページ全体用） */
   table {
     width: 100%;
     max-width: 100%;
@@ -30,11 +30,10 @@
   .column {
     max-width: 100%;
     box-sizing: border-box;
-    overflow-x: visible;   /* ← コラム内でラベルを切らない */
-    position: relative;    /* ← ::before の基準にする */
+    overflow-x: visible;
+    position: relative;
   }
 
-  /* コラムラベルがきちんと浮くように */
   .column::before {
     position: absolute;
     top: -0.7rem;
@@ -42,24 +41,22 @@
     z-index: 2;
   }
 
-
   /* ▼ この表だけに適用されるスタイル ▼ */
-.textlib-table {
-  border-collapse: collapse;
-  width: 80%;
-  max-width: 800px;
-  margin: 1.5em 0; /* ← autoを消して左寄せ */
-  text-align: left;
-  font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
-  border: 1px solid #ddd;
-}
-
+  .textlib-table {
+    border-collapse: collapse;
+    width: 80%;
+    max-width: 800px;
+    margin: 1.5em 0;
+    text-align: left;
+    font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
+    border: 1px solid #ddd;
+  }
 
   table.textlib-table th,
   table.textlib-table td {
     border: 1px solid #ddd;
     padding: 10px 14px;
- white-space: nowrap;   /* 折り返しを禁止 */
+    white-space: nowrap;
   }
 
   table.textlib-table thead th {
@@ -72,38 +69,69 @@
     padding: 2px 4px;
     border-radius: 3px;
   }
-.code-example {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 1.5em;
-}
 
-.code-example .title {
-  font-weight: 600;
-  font-size: 1.1rem;
-  margin-bottom: 0.5em;
-  color: #333;
-}
+  /* ▼ コード例まわり ▼ */
+  .code-example {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5em;
+    position: relative;
+    overflow-x: visible;
+  }
 
-.code-example pre {
-  background: #f9fafc;
-  border-radius: 8px;
-  padding: 12px;
-  font-family: Consolas, monospace;
-  font-size: 0.95rem;
-  overflow-x: auto;
-}
+  .code-example .title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.5em;
+    color: #333;
+  }
 
-.code-example .output {
-  background: #f0f0f0;
-  border-left: 4px solid #ccc;
-  margin-top: 0.6em;
-}
+  .code-example pre {
+    background: #f9fafc;
+    border-radius: 8px;
+    padding: 12px;
+    font-family: Consolas, monospace;
+    font-size: 0.95rem;
+    overflow-x: auto;
+    white-space: pre-wrap;     /* ← 追加 */
+    word-break: break-word;    /* ← 追加 */
+    overflow-wrap: break-word; /* ← 追加 */
+  }
 
+  .code-block pre,
+  .code-block code {
+    white-space: pre-wrap;     /* ← 追加 */
+    word-break: break-word;    /* ← 追加 */
+    overflow-wrap: break-word; /* ← 追加 */
+  }
+
+  .code-example .output {
+    background: #f0f0f0;
+    border-left: 4px solid #ccc;
+    margin-top: 0.6em;
+  }
+
+  .code-example::before {
+    content: "実行例";
+    position: absolute;
+    top: -0.8rem;
+    left: 1rem;
+    background: #fff;
+    padding: 0.1rem 0.6rem;
+    font-size: 0.9rem;
+    z-index: 3;
+  }
+
+  .code-example img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0.5rem 0; /* ← 余白追加 */
+  }
 </style>
 
-
 </head>
+
 <body>
     <header>
         <div class="header-top">
@@ -124,9 +152,9 @@
         <!-- 右側のメインコンテンツ -->
         <main class="content">
             <div class="page-header">
-                <h2><i class="fa-solid fa-calendar-days"></i> 外部ライブラリ【Plotly】</h2>
+                <h2><i class="fa-solid fa-calendar-days"></i> 【Plotly】外部ライブラリ</h2>
                 <div class="progress-indicator">
-                    <div class="progress-bar" style="width: 40%"></div>
+                    <div class="progress-bar" style="width: 80%"></div>
                     <span>講義進度: 第12回</span>
 
                 </div>
@@ -139,42 +167,131 @@ Matplotlib と違い、グラフの上にマウスを乗せると値が表示さ
 Plotly を使って「動かせる可視化」を体験します。
             </p>
             </div>
+<h2 id="完成例"><div class="fas fa-laptop-code"></div>california_housing_example.html</h2><div><img src = 'plotly_html2.png'></div>
 
  
-<h2 id="【例題と解説】 外部ライブラリ(Plotly)"><div class="fas fa-laptop-code"></div> 【例題と解説】外部ライブラリ(Plotly)</h2>
+<h2 id="外部ライブラリの導入"><div class="fas fa-laptop-code"></div> 外部ライブラリ(Plotly,Pandas の導入)</h2>
+            <div class="column" data-title="Plotly,Pandas の導入">
+                <div class="code-block">
+                    <pre><code>import pandas as pd
+import plotly.express as px
 
-<h2 id="実習16 外部ライブラリ(Plotly)"><div class="fas fa-laptop-code"></div> 【解説】実習15 外部ライブラリ(Plotly)</h2>
+df = pd.read_csv("sample_data/california_housing_test.csv")
+
+df.head()
+</code></pre>       
+                </div>
+                <div class="code-example">
+                    <img src="plotly01.png" alt="">       
+                </div>
+            </div>
+<h2 id="Pandas で必要な列を取り出す"><div class="fas fa-laptop-code"></div> Pandas で必要な列(Column)を取り出す</h2>
+            <div class="column" data-title="Pandasで列を絞る">
+                <div class="code-block">
+                    <pre><code>cols = ["median_income", "housing_median_age", "median_house_value"]
+df_sub = df[cols]
+
+summary = df_sub.describe().round(2)
+summary
+
+</code></pre>       
+                </div>
+                <div class="code-example">
+                    <img src="plotly02.png" style="width:400px;" alt="">       
+                </div>
+            </div>
+<h2 id="Plotly で散布図を描く"><div class="fas fa-laptop-code"></div> Plotly で散布図を描く</h2>
+            <div class="column" data-title="Plotly で散布図を描く">
+                <div class="code-block">
+                    <pre><code>fig = px.scatter(
+    df_sub,
+    x="median_income",
+    y="median_house_value",
+    title="所得と住宅価格の関係（California housing）",
+    labels={
+        "median_income": "世帯所得（中央値）",
+        "median_house_value": "住宅価格（中央値）",
+    },
+    opacity=0.5,
+)
+fig.show()
+</code></pre>       
+                </div>
+                <div class="code-example">
+                    <img src="plotly03.png"  alt="">       
+                </div>
+            </div>
+
+<h2 id="表とグラフを HTML に書き出す"><div class="fas fa-laptop-code"></div> 表とグラフを HTML に書き出す</h2>
+            <div class="column" data-title="グラフのテンプレートを指定">
+                <div class="code-block">
+                    <pre><code>
+# グラフのテンプレートを指定
+fig.update_layout(template="plotly")
+</code></pre>
+</div></div>
+            <div class="column" data-title="グラフ部分を HTML 文字列として取得">
+                <div class="code-block">
+                    <pre><code>
+# グラフ部分を HTML 文字列として取得
+plot_html = fig.to_html(full_html=False, include_plotlyjs="cdn")
+# full_html=False: グラフ部分だけのHTMLを取得（HTML全体ではない）
+# include_plotlyjs="cdn": PlotlyのJSライブラリをCDN経由で読み込む（軽量化できる)
+</code></pre>
+</div></div>
+            <div class="column" data-title="describe の表を HTML テーブルに変換">
+                <div class="code-block">
+                    <pre><code>
+# describe の表を HTML テーブルに変換
+table_html = summary.to_html(classes="table", border=0)
+</code></pre>
+</div></div>
+
+            <div class="column" data-title="ページ全体の HTML を組み立て">
+<button onclick="copyCode()">この部分のコードをコピー</button><br>
+<img src = 'plotly_html.png' alt="html部分の画像">
+</div>
+<div class="note-box">
+  <p><strong>💡 F文字列とマルチライン文字列について</strong></p>
+  <ul>
+    <li><code>f""" ... """</code> は、F文字列とマルチライン文字列を組み合わせたものです。</li>
+    <li><strong>F文字列</strong>は、文字列の中に<code>f"こんにちは、{name}さん"</code>のようにして、Pythonの値を埋め込むことができます。</li>
+    <li><strong>マルチライン文字列</strong>は、<code>""" ... """</code> で囲んだ複数行の文字列です。</li>
+    <li><code>f""" ... """</code> とすることで、複数行にわたる文字列の中に変数を埋め込むことができます。</li>
+    <li>文字列の中でCSSなどの中括弧<code>{ }</code>を使いたいときは、<code>{{ }}</code> と2つ重ねて書きます。</li>
+  </ul>
+</div>
+
+
+<div class="column" data-title="HTMLファイルとして保存">
+                <div class="code-block">
+                    <pre><code>
+
+# HTMLファイルとして保存
+with open("california_housing_example.html", "w", encoding="utf-8") as f:
+    f.write(html)</code></pre>
+
+                </div></div>
+
+
+<h2>california_housing_example.html が一時ファイルとして作成されたところ</h2>
+                <div class="code-example">
+                    <img src="plotly05.png" style="width:600px;"  alt="HTMLファイルが作成されたところ">       
+                </div>
+<h2>california_housing_example.html 作成までのGoogle Colabの記述例</h2>
+                <div class="code-example">
+                    <img src="plotly_html_source.png"  alt="Clabでの記述例">       
+                </div>
+                      
+<h2 id="実習16 外部ライブラリ(Plotly)"><div class="fas fa-laptop-code"></div> 実習16 外部ライブラリ(Plotly)</h2>
 <div class="exercise-box">
-    <p>ビデオを参照しながら、ノートブックの続きに実習をしましょう。<br>
+    <p>ノートブックの続きに実習をし、完成したノートブックとcalifornia_housing_example.html を提出しましょうましょう。<br>
     <ul>
-        <li>テキストセルに実習15 外部ライブラリ(plotly)</li>
-        <li>各練習問題の前にもテキストセルを挿入し、#### 各練習問題のタイトルを入れましょう。</li>
+        <li>テキストセルに実習16 外部ライブラリ(Plotly)</li>
+        <li>各コードセルの前にもテキストセルを挿入し、役割が明確になるよう工夫しましょう。</li>
 </ul>
 </p>
-<div style="max-width: 100%; overflow-x: auto;">
-  <a href="jisshu15_matplotlib.png" target="_blank">
-    <img src="jisshu15_matplotlib.png"
-         alt="実習15 外部ライブラリ（Matplotlib）の見本"
-         style="display: block; width: 100%; height: auto;">
-  </a>
-</div>
-</div>
 
-<h2 id="実習14 外部ライブラリ(Numpy)"><div class="fas fa-laptop-code"></div> 実習14 外部ライブラリ(Numpy)</h2>
-<div class="exercise-box">
-    <p>ビデオを参照しながら、ノートブックの続きに実習をしましょう。<br>
-    <ul>
-        <li>テキストセルに実習13 外部ライブラリ(Numpy)</li>
-        <li>各練習問題の前にもテキストセルを挿入し、#### 各練習問題のタイトルを入れましょう。</li>
-</ul>
-</p>
-<div style="max-width: 100%; overflow-x: auto;">
-  <a href="jisshu14_numpy.png" target="_blank">
-    <img src="jisshu14_numpy.png"
-         alt="実習14 外部ライブラリ（Numpy）の見本"
-         style="display: block; width: 100%; height: auto;">
-  </a>
-</div>
 </div>
 
 
@@ -184,17 +301,14 @@ Plotly を使って「動かせる可視化」を体験します。
 <h2 id="参考文献">参考文献</h2>
 <div class="column" data-title="教科書参照ページ">
     <div class="textbook-section">
-        <ul>
-            <li>教科書参照ページP.181-P.194:</li>
-            <li>参考サイト：python早見帳  <a href="https://chokkan.github.io/python/16numpy1.html" target="_blank">科学技術とデータ分析16．17</a></li>
-        </ul>
+
     </div>
 </div>
 
 <div class="page-navigation">
     <button onclick="window.scrollTo(0, 0)" class="top-button"><i class="fas fa-arrow-up"></i></button>
-    <button onclick="location.href='library_3.html'"><i class="fas fa-arrow-left"></i> 前へ：標準ライブラリ 【pandas, NumPy】</button>
-    <button onclick="location.href='library_5.html'"><i class="fas fa-arrow-right"></i> 次へ：外部ライブラリ 【plotly】</button>
+    <button onclick="location.href='library_4.html'"><i class="fas fa-arrow-left"></i> 前へ：外部ライブラリ 【Matplotlib】</button>
+    <button onclick="location.href='index.html'"><i class="fas fa-arrow-right"></i> 目次に戻る</button>
 </div>
 
 </main>
@@ -208,6 +322,59 @@ Plotly を使って「動かせる可視化」を体験します。
 </footer>
 
 <script src="pages.js"></script>
+
+<script>
+  function copyCode() {
+    const code = `html = f"""
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>カリフォルニア住宅データの見本</title>
+  <style>
+    body {{
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.5rem;
+      line-height: 1.6;
+    }}
+    h1 {{ font-size: 1.6rem; }}
+    h2 {{ font-size: 1.3rem; margin-top: 2rem; }}
+    table {{
+      border-collapse: collapse;
+      margin-top: 0.5rem;
+      width: 100%;
+      font-size: 0.9rem;
+    }}
+    th, td {{
+      border: 1px solid #ccc;
+      padding: 0.3rem 0.6rem;
+      text-align: right;
+    }}
+    th {{
+      background: #f2f2f2;
+      text-align: center;
+    }}
+  </style>
+</head>
+<body>
+  <h1>カリフォルニア住宅データの見本</h1>
+  <p>授業で使う California housing データ（CSV版）から、一部の列を取り出した例です。</p>
+
+  <h2>1. 所得と住宅価格の散布図</h2>
+  {plot_html}
+
+  <h2>2. 主な統計量の表</h2>
+  {table_html}
+</body>
+</html>
+"""`;
+
+    navigator.clipboard.writeText(code);
+    alert("コピーしました！");
+  }
+</script>
 
 </body>
 </html>
