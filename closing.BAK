@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>エピローグ：学びのあとで| Python 入門講座（ohkuboma）</title>
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+<style>
+  /* このページ専用の修正 */
+
+  /* メインコンテンツ：ラベルを見せつつテーブルも収まる */
+  .content {
+    overflow-x: auto;
+    overflow-y: visible;
+    position: relative;
+  }
+
+  /* 表を画面幅内に収める（このページ全体用） */
+  table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    word-break: break-word;
+  }
+
+  /* コラム（青枠）部分の調整 */
+  .column {
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: visible;
+    position: relative;
+  }
+
+  .column::before {
+    position: absolute;
+    top: -0.7rem;
+    left: 1rem;
+    z-index: 2;
+  }
+
+  /* ▼ この表だけに適用されるスタイル ▼ */
+  .textlib-table {
+    border-collapse: collapse;
+    width: 80%;
+    max-width: 800px;
+    margin: 1.5em 0;
+    text-align: left;
+    font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
+    border: 1px solid #ddd;
+  }
+
+  table.textlib-table th,
+  table.textlib-table td {
+    border: 1px solid #ddd;
+    padding: 10px 14px;
+    white-space: nowrap;
+  }
+
+  table.textlib-table thead th {
+    background-color: #e9f0f8;
+    font-weight: 600;
+  }
+
+  table.textlib-table code {
+    background: #f5f5f5;
+    padding: 2px 4px;
+    border-radius: 3px;
+  }
+
+  /* ▼ コード例まわり ▼ */
+  .code-example {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5em;
+    position: relative;
+    overflow-x: visible;
+  }
+
+  .code-example .title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.5em;
+    color: #333;
+  }
+
+  .code-example pre {
+    background: #f9fafc;
+    border-radius: 8px;
+    padding: 12px;
+    font-family: Consolas, monospace;
+    font-size: 0.95rem;
+    overflow-x: auto;
+    white-space: pre-wrap;     /* ← 追加 */
+    word-break: break-word;    /* ← 追加 */
+    overflow-wrap: break-word; /* ← 追加 */
+  }
+
+  .code-block pre,
+  .code-block code {
+    white-space: pre-wrap;     /* ← 追加 */
+    word-break: break-word;    /* ← 追加 */
+    overflow-wrap: break-word; /* ← 追加 */
+  }
+
+  .code-example .output {
+    background: #f0f0f0;
+    border-left: 4px solid #ccc;
+    margin-top: 0.6em;
+  }
+
+  .code-example::before {
+    content: "実行例";
+    position: absolute;
+    top: -0.8rem;
+    left: 1rem;
+    background: #fff;
+    padding: 0.1rem 0.6rem;
+    font-size: 0.9rem;
+    z-index: 3;
+  }
+
+  .code-example img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0.5rem 0; /* ← 余白追加 */
+  }
+</style>
+
+</head>
+
+<body>
+    <header>
+        <div class="header-top">
+            <button onclick="location.href='index.html'" class="home-button"><i class="fas fa-home"></i> HOME</button>
+            <h1><i class="fa-solid fa-calendar-days"></i> エピローグ：学びのあとで</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- 左サイドバー（目次） -->
+        <nav class="sidebar">
+            <h2><i class="fas fa-list-ul"></i> 目次</h2>
+            <ul class="toc" id="tableOfContents">
+                <!-- JavaScriptで動的に生成される目次 -->
+            </ul>
+        </nav>
+        
+        <!-- 右側のメインコンテンツ -->
+        <main class="content">
+            <div class="page-header">
+                <h1><i class="fa-solid fa-calendar-days"></i> ひらめきを形にしてみよう</h1>
+                <div class="progress-indicator">
+                    <div class="progress-bar" style="width: 100%"></div>
+                    <span>講義進度: 第13回</span>
+
+                </div>
+                <p>これまでの授業では、Pythonを使ってデータを扱い、視覚化し、  
+最後には自分の手で動くグラフを作り、それをHTMLとしてまとめるところまでやってみました。</p>
+
+<p>
+
+でも、Pythonの可能性はここで終わりではありません。  
+感情分析、ファイルの自動生成、Webアプリの作成……  
+データだけでなく、**自分のアイデアや思いを表現できるツール**として、  
+まだまだ広く深く活用できます。</p>
+
+<p>StreamlitやFlaskは、その表現を“外の世界”に広げていく力になります。</p>
+
+<p>ぜひ、自分自身の関心やひらめきを出発点に、  
+これからもPythonを使って「つくって伝える」面白さを追いかけてみてください。
+
+            </p>
+<p>📌 補足
+
+✅ Streamlit:
+
+PythonだけでインタラクティブなWebアプリが作れて、HTML/CSS/JSを書かなくてもOK。
+streamlit.io
+
+公開までのハードルが低いから、データ分析をアプリに昇華したい時に最強！
+
+✅ Flask:
+
+Pythonの本格Webアプリ基盤で、URLルーティングやAPIも自由に設計できる。
+(ウィキペディア)
+
+ただしUIは自分でHTML/CSS書いたりテンプレート使ったりする必要があるから、自由度が高い分学習コストもある。</p>
+            </div>
+<h1 id="コードで愛を語る"><div class="fas fa-laptop-code"></div> python を利用した様々な表現</h1>
+<ul>
+<li><a href="math_heart.html">解説*見本：コードで愛を語る</a><a href="math_heart.html">　<a href="https://colab.research.google.com/drive/15dsVQRQsbr8O4Ya4NJaJFXIDTyDIwuei?usp=sharing">Colab: </a></li>
+<li><a href="https://colab.research.google.com/drive/1lhHCdAtXqKCs5Cah6tTMjDtenczHyv62?usp=sharing">Colab:アヒルの気持ちをグラフにする</a></li>
+<li><a href="https://colab.research.google.com/drive/1NRwL0T4aHRrOc-NiXKuQvysPT6evNG6X?usp=sharing">Colab:GoogleDrive の中にフォルダやファイルを作ったり、その名前を変えたり</a></li>
+<li><a href="https://sikenbi.streamlit.app/">見本：試験日と名前を入力して自分を励ますアプリを作る  </a><a href="https://colab.research.google.com/drive/1lB8QICp0CSZPpWYsXG65RulKdJtH3oLf?usp=sharing">  Colab:：解説とコード</a></li>
+
+</ul>
+
+
+                      
+<h2 id="実習17 ひらめきを形にしてみよう"><div class="fas fa-laptop-code"></div> 実習17 例を研究してみましょう</h2>
+<div class="exercise-box">
+    <p>実習1～16まで完成したノートブックとcalifornia_housing_example.html 、別に学習記録を付けたノートをPDF形式で提出しましょう。<br>
+
+</p>
+<h3>最終提出物</h3>
+<ul>
+<li>Exercise_Notebook.ipynb（実習1～16）</li>
+<li>california_housing_example.html </li>
+<li>note.pdf </li>
+<li>情報社会と情報倫理のビデオのまとめ </li>
+</ul> 
+</div>
+
+
+
+
+
+
+
+<div class="page-navigation">
+    <button onclick="window.scrollTo(0, 0)" class="top-button"><i class="fas fa-arrow-up"></i></button>
+    <button onclick="location.href='library_4.html'"><i class="fas fa-arrow-left"></i> 前へ：外部ライブラリ 【Matplotlib】</button>
+   </div>
+
+</main>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <p>Python 入門講座 &copy; 2025</p>
+        <p><i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by ohkuboma</p>
+    </div>
+</footer>
+
+<script src="pages.js"></script>
+
+<script>
+  function copyCode() {
+    const code = `html = f"""
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>カリフォルニア住宅データの見本</title>
+  <style>
+    body {{
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.5rem;
+      line-height: 1.6;
+    }}
+    h1 {{ font-size: 1.6rem; }}
+    h2 {{ font-size: 1.3rem; margin-top: 2rem; }}
+    table {{
+      border-collapse: collapse;
+      margin-top: 0.5rem;
+      width: 100%;
+      font-size: 0.9rem;
+    }}
+    th, td {{
+      border: 1px solid #ccc;
+      padding: 0.3rem 0.6rem;
+      text-align: right;
+    }}
+    th {{
+      background: #f2f2f2;
+      text-align: center;
+    }}
+  </style>
+</head>
+<body>
+  <h1>カリフォルニア住宅データの見本</h1>
+  <p>授業で使う California housing データ（CSV版）から、一部の列を取り出した例です。</p>
+
+  <h2>1. 所得と住宅価格の散布図</h2>
+  {plot_html}
+
+  <h2>2. 主な統計量の表</h2>
+  {table_html}
+</body>
+</html>
+"""`;
+
+    navigator.clipboard.writeText(code);
+    alert("コピーしました！");
+  }
+</script>
+
+</body>
+</html>

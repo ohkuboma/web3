@@ -12,7 +12,8 @@
     <header>
         <h1>プログラミング 入門（ohkuboma）</h1>
         <div class="lecture-buttons">
-            <button onclick="location.href='index.html'">ガイダンス</button>
+<button class="applied-button" style="background-color:#4A90E2 !important; color:white !important; font-weight:bold;" onclick="location.href='index.html'">ガイダンス</button>
+
             <button onclick="location.href='jisshukankyo.html'">実習環境</button>
             <button onclick="location.href='calcuration.html'">四則演算</button>
          
@@ -33,7 +34,9 @@
             <button class="applied-button" onclick="location.href='library_2.html'">文字列の操作【テキスト関連】</button>
  <button class="applied-button" onclick="location.href='library_3.html'">計算と分析【Pandas,Numpy】</button>
             <button class="applied-button" onclick="location.href='library_4.html'">グラフの描画【Matplotlib】</button> 
-           <button class="applied-button" onclick="location.href='library_4.html'">視覚化と表現【Plotly, HTML】</button>            
+           <button class="applied-button" onclick="location.href='library_5.html'">視覚化と表現【Plotly, HTML】</button>            
+           <button class="applied-button" style="background-color:#7B61FF !important; color:white !important; font-weight:bold;" onclick="location.href='closing.html'">学びのあとで</button>
+
 
               </div>
     </header>
