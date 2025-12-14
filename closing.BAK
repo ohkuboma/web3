@@ -152,7 +152,7 @@
         <!-- 右側のメインコンテンツ -->
         <main class="content">
             <div class="page-header">
-                <h1><i class="fa-solid fa-calendar-days"></i> ひらめきを形にしてみよう</h1>
+                <h2><i class="fa-solid fa-calendar-days"></i> ひらめきを形にしてみよう</h2>
                 <div class="progress-indicator">
                     <div class="progress-bar" style="width: 100%"></div>
                     <span>講義進度: 第13回</span>
@@ -190,29 +190,36 @@ Pythonの本格Webアプリ基盤で、URLルーティングやAPIも自由に�
 
 ただしUIは自分でHTML/CSS書いたりテンプレート使ったりする必要があるから、自由度が高い分学習コストもある。</p>
             </div>
-<h1 id="コードで愛を語る"><div class="fas fa-laptop-code"></div> python を利用した様々な表現例</h1>
+<h2 id="python を利用した様々な表現例"><div class="fas fa-laptop-code"></div> python を利用した様々な表現例</h2>
 <ul>
 <li><a href="math_heart.html">表示例：コードで愛を語る</a><a href="math_heart.html">　<a href="https://colab.research.google.com/drive/15dsVQRQsbr8O4Ya4NJaJFXIDTyDIwuei?usp=sharing">Colab: </a></li>
 <li><a href="mari_ugly_duckling_work.html">表示例:みにくいアヒルの子の気持ちをグラフにする</a> <a href="https://colab.research.google.com/drive/1lhHCdAtXqKCs5Cah6tTMjDtenczHyv62?usp=sharing"> 　Colab:</a></li>
 
 <li><a href="https://colab.research.google.com/drive/1NRwL0T4aHRrOc-NiXKuQvysPT6evNG6X?usp=sharing">Colab:GoogleDrive の中にフォルダやファイルを作ったり、その名前を変えたり</a></li>
-<li><a href="https://sikenbi.streamlit.app/">見本：試験日と名前を入力して自分を励ますアプリを作る  </a><a href="https://colab.research.google.com/drive/1lB8QICp0CSZPpWYsXG65RulKdJtH3oLf?usp=sharing">  Colab:：解説とコード</a></li>
+<li><a href="https://sikenbi.streamlit.app/">表示例：試験日と名前を入力して自分を励ますアプリを作る  </a><a href="https://colab.research.google.com/drive/1lB8QICp0CSZPpWYsXG65RulKdJtH3oLf?usp=sharing">  Colab:：解説とコード</a></li>
 
 </ul>
 
 
                       
-<h2 id="実習17 ひらめきを形にしてみよう"><div class="fas fa-laptop-code"></div> 実習17 python を利用した様々な表現例を研究してみましょう</h2>
+<h2 id="実習17 ひらめきを形にしてみよう"><div class="fas fa-laptop-code"></div> 実習17 応用課題</h2>
 <div class="exercise-box">
-    <p>実習1～16まで完成したノートブックとcalifornia_housing_example.html 、別に学習記録を付けたノートをPDF形式で提出しましょう。<br>
-
-</p>
-<h3>最終提出物</h3>
+<p>実習17 python を利用した様々な表現例を研究し、各自のできる範囲でアイデアを形にしてみましょう</p>
+</div>
+ 
+<h2 id="評価について"><div class="fas fa-laptop-code"></div>評価について</h2>
+<div class="exercise-box">
+<h4>最終提出物：</h4>
 <ul>
-<li>Exercise_Notebook.ipynb（実習1～16）</li>
+<li>Exercise_Notebook.ipynb（実習1～16, 17）</li>
 <li>california_housing_example.html </li>
 <li>note.pdf </li>
-<li>情報社会と情報倫理のビデオのまとめ </li>
+<li>情報社会と情報倫理のビデオ（1から28）のまとめ </li>
+</ul>
+<h4>成果判定</h4>
+<ul>
+<li>実技試験（スキルチェック）</li>
+<li>用語試験（総合クイズ） </li>
 </ul> 
 </div>
 
