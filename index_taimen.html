@@ -1,0 +1,448 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ガイダンス</title>
+    <link rel="stylesheet" href="pages.css">
+	<link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    <header>
+        <h1>プログラミング 入門（ohkuboma）</h1>
+        <div class="lecture-buttons">
+<button class="applied-button" style="background-color:#4A90E2 !important; color:white !important; font-weight:bold;" onclick="location.href='index.html'">ガイダンス</button>
+
+            <button onclick="location.href='jisshukankyo.html'">実習環境</button>
+            <button onclick="location.href='calcuration.html'">四則演算</button>
+         
+          
+            <button onclick="location.href='variables.html'">変数</button>
+            <button onclick="location.href='datatypes.html'">データ型</button>
+            <button onclick="location.href='if.html'">条件分岐</button>
+            <button onclick="location.href='list.html'">リスト</button>
+            <button onclick="location.href='for.html'">繰り返し</button>
+            <button onclick="location.href='tuple_dict_set.html'">タプル・辞書・セット</button>
+            <button onclick="location.href='function.html'">関数</button>
+              <button class="info-button" onclick="location.href=''">情報社会</button>            
+            <button class="info-button" onclick="location.href=''">情報倫理</button>
+
+</div>
+<div class="lecture-buttons">
+  <button class="applied-button" onclick="location.href='library_1.html'">数と時の計算【math datetime】</button>
+            <button class="applied-button" onclick="location.href='library_2.html'">文字列の操作【テキスト関連】</button>
+ <button class="applied-button" onclick="location.href='library_3.html'">計算と分析【Pandas,Numpy】</button>
+            <button class="applied-button" onclick="location.href='library_4.html'">グラフの描画【Matplotlib】</button> 
+           <button class="applied-button" onclick="location.href='library_5.html'">視覚化と表現【Plotly, HTML】</button>            
+           <button class="applied-button" style="background-color:#4A90E2 !important; color:white !important; font-weight:bold;" onclick="location.href='closing.html'">学びのあとで</button>
+
+
+              </div>
+    </header>
+    
+    <div class="container">
+        <!-- 左サイドバー（目次） -->
+        <nav class="sidebar">
+            <h2>目次</h2>
+            <ul class="toc" id="tableOfContents">
+                <!-- JavaScriptで動的に生成される目次 -->
+            </ul>
+        </nav>
+        
+        <!-- メインコンテンツ -->
+        <main class="content">
+            <h2 id="講義の内容と評価方法">講義の内容と評価方法</h2>
+            <ul>
+                <a href="https://g-sys.toyo.ac.jp/syllabus/html/gakugai/2025/2025_169521.html?numbering=">シラバス</a></li>
+            </ul>
+            <h2 id="講義の進行状況">講義の進行状況</a></h2>
+            <ul>
+                <li><a href="https://docs.google.com/spreadsheets/d/13QWx44kX7mF7bvgZBvCvJ7p9JrQxVYH92K6LjE26M1E/edit?gid=0#gid=0">進行表（@toyo.jp）</a></li>
+            </ul>
+
+            <h2 id="座席指定">座席指定</h2>
+            <ul>
+                <li><a href="https://docs.google.com/spreadsheets/d/1hAhAutPYFSPabTq6j3lurbsbtfTHiUmxbuq4qnCiIS8/edit?usp=sharing">月3座席表</a>（@toyo.jp でログインして閲覧）</li>
+                <li><a href="https://docs.google.com/spreadsheets/d/1hAhAutPYFSPabTq6j3lurbsbtfTHiUmxbuq4qnCiIS8/edit?usp=sharing">月4座席表</a>（@toyo.jp でログインして閲覧）</li>
+            </ul>
+            <p>第3回終了時までに、座席表の自分が着席している席に氏名と氏名のフリガナを入力しておくこと。(@toyo.jp で、google にログインして座席表のgooglespredsheet を編集)</p>
+            <p>履修登録をしているが、座席表に名前がない場合及び、 出席管理システムに出席の入力があるが、本人が、座席表の位置に着席していない場合出席とみなさない。機械の不都合などで座る席を変わる場合は、その都度書き換えること。</p>
+
+            <h2 id="講義中の質問の方法">講義中の質問の方法</h2>
+            <p>講義時間中の作業時間に質問したい場合</p>
+            <h3>✖　自分の席で手を挙げる</h3>
+            <p>質問したい事柄とその問題点を含むファイルをSlackのDMに添付して送信してから、教官席まで「さきほどファイルを送らせていただきました○○（氏名）です。」と質問に来てください。簡単な説明で済む場合スラックに直接返信がいくこともあります。</p>
+
+            <h3 id="slack">Slack</h3>
+            <p>slack は、授業内で重要なコミュニケーションツールとして使用するので、
+            slack での問いかけへの反応がない、slack にログインしていない場合は、出席とみなさない場合がある。</p>
+
+            <h4 id="トークルーム_2025f_web32クラス共通">トークルーム_2025f_web3（2クラス共通）</h4>
+            <ul>
+                <li>招待コード<a href="https://www.ace.toyo.ac.jp/ct/page_9907296c9379313_9907298">（Toyonet ACE に掲載）</a>　</li>
+                <li><a href="https://slack.com/intl/ja-jp/help/articles/360059976673-Slack-%E3%81%AE%E3%83%93%E3%83%87%E3%82%AA%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB">slack の使い方</a></li>
+            </ul>
+
+            <h4 id="授業間外の質問">授業間外の質問</h4>
+            <p>きちんと予習をし、授業内の質問時間に質問ができるように準備しておくこと。</p>
+
+            <h2 id="欠席連絡">欠席連絡</h2>
+            <ul>
+                <li>欠席した場合は、進度や内容、提出物提出期限はコースコンテンツで指示されているので、そちらを参照して次回に備えておくこと</li>
+                <li>感染症による出席停止等の場合、学籍番号、氏名、欠席日、欠席理由を、後日出席した際に申し出てください。出席扱いにできる場合があります。</li>
+            </ul>
+
+            <h2 id="自習時間に利用可能な施設">自習時間に利用可能な施設</h2>
+            <ul>
+                <li><a href="https://sites.google.com/toyo.jp/toyonet/%E8%87%AA%E7%BF%92%E7%94%A8pc%E6%95%99%E5%AE%A4%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC">学生用自習室カレンダー</a></li>
+            </ul>
+
+            <h2 id="学内でのwifi-接続">学内でのwifi 接続</h2>
+            <p>ノートブックパソコン、タブレットを持参している場合、学内のwifi に接続して利用することができます。</p>
+            <ul>
+                <li>アクセスポイント　（Toyonet ACE に掲載）</li>
+                <li>セキュリティーキー（Toyonet ACE に掲載）</li>
+            </ul>
+            <h2 id="タイプ練習">タイプ練習</h2>
+            <p>タッチタイピングの練習をしましょう</p>
+		<ul><li><a href="http://gontyping.com/typing-game/touch-typing/easy-typing.html">ごんタイピング</a></li>
+            <li><a href="https://typing.twi1.me/game/3401">Mytyping 数字と記号タイピング</a></li>
+            <li><a href="https://typing.io/lesson/python/mercurial/merge.py/1">コードで練習</a></li></ul>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 350">
+                <!-- キーボードのベース -->
+                <rect width="900" height="350" fill="#f5f5f5" rx="10" ry="10" stroke="#999" stroke-width="2"/>
+                
+                <!-- 指の色分け -->
+                <rect x="20" y="15" width="20" height="15" fill="#ffcccc" rx="3" ry="3"/>
+                <text x="45" y="27" font-family="Arial" font-size="12">小指（左）</text>
+                
+                <rect x="120" y="15" width="20" height="15" fill="#ffddcc" rx="3" ry="3"/>
+                <text x="145" y="27" font-family="Arial" font-size="12">薬指（左）</text>
+                
+                <rect x="220" y="15" width="20" height="15" fill="#ffffcc" rx="3" ry="3"/>
+                <text x="245" y="27" font-family="Arial" font-size="12">中指（左）</text>
+                
+                <rect x="320" y="15" width="20" height="15" fill="#ccffcc" rx="3" ry="3"/>
+                <text x="345" y="27" font-family="Arial" font-size="12">人差し指（左）</text>
+                
+                <rect x="520" y="15" width="20" height="15" fill="#ccffff" rx="3" ry="3"/>
+                <text x="545" y="27" font-family="Arial" font-size="12">人差し指（右）</text>
+                
+                <rect x="620" y="15" width="20" height="15" fill="#ddddff" rx="3" ry="3"/>
+                <text x="645" y="27" font-family="Arial" font-size="12">中指（右）</text>
+                
+                <rect x="720" y="15" width="20" height="15" fill="#ffccff" rx="3" ry="3"/>
+                <text x="745" y="27" font-family="Arial" font-size="12">薬指（右）</text>
+                
+                <rect x="820" y="15" width="20" height="15" fill="#ffccdd" rx="3" ry="3"/>
+                <text x="845" y="27" font-family="Arial" font-size="12">小指（右）</text>
+              
+                <!-- 第1段 -->
+                <g transform="translate(0, 50)">
+                  <rect x="20" y="0" width="40" height="40" fill="#ffcccc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="40" y="15" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" dominant-baseline="middle">半角</text>
+                  <text x="40" y="30" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" dominant-baseline="middle">全角</text>
+                  
+                  <rect x="70" y="0" width="40" height="40" fill="#ffcccc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="90" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">1</text>
+                  <text x="90" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">!</text>
+                  
+                  <rect x="120" y="0" width="40" height="40" fill="#ffddcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="140" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">2</text>
+                  <text x="140" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">"</text>
+                  
+                  <rect x="170" y="0" width="40" height="40" fill="#ffffcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="190" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">3</text>
+                  <text x="190" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">#</text>
+                  
+                  <rect x="220" y="0" width="40" height="40" fill="#ccffcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="240" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">4</text>
+                  <text x="240" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">$</text>
+                  
+                  <rect x="270" y="0" width="40" height="40" fill="#ccffcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="290" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">5</text>
+                  <text x="290" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">%</text>
+                  
+                  <rect x="320" y="0" width="40" height="40" fill="#ccffcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="340" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">6</text>
+                  <text x="340" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">&amp;</text>
+                  
+                  <rect x="370" y="0" width="40" height="40" fill="#ccffff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="390" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">7</text>
+                  <text x="390" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">'</text>
+                  
+                  <rect x="420" y="0" width="40" height="40" fill="#ccffff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="440" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">8</text>
+                  <text x="440" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">(</text>
+                  
+                  <rect x="470" y="0" width="40" height="40" fill="#ddddff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="490" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">9</text>
+                  <text x="490" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">)</text>
+                  
+                  <rect x="520" y="0" width="40" height="40" fill="#ffccff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="540" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">0</text>
+                  
+                  <rect x="570" y="0" width="40" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="590" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">-</text>
+                  <text x="590" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">=</text>
+                  
+                  <rect x="620" y="0" width="40" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="640" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">^</text>
+                  <text x="640" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">~</text>
+                  
+                  <rect x="670" y="0" width="40" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="690" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">¥</text>
+                  <text x="690" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">|</text>
+                  
+                  <rect x="720" y="0" width="90" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="765" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">BackSpace</text>
+                </g>
+                
+                <!-- 第2段 -->
+                <g transform="translate(0, 100)">
+                  <rect x="20" y="0" width="60" height="40" fill="#ffcccc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="50" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Tab</text>
+                  
+                  <rect x="90" y="0" width="40" height="40" fill="#ffcccc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="110" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Q</text>
+                  
+                  <rect x="140" y="0" width="40" height="40" fill="#ffddcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="160" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">W</text>
+                  
+                  <rect x="190" y="0" width="40" height="40" fill="#ffffcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="210" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">E</text>
+                  
+                  <rect x="240" y="0" width="40" height="40" fill="#ccffcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="260" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">R</text>
+                  
+                  <rect x="290" y="0" width="40" height="40" fill="#ccffcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="310" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">T</text>
+                  
+                  <rect x="340" y="0" width="40" height="40" fill="#ccffff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="360" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Y</text>
+                  
+                  <rect x="390" y="0" width="40" height="40" fill="#ccffff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="410" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">U</text>
+                  
+                  <rect x="440" y="0" width="40" height="40" fill="#ccffff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="460" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">I</text>
+                  
+                  <rect x="490" y="0" width="40" height="40" fill="#ddddff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="510" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">O</text>
+                  
+                  <rect x="540" y="0" width="40" height="40" fill="#ffccff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="560" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">P</text>
+                  
+                  <rect x="590" y="0" width="40" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="610" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">@</text>
+                  <text x="610" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">`</text>
+                  
+                  <rect x="640" y="0" width="40" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="660" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">[</text>
+                  <text x="660" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">{</text>
+                  
+                  <rect x="690" y="0" width="70" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="725" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Enter</text>
+                </g>
+                
+                <!-- 第3段 -->
+                <g transform="translate(0, 150)">
+                  <rect x="20" y="0" width="80" height="40" fill="#ffcccc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="60" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">CapsLock</text>
+                  
+                  <rect x="110" y="0" width="40" height="40" fill="#ffcccc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="130" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">A</text>
+                  
+                  <rect x="160" y="0" width="40" height="40" fill="#ffddcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="180" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">S</text>
+                  
+                  <rect x="210" y="0" width="40" height="40" fill="#ffffcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="230" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">D</text>
+                  
+                  <rect x="260" y="0" width="40" height="40" fill="#ccffcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="280" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">F</text>
+                  
+                  <rect x="310" y="0" width="40" height="40" fill="#ccffcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="330" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">G</text>
+                  
+                  <rect x="360" y="0" width="40" height="40" fill="#ccffff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="380" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">H</text>
+                  
+                  <rect x="410" y="0" width="40" height="40" fill="#ccffff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="430" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">J</text>
+                  
+                  <rect x="460" y="0" width="40" height="40" fill="#ddddff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="480" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">K</text>
+                  
+                  <rect x="510" y="0" width="40" height="40" fill="#ffccff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="530" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">L</text>
+                  
+                  <rect x="560" y="0" width="40" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="580" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">;</text>
+                  <text x="580" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">+</text>
+                  
+                  <rect x="610" y="0" width="40" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="630" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">:</text>
+                  <text x="630" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">*</text>
+                  
+                  <rect x="660" y="0" width="40" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="680" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">]</text>
+                  <text x="680" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">}</text>
+                </g>
+                
+                <!-- 第4段 -->
+                <g transform="translate(0, 200)">
+                  <rect x="20" y="0" width="60" height="40" fill="#ffcccc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="50" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Shift</text>
+                  
+                  <rect x="90" y="0" width="40" height="40" fill="#ffcccc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="110" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Z</text>
+                  
+                  <rect x="140" y="0" width="40" height="40" fill="#ffddcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="160" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">X</text>
+                  
+                  <rect x="190" y="0" width="40" height="40" fill="#ffffcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="210" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">C</text>
+                  
+                  <rect x="240" y="0" width="40" height="40" fill="#ccffcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="260" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">V</text>
+                  
+                  <rect x="290" y="0" width="40" height="40" fill="#ccffcc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="310" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">B</text>
+                  
+                  <rect x="340" y="0" width="40" height="40" fill="#ccffff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="360" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">N</text>
+                  
+                  <rect x="390" y="0" width="40" height="40" fill="#ccffff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="410" y="22" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle">M</text>
+                  
+                  <rect x="440" y="0" width="40" height="40" fill="#ccffff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="460" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">,</text>
+                  <text x="460" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">&lt;</text>
+                  
+                  <rect x="490" y="0" width="40" height="40" fill="#ddddff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="510" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">.</text>
+                  <text x="510" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">&gt;</text>
+                  
+                  <rect x="540" y="0" width="40" height="40" fill="#ffccff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="560" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">/</text>
+                  <text x="560" y="32" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">?</text>
+                  
+                  <rect x="590" y="0" width="40" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="610" y="15" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="red">\_</text>
+                  
+                  <rect x="640" y="0" width="120" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="700" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Shift</text>
+                </g>
+                
+                <!-- 第5段 -->
+                <g transform="translate(0, 250)">
+                  <rect x="20" y="0" width="50" height="40" fill="#ffcccc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="45" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Ctrl</text>
+                  
+                  <rect x="80" y="0" width="50" height="40" fill="#ffcccc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="105" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Win</text>
+                  
+                  <rect x="140" y="0" width="50" height="40" fill="#ffcccc" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="165" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Alt</text>
+                  
+                  <rect x="200" y="0" width="260" height="40" fill="#ccffff" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="330" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">スペース</text>
+                  
+                  <rect x="470" y="0" width="50" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="495" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Alt</text>
+                  
+                  <rect x="530" y="0" width="50" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="555" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Win</text>
+                  
+                  <rect x="590" y="0" width="50" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="615" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Menu</text>
+                  
+                  <rect x="650" y="0" width="50" height="40" fill="#ffccdd" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="675" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">Ctrl</text>
+                </g>
+                
+                <!-- 方向キー -->
+                <g transform="translate(0, 300)">
+                  <rect x="590" y="0" width="40" height="40" fill="white" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="610" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">←</text>
+                  
+                  <rect x="640" y="0" width="40" height="40" fill="white" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="660" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">↓</text>
+                  
+                  <rect x="690" y="0" width="40" height="40" fill="white" stroke="#999" stroke-width="1" rx="3" ry="3"/>
+                  <text x="710" y="22" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">→</text>
+                </g>
+              </svg>
+            
+
+            <h2 id="参考サイト">参考サイト</h2>
+            <div class="column" data-title="参考サイト">
+                <ul>
+                    <li>
+                        <strong>Python 公式ドキュメント</strong><br>
+                        <a href="https://www.python.org/doc/">Python Documentation</a>
+                    </li>
+
+                    <li>
+                        <strong>いまにゅのプログラミング塾</strong><br>
+                        <a href="https://youtu.be/yeZ3STy3k44?si=EOj-Jmz9DuXymt4P">python入門シリーズ</a></li>
+                    <li>
+                        <strong><a href="https://www.w3schools.com/python/default.asp">W3Schools Python Tutorial</a></strong>
+                    </li>
+   <li><strong><a href="https://chokkan.github.io/python/index.html"> 「Python早見帳」</a></strong>岡崎 直観 著</li>
+
+
+                </ul>
+            </div>
+
+            <h2 id="教科書・参考文献">教科書・参考文献</h2>
+            <div class="column" data-title="参考文献">
+                <ul>
+                    <li>
+                        <strong>教科書</strong><br>
+                        「スラスラ読める Pythonふりがなプログラミング 増補改訂版」,<BR>リブロワークス, 株式会社ビープラウド 監修, インプレス
+                    </li>
+
+                    <li>
+                        <strong>参考書</strong><br>
+                        「改訂新版 最短距離でゼロからしっかり学ぶ Python入門 必修編」<br>
+                        Eric Matthes,技術評論社
+                    </li>
+ <li>
+                        <strong>参考書</strong><br>
+                        「改訂新版 最短距離でゼロからしっかり学ぶ Python入門 実践編」<br>
+                        Eric Matthes, 技術評論社
+                    </li>
+<li><strong>参考書</strong>「今日からできるPython業務効率化」</strong><BR>今西航平, KADOKAWA,2022</li>
+ 
+                   
+                </ul>
+            </div>
+
+            <h2>練習問題</h2>
+            <div class="column" data-title="練習問題">
+                <ul>
+                    <li><a href="https://www.w3schools.com/python/python_exercises.asp">Python Exercises</a></li>
+                    <li><a href="https://www.w3schools.com/python/python_quiz.asp">Python Quiz</a></li>
+                </ul>
+            </div>
+
+            <h2>課外学習</h2>
+            <h3 id="情報社会と情報倫理">情報社会と情報倫理</h3>
+            <p>ビデオ教材「情報社会と情報倫理」を参照し、各ビデオの内容を要約し、Toyonet ACEのアンケートフォームから提出すること（提出期限は、講義中に指示する
+                ）</p>
+ 
+            </div>
+            <div class="page-navigation">
+                <button onclick="window.scrollTo(0, 0)" class="top-button">↑ Top</button>
+                <button onclick="location.href='jisshukankyo.html'">Next</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="pages.js"></script>
+
+</body>
+</html>
