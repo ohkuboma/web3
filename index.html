@@ -1,21 +1,233 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <title>ページを移動します</title>
-
-  <!-- JavaScriptが無効な場合の転送 -->
-  <meta http-equiv="refresh" content="0; url="jisshukankyo.html">
-
-  <script>
-    // 「戻る」で古いガイダンスページへ戻らない
-    window.location.replace("jisshukankyo.html");
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ガイダンス（非対面授業）</title>
+    <link rel="stylesheet" href="pages.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        .notice-card {
+            margin: 1rem 0;
+            padding: 1rem 1.25rem;
+            border-left: 4px solid #3498db;
+            border-radius: 8px;
+            background: #eef7ff;
+        }
+        .assessment-table {
+            width: 100%;
+            max-width: 680px;
+            margin: 1rem 0 1.5rem;
+            border-collapse: collapse;
+            background: #fff;
+        }
+        .assessment-table th,
+        .assessment-table td {
+            padding: 0.75rem 1rem;
+            border: 1px solid #dfe6e9;
+            text-align: left;
+        }
+        .assessment-table th:last-child,
+        .assessment-table td:last-child {
+            width: 7rem;
+            text-align: right;
+        }
+        .resource-card {
+            margin: 1rem 0;
+            padding: 1.25rem;
+            border: 1px solid #dfe6e9;
+            border-radius: 8px;
+            background: #fff;
+        }
+        .image-placeholder {
+            display: grid;
+            place-items: center;
+            min-height: 180px;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            border: 2px dashed #aab7c4;
+            border-radius: 8px;
+            color: #617181;
+            background: #f8fafb;
+            text-align: center;
+        }
+        .pending-link {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            color: #6c5ce7;
+            background: #f1efff;
+            font-weight: 600;
+        }
+        .asset-id {
+            display: inline-block;
+            margin-right: 0.35rem;
+            padding: 0.05rem 0.4rem;
+            border-radius: 999px;
+            color: #fff;
+            background: #6c5ce7;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+        }
+        .compact-list li { margin-bottom: 0.3rem; }
+        .deadline {
+            font-weight: 700;
+            color: #c0392b;
+        }
+        @media (max-width: 700px) {
+            .assessment-table { font-size: 0.9rem; }
+            .assessment-table th,
+            .assessment-table td { padding: 0.55rem; }
+        }
+    </style>
 </head>
 <body>
-  <p>
-    ページを移動しています。
-    <a href="jisshukankyo.html">自動的に移動しない場合はこちら</a>
-  </p>
+    <header>
+        <h1>プログラミング入門（非対面授業）</h1>
+        <div class="lecture-buttons">
+            <button class="applied-button active-nav" onclick="location.href='index_hitaimen.html'">ガイダンス</button>
+            <button onclick="location.href='jisshukankyo.html'">実習環境</button>
+            <button onclick="location.href='calcuration.html'">四則演算</button>
+            <button onclick="location.href='variables.html'">変数</button>
+            <button onclick="location.href='datatypes.html'">データ型</button>
+            <button onclick="location.href='if.html'">条件分岐</button>
+            <button onclick="location.href='list.html'">リスト</button>
+            <button onclick="location.href='for.html'">繰り返し</button>
+            <button onclick="location.href='tuple_dict_set.html'">タプル・辞書・セット</button>
+            <button onclick="location.href='function.html'">関数</button>
+            <button class="info-button" onclick="location.href=''">情報社会</button>
+            <button class="info-button" onclick="location.href=''">情報倫理</button>
+        </div>
+        <div class="lecture-buttons">
+            <button class="applied-button" onclick="location.href='library_1.html'">数と時の計算【math datetime】</button>
+            <button class="applied-button" onclick="location.href='library_2.html'">文字列の操作【テキスト関連】</button>
+            <button class="applied-button" onclick="location.href='library_3.html'">計算と分析【Pandas, NumPy】</button>
+            <button class="applied-button" onclick="location.href='library_4.html'">グラフの描画【Matplotlib】</button>
+            <button class="applied-button" onclick="location.href='library_5.html'">視覚化と表現【Plotly, HTML】</button>
+            <button class="applied-button" onclick="location.href='closing.html'">学びのあとで</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav class="sidebar" aria-label="ページ内目次">
+            <h2>目次</h2>
+            <ul class="toc" id="tableOfContents"></ul>
+        </nav>
+
+        <main class="content">
+            <div class="notice-card">
+                このページは、ToyoNet-ACEに掲載された2026年度「プログラミング入門」のガイダンスを、非対面授業向けに読みやすく整理したものです。
+            </div>
+
+            <h2 id="学年度">学年度</h2>
+            <p>2026年度　<a href="https://www.ace.toyo.ac.jp/ct/link_iframe_balloon?url=https%3A%2F%2Fwww.toyo.ac.jp%2Fassets%2Fcampuslife%2FJP_AY2026_Academic_Calender_s.pdf">学年歴</a></p>
+
+            <h2 id="シラバス">シラバス</h2>
+            <p><a href="https://www.ace.toyo.ac.jp/ct/link_iframe_balloon?url=https%3A%2F%2Fg-sys.toyo.ac.jp%2Fsyllabus%2Fhtml%2Fgakugai%2F2026%2F2026_169523.html%3Fnumbering%3D">日本語版</a>　<a href="https://www.ace.toyo.ac.jp/ct/link_iframe_balloon?url=https%3A%2F%2Fg-sys.toyo.ac.jp%2Fsyllabus%2Fhtml%2Fgakugai%2F2026%2F2026_169523_en.html%3Fnumbering%3D">English</a></p>
+
+            <h2 id="講義日程">講義日程</h2>
+            <ul>
+                <li><a href="https://www.ace.toyo.ac.jp/ct/link_iframe_balloon?url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F177A6DpbAQvHYtOIT_AA2j7GIDS1_-LRBYofOkt9EwIQ%2Fedit%3Fusp%3Dsharing">予習の手引き</a></li>
+                <li><a href="https://www.ace.toyo.ac.jp/ct/link_iframe_balloon?url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1ymfNFH-b_vjob-0bMxZLI9xC1VwBImtYz7XJPzEYHD8%2Fedit%3Fusp%3Dsharing">進行状況の記録</a></li>
+                <li><a href="https://www.ace.toyo.ac.jp/ct/link_iframe_balloon?url=https%3A%2F%2Fohkuboma.biz%2Fweb3%2F">Web教材</a>（ID・パスワードが必要）</li>
+            </ul>
+
+            <h2 id="指導方法">指導方法</h2>
+            <div class="resource-card">
+                <p>本授業では、講義用ウェブページを中心教材として使用します。あわせて、テキスト（教科書）およびビデオ教材も使用します。</p>
+                <p>本授業はオンデマンド形式で実施します。毎週水曜日に教材・課題等を配信し、学生は講義用ウェブページ、教科書、ビデオ教材を確認したうえで、指定された課題や確認クイズに取り組みます。</p>
+                <p>質問や双方向の連絡には、主にSlackを使用します。</p>
+                <p>各回の課題は、授業内容の理解状況を確認するために提出するものです。課題は原則として翌週の金曜日までに提出してください。内容を確認し、必要に応じて全体への注意・補足説明を行います。また、個別に修正が必要な場合には、ToyoNet-ACE等を通じて連絡します。</p>
+                <p>やむを得ず金曜日までに提出できなかった場合でも、次回授業の前日まで提出できます。提出先を設定します。各回の課題について指摘を受けた箇所や、全体への注意で示された箇所は、その後の課題やスキルチェックに反映できるよう、各自で確認・修正してください。</p>
+                <p>授業後は、各回に学んだことの要点をノートにまとめ、次に必要になった場合に速やかに思い出せるよう工夫しましょう。</p>
+            </div>
+
+            <h2 id="成績評価">成績評価の方法・基準</h2>
+            <p>東洋大学成績評価基準に準拠します。</p>
+            <table class="assessment-table">
+                <thead><tr><th>評価項目</th><th>割合</th></tr></thead>
+                <tbody>
+                    <tr><td>情報社会と情報倫理に関する課題</td><td>10%</td></tr>
+                    <tr><td>スキルチェック</td><td>20%</td></tr>
+                    <tr><td>クイズ</td><td>10%</td></tr>
+                    <tr><td>課題</td><td>60%</td></tr>
+                </tbody>
+            </table>
+            <h3 id="課題について">課題について</h3>
+            <p>各回の課題は、授業内容の理解状況を確認し、その後の学習につなげるためのものです。指摘を受けた箇所や全体への注意で示された箇所は、後の課題やスキルチェックに反映できるよう各自で確認・修正してください。</p>
+            <h3 id="スキルチェックについて">スキルチェックについて</h3>
+            <p>習得すべき最低限の内容を確認します。スキルチェックを受験しなかった場合、著しく低い得点しか得られなかった場合、他の評価項目の合計が60%に達していても不合格とする場合があります。やむを得ない事情により指定期間に受験できない場合には、必要に応じて予備期間を設けて対応します。</p>
+
+            <h2 id="用意するもの">用意するもの</h2>
+            <h3 id="教科書">教科書</h3>
+            <p>「スラスラ読める Pythonふりがなプログラミング 増補改訂版（ふりがなプログラミングシリーズ）」<br>リブロワークス（著）、株式会社ビープラウド（監修）、インプレス（出版社）</p>
+            <p>型式は以下のいずれでも構いません。受講人数が予測できなかったため、生協には注文してありません。</p>
+            <ol>
+                <li><a href="https://www.ace.toyo.ac.jp/ct/link_iframe_balloon?url=https%3A%2F%2Fbook.impress.co.jp%2Fbooks%2F1120101181">PDF版をダウンロードして購入</a></li>
+                <li><a href="https://www.ace.toyo.ac.jp/ct/link_iframe_balloon?url=https%3A%2F%2Fwww.amazon.co.jp%2F%25E3%2582%25B9%25E3%2583%25A9%25E3%2582%25B9%25E3%2583%25A9%25E8%25AA%25AD%25E3%2582%2581%25E3%2582%258B-Python%25E3%2581%25B5%25E3%2582%258A%25E3%2581%258C%25E3%2581%25AA%25E3%2583%2597%25E3%2583%25AD%25E3%2582%25B0%25E3%2583%25A9%25E3%2583%259F%25E3%2583%25B3%25E3%2582%25B0-%25E5%25A2%2597%25E8%25A3%259C%25E6%2594%25B9%25E8%25A8%2582%25E7%2589%2588-%25E3%2581%25B5%25E3%2582%258A%25E3%2581%258C%25E3%2581%25AA%25E3%2583%2597%25E3%2583%25AD%25E3%2582%25B0%25E3%2583%25A9%25E3%2583%259F%25E3%2583%25B3%25E3%2582%25B0%25E3%2582%25B7%25E3%2583%25AA%25E3%2583%25BC%25E3%2582%25BA-%25E6%25A0%25AA%25E5%25BC%258F%25E4%25BC%259A%25E7%25A4%25BE%25E3%2583%2593%25E3%2583%25BC%25E3%2583%2597%25E3%2583%25A9%25E3%2582%25A6%25E3%2583%2589-ebook%2Fdp%2FB09BMNYPRD%2Fref%3Dtmm_kin_swatch_0">Kindle版を購入</a></li>
+                <li>書籍を注文して購入（ISBN: 978-4-295-01174-3）
+                    <ul>
+                        <li><a href="https://www.ace.toyo.ac.jp/ct/link_iframe_balloon?url=https%3A%2F%2Fwww.amazon.co.jp%2F%25E3%2582%25B9%25E3%2583%25A9%25E3%2582%25B9%25E3%2583%25A9%25E8%25AA%25AD%25E3%2582%2581%25E3%2582%258B-Python%25E3%2581%25B5%25E3%2582%258A%25E3%2581%258C%25E3%2581%25AA%25E3%2583%2597%25E3%2583%25AD%25E3%2582%25B0%25E3%2583%25A9%25E3%2583%259F%25E3%2583%25B3%25E3%2582%25B0-%25E5%25A2%2597%25E8%25A3%259C%25E6%2594%25B9%25E8%25A8%2582%25E7%2589%2588-%25E3%2581%25B5%25E3%2582%258A%25E3%2581%258C%25E3%2581%25AA%25E3%2583%2597%25E3%2583%25AD%25E3%2582%25B0%25E3%2583%25A9%25E3%2583%259F%25E3%2583%25B3%25E3%2582%25B0%25E3%2582%25B7%25E3%2583%25AA%25E3%2583%25BC%25E3%2582%25BA-%25E3%2583%25AA%25E3%2583%2596%25E3%2583%25AD%25E3%2583%25AF%25E3%2583%25BC%25E3%2582%25AF%25E3%2582%25B9%2Fdp%2F4295011746%23">Amazon</a></li>
+                        <li><a href="https://www.ace.toyo.ac.jp/ct/link_iframe_balloon?url=https%3A%2F%2Fwww.honyaclub.com%2Fshop%2Fg%2Fg20339662%2F">生協・日販（Honya Club）</a></li>
+                    </ul>
+                </li>
+            </ol>
+            <p>どの形式を選択するかは自由です。自分の持っているデバイスや好みで選んでください。型式ごとにどのような違いがあるか知りたい場合は、初回授業後に購入しても構いません。慣れている形式のものをおすすめします。</p>
+
+            <h3 id="教科書の利用方法">教科書をどのように利用するか</h3>
+            <p>講義中に次回までに読んでくる範囲を指示します。次の授業の際に理解度チェッククイズを出題します。この時は手元に点数が出ますが、結果は収拾されません。授業最終回に、それまで出題された問題をランダムに出題するチェックを行います。この時の点数は収拾され、スキルチェックの点数とともに評価の対象となります。</p>
+
+            <h3 id="マイク付きイヤホン">マイク付きイヤホン</h3>
+            <p>講義内でビデオ教材閲覧の指示があります。各自の端末にイヤホンを接続して説明を聞く場合があります。また、画面を示しながら質問したい場合にはマイクも必要になります。</p>
+
+            <h2 id="質問方法">教員への質問方法</h2>
+            <div class="resource-card">
+                <p>Slackは、ファイルや画像を添付しながら質問できるコミュニケーションツールです。</p>
+                <p>チャンネル <strong>#板書</strong> には、教員から学生への伝達事項を掲載します。</p>
+                <p>個別の質問は、教員宛ての<strong>DM（ダイレクトメッセージ）</strong>を使用します。初回講義までにワークスペースへ参加し、自分のプロフィールの氏名設定を済ませてください。</p>
+                <p><strong>@toyo.jpのGoogleアカウントに入った状態</strong>で使用してください。</p>
+                <ul>
+                    <li><a href="https://www.ace.toyo.ac.jp/ct/link_iframe_balloon?url=https%3A%2F%2Fslack.com%2Fintl%2Fja-jp%2Fhelp%2Farticles%2F360059976673-Slack-%25E3%2581%25AE%25E3%2583%2593%25E3%2583%2587%25E3%2582%25AA%25E3%2583%2581%25E3%2583%25A5%25E3%2583%25BC%25E3%2583%2588%25E3%2583%25AA%25E3%2582%25A2%25E3%2583%25AB">Slackマニュアル</a></li>
+                    <li>Slackワークスペース：ToyoNet-ACE ＞ コースコンテンツ ＞ ガイダンスで参照</li>
+                    <li>Slack招待リンク：ToyoNet-ACE ＞ コースコンテンツ ＞ ガイダンスで参照</li>
+                </ul>
+                <p>DMの送り方や、プロフィールを添付してDMを送る場合の方法をマニュアルで確認しておきましょう。</p>
+            </div>
+
+            <h2 id="課外実習課題">課外実習課題</h2>
+            <p class="deadline">提出締め切り：2026年12月25日（金）</p>
+            <p>4つのカテゴリー（情報セキュリティ、情報社会の権利、情報社会の生活、その他）のビデオ教材を閲覧し、それぞれの要点をまとめる。</p>
+            <figure class="resource-card">
+                <img src="hitaimen_ace_questionnaires.png" alt="ToyoNet-ACEのアンケート管理画面。情報セキュリティ、情報社会の権利、情報社会の生活、その他の4項目が並ぶ。" style="display:block; width:100%; max-width:760px; height:auto; margin:auto;">
+                <figcaption style="margin-top:0.75rem; text-align:center;">ToyoNet-ACEのアンケート管理画面</figcaption>
+            </figure>
+            <figure class="resource-card">
+                <img src="hitaimen_ethics_video_guide.png" alt="ToyoNet-ACEで情報倫理ビデオを開く手順。手引き・申請書等から情報倫理ビデオを選ぶ。" style="display:block; width:100%; max-width:760px; height:auto; margin:auto;">
+                <figcaption style="margin-top:0.75rem; text-align:center;">情報倫理ビデオの場所（ToyoNet-ACE）</figcaption>
+            </figure>
+
+            <h2 id="参考サイト">参考サイト</h2>
+            <ul class="compact-list">
+                <li>Python公式ドキュメント：<a href="https://www.python.org/doc/">Python Documentation</a></li>
+                <li>いまにゅのプログラミング塾：<a href="https://youtu.be/yeZ3STy3k44?si=EOj-Jmz9DuXymt4P">Python入門シリーズ</a></li>
+                <li><a href="https://www.w3schools.com/python/default.asp">W3Schools Python Tutorial</a></li>
+                <li><a href="https://chokkan.github.io/python/index.html">「Python早見帳」</a> 岡崎直観 著</li>
+            </ul>
+
+            <h2 id="練習問題">練習問題</h2>
+            <ul>
+                <li><a href="https://www.w3schools.com/python/python_exercises.asp">Python Exercises</a></li>
+                <li><a href="https://www.w3schools.com/python/python_quiz.asp">Python Quiz</a></li>
+            </ul>
+
+            <div class="page-navigation">
+                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="top-button">↑ Top</button>
+                <button onclick="location.href='jisshukankyo.html'">Next</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="pages.js"></script>
 </body>
 </html>
