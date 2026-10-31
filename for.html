@@ -43,12 +43,74 @@
                 </div>
             </div>
  
-            <h3><a href="https://youtu.be/tOULTwsiSN4?si=pqa4w3VSbBxTY3_i" class="video-link"><span class="video-icon"><i class="fas fa-play-circle"></i></span>解説動画:（～6:47）<br>for文の基礎　in i for range(len(names)):</a></h3>
-<h3><a href="https://youtu.be/tOULTwsiSN4?si=4k8BfNmJErLrMjOb&t=633" class="video-link"><span class="video-icon"><i class="fas fa-play-circle"></i></span>解説動画:（10:33～11:58）<br>for文の基礎 in name in names:</a></h3>
+            <h3><a href="https://youtu.be/tOULTwsiSN4?si=pqa4w3VSbBxTY3_i" class="video-link"><span class="video-icon"><i class="fas fa-play-circle"></i></span>解説動画:制御構文　for文の基礎</a></h3>
+            
+
             <p style = "font-size: 10px;">ビデオの授業内での利用を快く許可してくださった今西航平先生に感謝申し上げます。<br> 出典：【完全版】この動画1本でPythonの基礎を習得！忙しい人のための速習コース（Python入門）@imanyu_programming</p>
 
 
-            <h2 id="繰り返し処理の基本"> リストの復習</h2>
+            <h2 id="決まった回数だけ繰り返す">決まった回数だけ繰り返す</h2><p>同じ処理を決まった回数だけ繰り返すには、for 文と range() を使います。</p>
+<h3 id="rangeで0から4を表示">0から4までの数を表示する</h3>
+<div class="code-example" style="border:solid 3px skyblue;">
+<pre><code>for i in range(5):
+    print(i)</code></pre>
+<pre><code># 実行結果：
+0
+1
+2
+3
+4</code></pre>
+</div>
+<p><code>range(5)</code> は0から4までの整数を順に生成します。それぞれの数が変数 <code>i</code> に入り、字下げされた処理が合計5回実行されます。<strong>5は含まれません。</strong>繰り返す処理は、行の先頭を半角スペース4つ分字下げして書きましょう。</p>
+<h3 id="iに1を足して表示">i + 1 で1から5までの数を表示する</h3>
+<div class="code-example" style="border:solid 3px skyblue;">
+<pre><code>for i in range(5):
+    print(i + 1)</code></pre>
+<pre><code># 実行結果：
+1
+2
+3
+4
+5</code></pre>
+</div>
+<p><code>i</code> は0から4まで変わります。表示するときに1を足すと、1から5までの数を表示できます。<code>i + 1</code> を計算しても、変数 <code>i</code> 自体の値は変わりません。</p>
+<h3 id="繰り返して合計を求める">1から5までの数を足し合わせる</h3>
+<div class="code-example" style="border:solid 3px skyblue;">
+<pre><code>total = 0
+
+for i in range(5):
+    total = total + (i + 1)
+
+print(total)</code></pre>
+<pre><code># 実行結果：
+15</code></pre>
+</div>
+<p>繰り返しの前に、合計を入れる変数 <code>total</code> に0を代入します。<code>total = total + (i + 1)</code> は、今の合計に <code>i + 1</code> を足し、その結果を <code>total</code> に代入する処理です。合計は1 → 3 → 6 → 10 → 15と変わります。最後の <code>print(total)</code> は字下げせず、繰り返しが終わってから合計を1回表示します。</p>
+<h3 id="加算代入で短く書く">+= を使って短く書く</h3>
+<div class="code-example" style="border:solid 3px skyblue;">
+<pre><code>total = 0
+
+for i in range(5):
+    total += i + 1
+
+print(total)</code></pre>
+<pre><code># 実行結果：
+15</code></pre>
+</div>
+<p>数値の足し算と代入は、<code>+=</code> を使って短く書けます。ここでは <code>total += i + 1</code> は <code>total = total + (i + 1)</code> と同じ意味です。</p>
+<h3 id="実習6-数字の繰り返し">
+            <div class="fas fa-laptop-code"></div> 実習 6 数字の繰り返し
+        </h3>
+        <div class="exercise-box">
+    <p>Execize-Python.ipynb のノートブックにつづけて以下の実習をしなさい。</p>
+    <ol>
+        <li>テキストセルを挿入し、<code># 実習6 数字の繰り返し</code> と入力しましょう。</li>
+        <li>コードセルを挿入し、<code>for i in range(10):</code> を使って、0から9までの整数を順に表示しましょう。さらに、その合計を求め、繰り返しが終わった後に表示しましょう。合計を入れる変数には <code>total</code> を使い、合計の計算には <code>+=</code> を使ってください。0から9までが順に表示され、最後に合計の45が表示されることを確認しましょう。</li>
+    </ol>
+</div>
+<p>ここまでは数を表示したり足したりしました。次はリストの使い方を復習し、その後で、この数を添字として使ってリストの要素を順に取り出しましょう。</p>
+
+<h2 id="リストの復習"> リストの復習</h2>
             <h3 id="リストの定型"> リストの定型</h3>
             <div class="column" data-title="リストの復習">
                     <div class="code-block">
@@ -64,11 +126,11 @@
             <h2 id="リストの要素を取り出す">リストの要素を取り出す</h2>
             <h3 id="先頭から取り出す">先頭から取り出す</h3>
             <div class="code-example">
-                <pre><code>names[0] = '大久保'
-names[1] = '北沢'
-names[2] = '高橋'
-names[3] = '荒井'
-names[4] = '大谷'</code></pre>
+                <pre><code>print(names[0])  # '大久保'
+print(names[1])  # '北沢'
+print(names[2])  # '高橋'
+print(names[3])  # '荒井'
+print(names[4])  # '大谷'</code></pre>
             </div>
               <h3 id="リストの長さの取得">リストの長さの取得</h3>
               <div class="column" data-title="リストの定型">
@@ -78,10 +140,11 @@ names[4] = '大谷'</code></pre>
         </div>
         <div class="code-example">
             <pre><code>names = ['大久保','北沢','高橋','荒井','大谷']
-len(names) = 5</code></pre>
+print(len(names))  # 5</code></pre>
 
         </div>
 <h2 id="繰り返し処理の基本"> リストの要素を繰り返し取り出す（基本）</h2>
+<p>要素が5個のリストでは、<code>len(names)</code> が5になります。先ほどの <code>range(5)</code> と同じように、<code>range(len(names))</code> から添字の0〜4を得られます。</p>
            <h3>配列の長さとカウンタ変数を利用して、リストの要素を表示する</h3>
         <div class="code-example" style="border:solid 3px skyblue;">
  
@@ -89,7 +152,7 @@ len(names) = 5</code></pre>
 
 for i in range(len(names)):
    print(names[i])</code></pre>
-	<pre><code>// 実行結果：
+	<pre><code># 実行結果：
 	大久保
 	北沢
 	高橋
@@ -99,7 +162,7 @@ for i in range(len(names)):
         </div>
 
 
-	<h3 id="繰り返し取り出す">リスト（例：names） の要素を、変数（例：name） に順に受け渡して処理する</h3>
+	<h3 id="要素を直接取り出す">リスト（例：names） の要素を、変数（例：name） に順に受け渡して処理する</h3>
             <div class="code-example" style="border:solid 3px skyblue;">
                 <pre><code>for name in names:
     print(name)</code></pre>
@@ -108,7 +171,7 @@ for i in range(len(names)):
 
 		<pre><code>for 変数 in リスト名:
 	繰り返し実行する処理</code></pre>   
-		<pre><code>// 実行結果：
+		<pre><code># 実行結果：
 	大久保
 	北沢
 	高橋
@@ -119,48 +182,49 @@ for i in range(len(names)):
 </div>
             <h3>参考：要素と文を組み合わせる</h3>
             <div class="code-example" style="border:solid 3px skyblue;">
-                <pre><code>print(f'私の名前は{name}です') 　// f-string を利用した表示
-print('私の名前は' + name + 'です')　//一般的な文字列と変数の結合 </code></pre>
+                <pre><code>print(f'私の名前は{name}です')  # f-string を利用した表示
+print('私の名前は' + name + 'です')  # 一般的な文字列と変数の結合 </code></pre>
             </div>
 
-<h3 id="実習6  ループ処理">
-            <div class="fas fa-laptop-code"></div> 実習 6 ループ処理
-        </h3>
-        <div class="exercise-box">
-
-
-                <p>Execize-Python.ipynb のノートブックにつづけて以下の実習をしなさい</p>
-                <ol>
-                    <li>テキストセルを挿入し、markdown editor に<code>### 繰り返し要素を取り出す</code>　と入力</li>
-                    <li>コードセルを挿入し、リスト names を作成し、自分にとって懐かしい人5名の苗字を要素とするリストになるように、names の要素を設定しましょう。 </li>
-                    <li> 例を参照し、for i in range(len(names)): を利用して、リストnames の要素をひとつづつ取り出して、敬称を付けて表示しましょう。</li>
-                   <li> 例を参照し、for name in names():を利用して、リストnames の要素をひとつづつ取り出して、敬称を付けて表示しましょう。</li>
-
-                  
-                </ol>
-            </div>
-<h2 id="繰り返し処理の基本"> リストの要素を繰り返し取り出す（応用）zip enumerate </h2>
-            <h3><a href="https://youtu.be/tEVccqpss2w?si=r0o4PNFdNconTHQo" class="video-link"><span class="video-icon"><i class="fas fa-play-circle"></i></span>解説動画:（10:33～11:58）<br>制御構文（for文/応用）</a></h3>
+<h3 id="実習7-リストの繰り返し"><div class="fas fa-laptop-code"></div> 実習 7 リストの繰り返し</h3>
+<div class="exercise-box">
+    <p>Execize-Python.ipynb のノートブックにつづけて以下の実習をしなさい。</p>
+    <ol>
+        <li>テキストセルを挿入し、<code># 実習7 繰り返し要素を取り出す</code> と入力しましょう。</li>
+        <li>コードセルを挿入し、次のリストを作成しましょう。
+            <pre><code>names = ['佐藤', '鈴木', '田中', '伊藤', '渡辺']</code></pre>
+        </li>
+        <li><code>for i in range(len(names)):</code> を利用して、リストの要素をひとつずつ取り出し、苗字に「さん」を付けて表示しましょう。</li>
+        <li>別のコードセルで、<code>for name in names:</code> を利用して、同じ結果を表示しましょう。</li>
+    </ol>
+    <p>どちらも、実行結果が次のようになることを確認してください。</p>
+    <pre><code>佐藤さん
+鈴木さん
+田中さん
+伊藤さん
+渡辺さん</code></pre>
+</div>
+<h2 id="繰り返し処理の応用"> リストの要素を繰り返し取り出す（応用）zip enumerate </h2>
+            <h3><a href="https://youtu.be/tEVccqpss2w?si=r0o4PNFdNconTHQo" class="video-link"><span class="video-icon"><i class="fas fa-play-circle"></i></span>解説動画:　制御構文（for文/応用）</a></h3>
             <p style = "font-size: 10px;">ビデオの授業内での利用を快く許可してくださった今西航平先生に感謝申し上げます。<br> 出典：【完全版】この動画1本でPythonの基礎を習得！忙しい人のための速習コース（Python入門）@imanyu_programming</p>
 
-<h3 id="繰り返し取り出す">繰り返し取り出す　zip</h3>
+<h3 id="zipで取り出す">繰り返し取り出す　zip</h3>
 
 <div class="code-example" style="border:solid 3px skyblue;">
 
-<code><span style ="font-size:10pt;"># リストを定義する</span>
-<pre>last_names = ['林','大谷','大久保','川島','川上']
-first_names = ['亜夫','奈緒子','麻実','康博','孝之']</pre></code>
+<span style ="font-size:10pt;"># リストを定義する</span>
+<pre><code>last_names = ['林','大谷','大久保','川島','川上']
+first_names = ['亜夫','奈緒子','麻実','康博','孝之']</code></pre>
 
-<code><span style ="font-size:10pt;">
+<span style ="font-size:10pt;">
 # 1行目：定義済みの last_names 配列と first_names 配列から、zip で対応する姓と名を一組ずつ取り出し、左から last_name・first_name として受け取る。
-# 2行目受け取った姓と名のあいだに半角スペース、名と**『先生』の前**にも半角スペースを入れて出力する。</span></pre></code>
-<code>
-<pre>
+# 2行目：受け取った姓と名のあいだに半角スペース、名と「先生」のあいだにも半角スペースを入れて出力する。</span></code>
+<pre><code>
 for last_name, first_name in zip(last_names, first_names):
   print(last_name + ' ' + first_name + ' 先生')
-</pre></code>
+</code></pre>
 
-<pre><code>// 実行結果：
+<pre><code># 実行結果：
 林 亜夫 先生
 大谷 奈緒子 先生
 大久保 麻実 先生
@@ -168,17 +232,15 @@ for last_name, first_name in zip(last_names, first_names):
 川上 孝之 先生
 </code></pre>
 </div>
-<h3 id="繰り返し取り出す">繰り返し取り出す ennumerate</h3>
+<h3 id="enumerateで取り出す">繰り返し取り出す enumerate</h3>
 <div class="code-example" style="border:solid 3px skyblue;">
-<pre><code>for num, last_name in enumerate(last_names):
-    print("職員番号", num, "番目の" + last_name + "さん")</code></pre>
 <pre><code>
-<span style ="font-size:10pt;">#num は適当な変数名</span>
+<span style ="font-size:10pt;"># num は番号を受け取る変数名。enumerate() の番号は既定で0から始まる。</span>
 for num, last_name in enumerate(last_names):
     print("職員番号", num, "番目の" + last_name + " 先生")    
 </code></pre>
 <pre><code>
-// 実行結果：
+# 実行結果：
 職員番号 0 番目の林 先生
 職員番号 1 番目の大谷 先生
 職員番号 2 番目の大久保 先生
@@ -187,22 +249,23 @@ for num, last_name in enumerate(last_names):
 </code>
 </pre>
 </div>
-<h3 id="繰り返し取り出す">参考：繰り返し取り出す　学籍番号と氏名　zip</h3>
+<h3 id="学籍番号と氏名">参考：繰り返し取り出す　学籍番号と氏名　zip</h3>
 
 <div class="code-example" style="border:solid 3px skyblue;">
 
 <code><span style ="font-size:10pt;"># リストを定義する</span>
-<pre>last_name = ['斎藤', '福島', '吉田', '高橋', '金子']
+<pre><code>last_name = ['斎藤', '福島', '吉田', '高橋', '金子']
 first_name = ['勇', '彩加', '雪乃', '雅子', '久美子']
 student_Id = ['51020014', '51020777', '51020687', '51020349', '51020347']
-</pre></code>
-<code><span style ="font-size:10pt;"># 変数名は、対応していればなんでもよい</span><pre>for sid, last, first in zip(student_Id, last_name, first_name):
+</code></pre>
+<span style ="font-size:10pt;"># 変数名は、対応していればなんでもよい</span>
+<pre><code>for sid, last, first in zip(student_Id, last_name, first_name):
     print(sid, last, first)
-</pre></code>
+</code></pre>
 
 
 
-<pre><code>// 実行結果：
+<pre><code># 実行結果：
 51020014 斎藤 勇
 51020777 福島 彩加
 51020687 吉田 雪乃
@@ -211,14 +274,14 @@ student_Id = ['51020014', '51020777', '51020687', '51020349', '51020347']
 </code></pre>
 </div>
 
-<h3 id="実習7  ループ処理（応用）"><div class="fas fa-laptop-code"></div> 実習 7 ループ処理(応用)</h3>
+<h3 id="実習8-ループ処理応用"><div class="fas fa-laptop-code"></div> 実習 8 ループ処理(応用)</h3>
 <div class="exercise-box">
  <p>Execize-Python.ipynb のノートブックにつづけて以下の実習をしなさい</p>
 <ol>
-                    <li>テキストセルを挿入し、markdown editor に<code>### 繰り返し要素を取り出す 2</code>　と入力</li>
-                    <li>コードセルを挿入し、リスト names を作成し、自分にとって懐かしい人5名の苗字を要素とするリストになるように、names の要素を設定しましょう。 </li>
+                    <li>テキストセルを挿入し、markdown editor に<code># 実習8 繰り返し要素を取り出す 2</code>　と入力</li>
+                    <li>コードセルを挿入し、以下のリスト status、animals、habitats を作成しましょう。 </li>
  
-                    <li> 例を参照し、zip メソッドを利用して、
+                    <li> 例を参照し、組み込み関数 zipを利用して、
 リスト status, animals, habitats の要素をひとつずつ取り出して表示しましょう。
 <pre>リスト：
 status = ["EN", "EN", "LC", "CR", "VU"]

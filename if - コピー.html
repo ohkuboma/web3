@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>条件分岐 | Python 入門講座（ohkuboma）</title>
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <button onclick="location.href='index.html'" class="home-button"><i class="fas fa-home"></i> HOME</button>
+            <h1><i class="fas fa-box"></i> 条件分岐</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- 左サイドバー（目次） -->
+        <nav class="sidebar">
+            <h2><i class="fas fa-list-ul"></i> 目次</h2>
+            <ul class="toc" id="tableOfContents">
+                <!-- JavaScriptで動的に生成される目次 -->
+            </ul>
+        </nav>
+        
+        <!-- 右側のメインコンテンツ -->
+        <main class="content">
+            <div class="page-header">
+                <h2 id="条件分岐"><i class="fas fa-box"></i> 条件分岐</h2>
+                <div class="progress-indicator">
+                    <div class="progress-bar" style="width: 50%"></div>
+                    <span>講義進度: 第5回</span>
+                </div>
+            </div>
+ 
+            <h3>
+                <a href="https://youtu.be/yeZ3STy3k44?si=9SoysNej8AihKbsl&t=2494" class="video-link"> 
+                    <span class="video-icon"><i class="fas fa-play-circle"></i></span>解説動画:（41:33－～49:18）<br>
+                    変数（今西）
+                </a>
+            </h3>
+            <p style = "font-size: 10px;">ビデオの授業内での利用を快く許可してくださった今西航平先生に感謝申し上げます。<br> 出典：【完全版】この動画1本でPythonの基礎を習得！忙しい人のための速習コース（Python入門）@imanyu_programming</p>
+<h2 id="条件分岐の基本">条件分岐の基本</h2>
+
+            <div class="column" data-title="条件が一つの場合">
+                <div class="code-block">
+                    <pre><code>if 条件:
+    条件が満たされた時に実行する処理</code></pre>       
+                </div>
+                <div class="code-example">
+                    <pre><code>if x >= 35:
+    print('猛暑日です')</code></pre>       
+                </div>
+            </div>
+            
+            <div class="column" data-title="条件が２つの場合">
+                <div class="code-block">
+                    <pre><code>if 条件:
+    条件が満たされた時に実行する処理
+else:
+    条件が満たされなかった時に実行する処理</code></pre>       
+                </div>
+                <div class="code-example">
+                    <pre><code>if x >= 35:
+    print('猛暑日です')
+else:
+    print('猛暑日ではありません')</code></pre>       
+                </div>
+            </div>
+            <div class="column" data-title="条件が3つ以上の場合">
+                <div class="code-block">
+                    <pre><code>if 条件:
+    条件が満たされた時に実行する処理
+elif 条件:
+    条件が満たされた時に実行する処理
+else:
+    条件が満たされなかった時に実行する処理</code></pre>       
+                </div>
+                <div class="code-example">
+                    <pre><code>if x >= 35:
+    print('猛暑日です')
+elif x >= 30:
+    print('真夏日です')
+else:
+    print('今日は比較的過ごしやすいです。')</code></pre>       
+                </div>
+            </div>
+            <h2 id="データの入力を受け付ける">データの入力を受け付ける</h2>
+            <div class="column" data-title="入力の受付と表示">
+                <div class="code-block">
+                    <pre><code>変数 = input('メッセージ')</code></pre>       
+                </div>
+                <div class="code-example">
+                    <pre><code>temperature = int(input('今日の気温は何度ですか？'))
+print('今日の気温は' + temperature + '度です')</code></pre> *input() は文字列型で返すので、数値型に変換する必要がある。特に数値の判定に用いる時には注意が必要      
+                </div>
+            </div>
+            <h2 id="データの型変換　文字列→数値">データの型変換　文字列→数値</h2>   
+
+                <div class="code-block">
+                    <pre><code>変数 = int(input('メッセージ'))</code></pre>       
+                </div>
+                <div class="code-example">
+                    <pre><code>temperature = int(input('今日の気温は何度ですか？'))
+</code></pre>       
+                </div>
+<h2 id="比較演算子">比較演算子</h2>
+<table border="1">
+    <tr>
+        <th>演算子</th>
+        <th>読み方</th>
+        <th>例</th>
+    </tr>
+    <tr>
+        <td>&lt;</td>
+        <td>左辺は右辺より小さい</td>
+        <td>a &lt; b</td>
+    </tr>
+    <tr>
+        <td>&lt;=</td>
+        <td>左辺は右辺以下</td>
+        <td>a &lt;= b</td>
+    </tr>
+    <tr>
+        <td>&gt;</td>
+        <td>左辺は右辺より大きい</td>
+        <td>a &gt; b</td>
+    </tr>
+    <tr>
+        <td>&gt;=</td>
+        <td>左辺は右辺以上</td>
+        <td>a &gt;= b</td>
+    </tr>
+    <tr>
+        <td>==</td>
+        <td>左辺と右辺は等しい</td>
+        <td>a == b</td>
+    </tr>
+    <tr>
+        <td>!=</td>
+        <td>左辺と右辺は等しくない</td>
+        <td>a != b</td>
+    </tr>
+    <tr>
+        <td>in</td>
+        <td>左辺は右辺に含まれる</td>
+        <td>a in b</td>
+    </tr>
+    <tr>
+        <td>not in</td>
+        <td>左辺は右辺に含まれない</td>
+        <td>a not in b</td>
+    </tr>
+</table>
+<h2 id="論理演算子">論理演算子</h2>
+<table border="1">
+    <tr>
+        <th style="white-space: nowrap;">演算子</th>
+        <th style="white-space: nowrap;">意　味</th>
+        <th style="white-space: nowrap;">式が成り立つ場合</th>
+        <th style="white-space: nowrap;">例</th>
+      
+    </tr>
+    <tr>
+        <td style="text-align: center;">and</td>
+        <td style="text-align: center;">論理積</td>
+        <td style="text-align: left;">左辺と右辺両方とも成立するとき</td>
+        <td>例：<pre><code>  age = 29
+            if  age < 65 and age > 13 :
+                        print('割引はありません')
+            else:
+                        print('割引があります')</code></pre></td></tr>
+ 
+    <tr>
+        <td style="text-align: center;">or</td>
+        <td style="text-align: center;">論理和</td>
+        <td style="text-align: left;">左辺と右辺のどちらか一方でも成立するとき</td>
+        <td>例：<pre><code>age = 29
+            if  age > 65 or age < 13 :
+                        print('割引があります。')
+            else:
+                        print('割引はありません。')</code></pre></td></tr>
+    <tr>
+        <td style="text-align: center;">not</td>
+        <td style="text-align: center;">否定</td>
+        <td style="text-align: left;">条件が成立しないとき</td>
+        <td>例：<pre><code>age = 29
+            if  not age >= 0 :
+                        print('もう一度入力してください。')
+            else:
+                        print('ようこそおいでくださいました。')
+        </code></pre></td></tr>
+    
+    
+</table>
+            <h3 id="実習4 条件分岐">
+                <i class="fas fa-laptop-code"></i> 実習4 条件分岐
+            </h3>
+            <div class="exercise-box">
+                <p>Exercise_Notebook.ipynb のノートブックにつづけて以下の実習をしなさい</p>
+                <ol>
+                    <li>テキストセルを挿入し、markdown editor に<code># 実習4 条件分岐</code>　と入力</li>
+                    <li>コードセルを挿入し、変数 <code>temparture </code> を作成し、input('') を利用して、今日の気温の入力を求め、変数temperatureに代入しなさい。この時、入力させたデータは文字列型で出力されるので整数型に変換されるように工夫しましょう
+                        <li>入力された気温データ<code>temperature</code>
+                            を利用して、以下のような条件分岐を作成しなさい。
+                            <ul>
+                                <li>35度以上であれば猛暑日です</li>
+                                <li>30度以上であれば真夏日です</li>
+                                <li>25度以上であれば夏日です</li>
+                                <li>それ以外であれば, 
+                                    今日の気温は、<code>temperature</code>度です。</li>
+                            </ul>
+                            と表示されるようにしましょう。
+                        </li>
+                        <li>年齢を求める文を作成し、age という変数に代入しなさい。この時受け取った値を整数型に変換するのを忘れないようにすること。<br>
+                         年齢が18歳未満であれば、「入場できません」そうでないならば、「ようこそおいでくださいました」と表示されるようにしなさい。
+                        </li>
+                    </ol>
+            </div>
+            <div class="column" data-title="教科書参照ページ">
+                <div class="textbook-section">
+                    <h4><i class="fas fa-book"></i> 参照ページ</h4>
+                    <ul>
+                        <li>P.040-P,087 「条件によって分かれる文を学ぼう」</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="column" data-title="教科書予習ページ">
+                <div class="textbook-section">
+                    <h4><i class="fas fa-book"></i> 予習ページ</h4>
+                    <ul>
+                        <li>Chapter3を読んでおきましょう。
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="page-navigation">
+                <button onclick="window.scrollTo(0, 0)" class="top-button"><i class="fas fa-arrow-up"></i></button>
+                <button onclick="location.href='datatypes.html'"><i class="fas fa-arrow-left"></i> 前へ：データ型</button>
+                <button onclick="location.href='list_.html'"><i class="fas fa-arrow-right"></i> 次へ：リスト</button>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>Python 入門講座 &copy; 2025</p>
+            <p><i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by ohkuboma</p>
+        </div>
+    </footer>
+
+    <script src="pages.js"></script>
+</body>
+</html> 

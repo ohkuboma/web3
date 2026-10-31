@@ -59,30 +59,30 @@
             </div>
             
             <h2 id="リストの要素を取り出す">リストの要素を取り出す</h2>
-            <h3 id="先頭から取り出す">先頭から取り出す</h3>
+            <p>インデックス（要素の位置を表す番号）は0から数えます。Colabでは、コードセルの最後に式を書くと結果が表示されます。以下の取り出し例は、1行ずつ別のコードセルで実行してください。<code>#</code> 以降は、表示される結果を示すコメントです。</p><h3 id="先頭から取り出す">先頭から取り出す</h3>
             <div class="code-example">
-                <pre><code>names[0] = '大久保'
-names[1] = '北沢'
-names[2] = '高橋'
-names[3] = '荒井'
-names[4] = '大谷'</code></pre>
+                <pre><code>names[0]  # 表示結果: '大久保'
+names[1]  # 表示結果: '北沢'
+names[2]  # 表示結果: '高橋'
+names[3]  # 表示結果: '荒井'
+names[4]  # 表示結果: '大谷'</code></pre>
             </div>
             
             <h3 id="末尾から取り出す">末尾から取り出す</h3>
             <div class="code-example">
-                <pre><code>names[-1] = '大谷'
-names[-2] = '荒井'
-names[-3] = '高橋'
-names[-4] = '北沢'
-names[-5] = '大久保'</code></pre>
+                <pre><code>names[-1]  # 表示結果: '大谷'
+names[-2]  # 表示結果: '荒井'
+names[-3]  # 表示結果: '高橋'
+names[-4]  # 表示結果: '北沢'
+names[-5]  # 表示結果: '大久保'</code></pre>
             </div>
             
             <h3 id="範囲を指定して取り出す">範囲を指定して取り出す</h3>
             <div class="code-example">
-                <pre><code>names[0:3] = ['大久保','北沢','高橋']//要素0番目から3番目未満まで
-names[2:4] = ['高橋','荒井']//要素2番目から4番目未満まで
-names[3:] = ['荒井','大谷']//要素3番目から最後まで
-names[:3] = ['大久保','北沢','高橋']//最初から3番目未満まで</code></pre>
+                <pre><code>names[0:3]  # 表示結果: ['大久保','北沢','高橋']（インデックス0から<span style="color: #c00;">3未満まで</span>）
+names[2:4]  # 表示結果: ['高橋','荒井']（インデックス2から<span style="color: #c00;">4未満まで</span>）
+names[3:]  # 表示結果: ['荒井','大谷']（インデックス3から最後まで）
+names[:3]  # 表示結果: ['大久保','北沢','高橋']（最初から<span style="color: #c00;">3未満まで</span>）</code></pre>
             </div>
               <h3 id="リストの長さの取得">リストの長さの取得</h3>
               <div class="column" data-title="リストの定型">
@@ -92,75 +92,83 @@ names[:3] = ['大久保','北沢','高橋']//最初から3番目未満まで</co
         </div>
         <div class="code-example">
             <pre><code>names = ['大久保','北沢','高橋','荒井','大谷']
-len(names) = 5</code></pre>
+len(names)  # 表示結果: 5</code></pre>
         </div>
 
 
 
-            <h3>メソッドを使って要素の追加, 挿入, 削除, 反転する</h3>
-            <table border="1">
+            <h3>メソッドを使って要素の追加・挿入・削除・反転・並べ替えをする</h3>
+            <p>表の例は上から順に実行します。sort の例では、別のリスト scores を使用します。リストを変更する操作の後は、コードセルの最後に <code>names</code> と書いて変更後のリストを確認してください。<code>pop()</code> は削除した要素を返します。</p><table border="1">
                 <tr>
                   <th>メソッド</th>
                   <th>説明</th>
                 </tr>
                 <tr>
                   <td>リスト.append(x)</td>
-                  <td>例:names.append('林')<br>リスト names の 末尾に '林' を追加する<br>結果:['大久保', '北沢', '高橋', '荒井', '大谷', '林']</td>
+                  <td>例:names.append('林')<br>リスト names の 末尾に '林' を追加する<br>変更後の names: ['大久保', '北沢', '高橋', '荒井', '大谷', '林']</td>
                 </tr>
                 <tr>
                   <td>リスト.insert(i, x)<br>インデックス i の位置に x を挿入する</td>
-                  <td>例:names.insert(2, '小林')<br>リスト names の 2 番目の位置に '小林' を挿入する。結果:names = ['大久保', '北沢', '小林', '高橋', '荒井', '大谷','林']</td>
+                  <td>例:names.insert(2, '小林')<br>リスト names のインデックス2（先頭から3番目）の位置に '小林' を挿入する。変更後の names: ['大久保', '北沢', '小林', '高橋', '荒井', '大谷','林']</td>
                 </tr>
                 <tr>
                   <td>リスト.remove(x)<br>最初に見つかった、値が x の要素を削除する</td>
-                  <td>例:names.remove('小林')<br>リスト names の最初に見つかった '小林' を削除する。結果:names = ['大久保', '北沢', '高橋', '荒井', '大谷','林']</td>
+                  <td>例:names.remove('小林')<br>リスト names の最初に見つかった '小林' を削除する。変更後の names: ['大久保', '北沢', '高橋', '荒井', '大谷','林']</td>
                 </tr>
                 <tr>
                   <td>リスト.pop()<br>リスト names の 末尾にある要素を削除する</td>
-                  <td>例:names.pop()<br>リスト names の 末尾にある要素を削除する<br>結果:names = ['大久保', '北沢', '高橋', '荒井', '大谷']</td>
-                </tr>
-                <tr>
-                  <td>リスト.clear()<br>全要素を削除する</td>
-                  <td>例:names.clear()<br>リスト names の 全要素を削除する<br>結果:names = []</td>
+                  <td>例:names.pop()<br>リスト names の 末尾にある要素を削除する<br>変更後の names: ['大久保', '北沢', '高橋', '荒井', '大谷']</td>
                 </tr>
                 <tr>
                   <td>リスト.index(x)<br>最初に見つかった、値が x の要素のインデックスを返す</td>
                   <td>例:names.index('大久保')<br>最初に見つかった、値が 大久保 の要素のインデックスを返す<br>
-                結果:0</td>
+                戻り値: 0</td>
                 </tr>
                 <tr>
                   <td>リスト.count(x)<br>要素に x が出現する回数を返す</td>
                   <td>例:names.count('大久保')<br>リスト names の要素に '大久保' が出現する回数を返す<br>
-                結果:1</td>
+                戻り値: 1</td>
                 </tr>
                 <tr>
                   <td>リスト.reverse()<br>要素の並びを反転する</td>
                   <td>例:names.reverse()<br>リスト names の要素の並びを反転する<br>
-                結果:['大谷', '荒井', '高橋', '北沢', '大久保']</td>
+                変更後の names: ['大谷', '荒井', '高橋', '北沢', '大久保']</td>
+                </tr>
+
+                <tr>
+                  <td>リスト.clear()<br>全要素を削除する</td>
+                  <td>例:names.clear()<br>リスト names の 全要素を削除する<br>変更後の names: []</td>
+                </tr>
+                <tr>
+                  <td>リスト.sort()<br>要素を小さい順に並べ替える</td>
+                  <td>例:<code>scores = [72, 95, 60, 83, 68]</code><br><code>scores.sort()</code><br>コードセルの最後に <code>scores</code> と書いて確認する<br>変更後の scores: [60, 68, 72, 83, 95]<br>元のリスト自体が並べ替えられる。漢字の名前は、読みの五十音順に並ぶわけではない。</td>
                 </tr>
               </table>
 
                       <h3 id="実習5 リスト">
             <div class="fas fa-laptop-code"></div> 実習 5 リスト
         </h3>
-        <div class="exercise-box">
-
-
-                <p>Execize-Python.ipynb のノートブックにつづけて以下の実習をしなさい</p>
-                <ol>
-                    <li>テキストセルを挿入し、markdown editor に<code>### リスト</code>　と入力</li>
-                    <li>コードセルを挿入し、リスト names を作成し、自分にとって懐かしい人5名の苗字を要素とするリストになるように、names の要素を設定しましょう。 </li>
-                    <li>append メソッドを利用して、（'別の名前’: 最初に入力した5名以外の名前）を追加し、names を表示して、変更後のnamesの要素を確認しましょう。</li>
-                    <li>insert メソッドを利用して、names の2番目の要素としてさらに’別の名前’を追加し、その後、namesを表示して の要素を確認しましょう。</li>
-                    <li>remove メソッドを利用して、names の最初に見つかった '荒井' を削除し、その後、names 表示して変更後の要素を確認しましょう。
-                    </li>
-                    <li>pop メソッドを利用して、names の末尾にある要素を削除し, その後、names を表示して、変更後のnamesの要素を確認しましょう。</li>
-                  
-                    <li>reverse メソッドを利用して、names の要素を反転し、names の要素を確認しましょう。</li>
-                    <li>sort メソッドを利用して、names の要素をソートし、変更後のnames の要素を確認しましょう。</li>
-                    <li>clear メソッドを利用して、names の全要素を削除したあと、変更後のnames の要素がどうなっているかを確認しましょう。</li>
-                </ol>
-            </div>
+                <div class="exercise-box">
+            <p>Exercise-Python.ipynb のノートブックにつづけて以下の実習をしなさい。</p>
+            <p>操作ごとにコードセルを追加して、上から順に実行しましょう。変更後のリストを確認するときは、セルの最後に <code>items</code> と書きます。</p>
+            <ol>
+                <li>テキストセルを挿入し、<code># 実習5 リスト</code> と入力しましょう。</li>
+                <li>コードセルを挿入し、「ノート」「鉛筆」「消しゴム」「定規」「付箋」をこの順で要素とするリスト <code>items</code> を作成しましょう。</li>
+                <li>先頭の要素を <code>items[0]</code>、末尾の要素を <code>items[-1]</code> で取り出しましょう。それぞれ別のセルで結果を確認しましょう。</li>
+                <li><code>items[0:3]</code> で先頭から3つの要素を取り出し、別のセルで <code>len(items)</code> を実行して、元のリストの要素数を確認しましょう。</li>
+                <li>append メソッドで「はさみ」を末尾に追加し、変更後のリストを確認しましょう。</li>
+                <li>insert メソッドで「のり」を先頭から2番目に挿入し、変更後のリストを確認しましょう。</li>
+                <li>remove メソッドで「消しゴム」を削除し、変更後のリストを確認しましょう。</li>
+                <li>pop メソッドで末尾の要素を削除し、変更後のリストを確認しましょう。</li>
+                <li>reverse メソッドで要素の並びを反転し、変更後のリストを確認しましょう。</li>
+                <li>clear メソッドで <code>items</code> の全要素を削除し、空のリストになることを確認しましょう。</li>
+                <li>次の数値のリストを sort メソッドで小さい順に並べ替え、結果を確認しましょう。
+                    <div class="code-example"><pre><code>scores = [72, 95, 60, 83, 68]
+scores.sort()
+scores</code></pre></div>
+                </li>
+            </ol>
+        </div>
 
 
             <h2 id="参考文献">参考文献</h2>

@@ -93,8 +93,11 @@ else:
                     <pre><code>変数 = input('メッセージ')</code></pre>       
                 </div>
                 <div class="code-example">
-                    <pre><code>temperature = int(input('今日の気温は何度ですか？'))
-print('今日の気温は' + temperature + '度です')</code></pre> *input() は文字列型で返すので、数値型に変換する必要がある。特に数値の判定に用いる時には注意が必要      
+                    <pre>
+                    <code>temperature = int(input('今日の気温は何度ですか？'))
+print('今日の気温は' + str(temperature) + '度です')</code>
+</pre> *input()は文字列型の値を返します。数値として計算や大小の比較に使う場合は、int()などで数値型に変換します。
+または、<pre><code>print('今日の気温は', temperature, '度です')</code></pre> のようにカンマで区切れば、str()で文字列に変換せずに表示できます。    
                 </div>
             </div>
             <h2 id="データの型変換　文字列→数値">データの型変換　文字列→数値</h2>   
@@ -106,6 +109,38 @@ print('今日の気温は' + temperature + '度です')</code></pre> *input() �
                     <pre><code>temperature = int(input('今日の気温は何度ですか？'))
 </code></pre>       
                 </div>
+            <h2 id="複数の条件を組み合わせる">複数の条件を組み合わせる</h2>
+            <p><code>and</code> や <code>or</code> を使うと、複数の条件を組み合わせて判定できます。</p>
+
+            <div class="column" data-title="andを使った条件分岐">
+                <div class="code-block">
+                    <pre><code>if 条件1 and 条件2:
+    条件1と条件2の両方が満たされた時に実行する処理</code></pre>
+                </div>
+                <div class="code-example">
+                    <pre><code>age = int(input('年齢を入力してください：'))
+
+if age &gt;= 13 and age &lt; 65:
+    print('割引はありません')
+else:
+    print('割引があります')</code></pre>
+                </div>
+            </div>
+
+            <div class="column" data-title="orを使った条件分岐">
+                <div class="code-block">
+                    <pre><code>if 条件1 or 条件2:
+    条件1と条件2のどちらかが満たされた時に実行する処理</code></pre>
+                </div>
+                <div class="code-example">
+                    <pre><code>age = int(input('年齢を入力してください：'))
+
+if age &lt; 13 or age &gt;= 65:
+    print('割引があります')
+else:
+    print('割引はありません')</code></pre>
+                </div>
+            </div>
 <h2 id="比較演算子">比較演算子</h2>
 <table border="1">
     <tr>
@@ -201,7 +236,7 @@ print('今日の気温は' + temperature + '度です')</code></pre> *input() �
             <div class="exercise-box">
                 <p>Exercise_Notebook.ipynb のノートブックにつづけて以下の実習をしなさい</p>
                 <ol>
-                    <li>テキストセルを挿入し、markdown editor に<code>### 条件分岐</code>　と入力</li>
+                    <li>テキストセルを挿入し、markdown editor に<code># 実習4 条件分岐</code>　と入力</li>
                     <li>コードセルを挿入し、変数 <code>temparture </code> を作成し、input('') を利用して、今日の気温の入力を求め、変数temperatureに代入しなさい。この時、入力させたデータは文字列型で出力されるので整数型に変換されるように工夫しましょう
                         <li>入力された気温データ<code>temperature</code>
                             を利用して、以下のような条件分岐を作成しなさい。
@@ -216,6 +251,12 @@ print('今日の気温は' + temperature + '度です')</code></pre> *input() �
                         </li>
                         <li>年齢を求める文を作成し、age という変数に代入しなさい。この時受け取った値を整数型に変換するのを忘れないようにすること。<br>
                          年齢が18歳未満であれば、「入場できません」そうでないならば、「ようこそおいでくださいました」と表示されるようにしなさい。
+                        </li>
+                        <li>変数 <code>age</code> を利用し、<code>and</code> を使って条件分岐を作成しなさい。<br>
+                            年齢が13歳以上65歳未満であれば「通常料金です」、そうでないならば「割引料金です」と表示されるようにしましょう。
+                        </li>
+                        <li>変数 <code>age</code> を利用し、<code>or</code> を使って条件分岐を作成しなさい。<br>
+                            年齢が13歳未満または65歳以上であれば「割引料金です」、そうでないならば「通常料金です」と表示されるようにしましょう。
                         </li>
                     </ol>
             </div>
@@ -241,7 +282,7 @@ print('今日の気温は' + temperature + '度です')</code></pre> *input() �
             <div class="page-navigation">
                 <button onclick="window.scrollTo(0, 0)" class="top-button"><i class="fas fa-arrow-up"></i></button>
                 <button onclick="location.href='datatypes.html'"><i class="fas fa-arrow-left"></i> 前へ：データ型</button>
-                <button onclick="location.href='list_.html'"><i class="fas fa-arrow-right"></i> 次へ：リスト</button>
+                <button onclick="location.href='list.html'"><i class="fas fa-arrow-right"></i> 次へ：リスト</button>
             </div>
         </main>
     </div>
