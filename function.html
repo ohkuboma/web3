@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>リスト | Python 入門講座（ohkuboma）</title>
+    <title>関数 | Python 入門講座（ohkuboma）</title>
     <link rel="stylesheet" href="pages.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 	<link rel="icon" type="image/png" href="favicon.png">
@@ -33,14 +33,14 @@
         <!-- 右側のメインコンテンツ -->
         <main class="content">
             <div class="page-header">
-                <h2 id="リスト"><i class="fa-solid fa-feather"></i>関数</h2>
+                <h2 id="関数"><i class="fa-solid fa-feather"></i>関数</h2>
                 <div class="progress-indicator">
                     <div class="progress-bar" style="width: 40%"></div>
                     <span>講義進度: 第7回</span>
                 </div>
             </div>
  
-            <h3><a href="https://youtu.be/yeZ3STy3k44?t=4001&si=xn0o05QTKi0Avgz3" class="video-link"><span class="video-icon"><i class="fas fa-play-circle"></i></span>解説動画:（26:14～35:58）<br>関数</a></h3>
+            <h3><a href="https://youtu.be/yeZ3STy3k44?t=4001&si=xn0o05QTKi0Avgz3" class="video-link"><span class="video-icon"><i class="fas fa-play-circle"></i></span>解説動画:（1:06:41～）<br>関数</a></h3>
             <p style = "font-size: 10px;"> 出典：【完全版】この動画1本でPythonの基礎を習得！忙しい人のための速習コース（Python入門）@imanyu_programming<br> ビデオの授業内での利用を快く許可してくださった今西航平先生に感謝申し上げます。</p>
             <h2 id="関数の基本"> 関数の基本</h2>
             <h3 id="関数の定型"> 関数の定型</h3>
@@ -52,8 +52,7 @@
                 </div>
             </div>
 
-            <h3 id="関数の例（引数なし、戻り値なし）
-            ">関数の例　引数なし、戻り値なし</h3>
+            <h3 id="関数の例（引数なし、戻り値なし）">関数の例　引数なし、戻り値なし</h3>
             <div class="code-example">
                 <pre><code>def say_hello():
     print('皆さん！こんにちは')
@@ -63,7 +62,7 @@ say_hello()</code>
             </div>
             <div class="code-example">
                 <pre><code>def say_hello2(name):
-    print(f'{name}さんこんにちは')
+    print(f'{name}さん、こんにちは')
 say_hello2('白山')</code>
 白山さん、こんにちは　# 実行結果
 *引数あり、戻り値なしの場合の例</pre>
@@ -72,46 +71,131 @@ say_hello2('白山')</code>
             <div class="code-example">
                 <pre><code>def add(a, b):
     return a + b
-add(1, 2) = 3</code></pre>
+print(add(1, 2))</code>
+3 # 実行結果</pre>
             </div>
             <h3 id="関数の例（引数あり、戻り値を変数に代入）">関数の例（引数あり、戻り値を変数に代入）</h3>
             <div class="code-example">
 <pre><code>def calc_square(side):
     return side * side
 result = calc_square(10)
-print(result)
-100 # 実行結果</code></pre>
+print(result)</code>
+100 # 実行結果</pre>
             </div>
             <h3 id="関数の例（三角形の面積）">関数の例（三角形の面積）</h3>
             <div class="code-example">
-<pre><code>def calc_triangle(base = 10, height = 5):
-    return base * height *0.5
-calc_triangle()
-25 # 実行結果
-calc_triangle(base = 20)
-50 # 実行結果
-calc_triangle(height = 10)
-25 # 実行結果</code></pre>
+<pre><code>def calc_triangle(base=10, height=5):
+    return base * height * 0.5
+print(calc_triangle())
+print(calc_triangle(base=20))
+print(calc_triangle(height=10))</code>
+25.0 # 実行結果
+50.0
+50.0</pre>
             </div>
             
-         <h3 id="実習9 関数">
-                <div class="fas fa-laptop-code"></div> 実習 9 関数
+         <h3 id="実習12-関数">
+                <div class="fas fa-laptop-code"></div> 実習 12 関数
             </h3>
             <div class="exercise-box">
                 <p>chapter1 のノートブックにつづけて以下の実習をしなさい</p>
                 <ol>
-                    <li>テキストセルを挿入し、markdown editor に<code>### 関数</code>　と入力</li>
+                    <li>テキストセルを挿入し、markdown editor に<code># 実習12 関数</code>　と入力</li>
                     <li>コードセルを挿入し、関数 rectangle を作成し、長方形の面積を計算する関数を作成しましょう。width と height を引数にとり、面積を計算します。ビデオで解説があった通り、初期値を設定してください。作成した関数に、20×30の長方形の面積を計算をさせましょう。
                         <!--<pre><code>def rectangle(width=10, height=5):
     return width * height
-rectangle() = 50
-rectangle(width=20) = 100
-rectangle(height=20) = 200
-rectangle(width=20, height=30) = 600</code></pre>-->
+print(rectangle()) # 50
+print(rectangle(width=20)) # 100
+print(rectangle(height=20)) # 200
+print(rectangle(width=20, height=30)) # 600</code></pre>-->
                     </li>
                     </ol>
  
             </div>
+            <h2 id="応用演習">応用問題　選択式の小テストを採点する</h2>
+            <p>ここまでで、関数の基本を学びました。ここからは、これまでに学んだリスト、辞書、繰り返しを関数と組み合わせて、小テストを採点してみましょう。</p>
+            <p>同じGoogle Colabノートブックで、テキストセルとコードセルを一組ずつ、全部で三組作ります。各手順で、先にテキストセルに見出しと作業内容を書き、その下に新しいコードセルを作って実行しましょう。</p>
+            <p>小テストは3問です。各問の正解は一つで、正解するごとに1点です。</p>
+            <table>
+                <caption>小テストの問題と選択肢</caption>
+                <thead>
+                    <tr><th scope="col">問題</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th></tr>
+                </thead>
+                <tbody>
+                    <tr><th scope="row">1. 文字を画面に表示するには？</th><td><code>print()</code></td><td><code>input()</code></td><td><code>len()</code></td></tr>
+                    <tr><th scope="row">2. リストの要素の数を調べるには？</th><td><code>print()</code></td><td><code>input()</code></td><td><code>len()</code></td></tr>
+                    <tr><th scope="row">3. キーボードから入力を受け取るには？</th><td><code>print()</code></td><td><code>input()</code></td><td><code>len()</code></td></tr>
+                </tbody>
+            </table>
+
+            <h3 id="一人分を採点する">1. 一人分を採点する</h3>
+            <p>テキストセル1に次の内容を入力しましょう。</p>
+            <div class="code-block">
+<pre><code># 応用問題　選択式の小テストを採点する
+
+## 1. 一人分を採点する
+採点する関数を作り、白山さんの回答を採点する。</code></pre>
+            </div>
+            <p>テキストセル1の下にコードセル1を作ります。正解を第1問から順に並べると <code>['A', 'C', 'B']</code> です。白山さんの回答が <code>['A', 'B', 'B']</code> なら、第1問と第3問が合っているので2点です。Pythonでも同じ点数が出るか確かめましょう。</p>
+            <p>正解と回答のリストを関数に渡し、同じ位置の答えを一問ずつ比べます。一致したら1点を足し、全問を比べ終わったら合計点を返します。リストの位置は0から数えるので、<code>i</code> が0のときは第1問です。</p>
+            <div class="code-example">
+<pre><code>def grade_quiz(answer_key, answers):
+    score = 0
+    for i in range(len(answer_key)):
+        if answers[i] == answer_key[i]:
+            score += 1
+    return score
+
+answer_key = ['A', 'C', 'B']
+answers = ['A', 'B', 'B']
+print(grade_quiz(answer_key, answers))</code>
+2 # 実行結果</pre>
+            </div>
+
+            <h3 id="二人分を採点する">2. 二人分を採点する</h3>
+            <p>テキストセル2に次の内容を入力しましょう。</p>
+            <div class="code-block">
+<pre><code>## 2. 二人分を採点する
+白山さんと山本さんの回答をリストにまとめ、繰り返しの中で採点する関数を呼び出す。</code></pre>
+            </div>
+            <p>表の1行が一人分のデータです。第1問から順に答えを並べると、例えば白山さんの回答は <code>['A', 'B', 'B']</code> になります。</p>
+            <table>
+                <caption>名前と回答の対応</caption>
+                <thead>
+                    <tr><th scope="col">名前</th><th scope="col">第1問</th><th scope="col">第2問</th><th scope="col">第3問</th></tr>
+                </thead>
+                <tbody>
+                    <tr><th scope="row">白山</th><td>A</td><td>B</td><td>B</td></tr>
+                    <tr><th scope="row">山本</th><td>A</td><td>C</td><td>B</td></tr>
+                    <tr><th scope="row">佐藤</th><td>B</td><td>C</td><td>A</td></tr>
+                </tbody>
+            </table>
+            <p>テキストセル2の下にコードセル2を作ります。一人分の名前と回答を辞書にまとめ、二人分を <code>students</code> というリストに入れます。<code>for</code> で一人ずつ取り出し、同じ関数にその人の回答を渡します。</p>
+            <div class="code-example">
+<pre><code>students = [
+    {'name': '白山', 'answers': ['A', 'B', 'B']},
+    {'name': '山本', 'answers': ['A', 'C', 'B']},
+]
+
+for student in students:
+    score = grade_quiz(answer_key, student['answers'])
+    print(f"{student['name']}さん　{score}点")</code>
+白山さん　2点
+山本さん　3点</pre>
+            </div>
+            <p>関数の中の <code>for</code> は一問ずつ答えを比べ、関数の外の <code>for</code> は一人ずつ採点します。</p>
+
+            <h3 id="三人目を採点する">3. 三人分を採点する</h3>
+            <p>テキストセル3に次の内容を入力しましょう。</p>
+            <div class="code-block">
+<pre><code>## 3. 三人分を採点する
+二人分のコードをコピーし、佐藤さんの回答を追加して採点する。</code></pre>
+            </div>
+            <div class="exercise-box">
+                <p>テキストセル3の下にコードセル3を作り、コードセル2のコード全体をコピーしましょう。コピー先で、佐藤さんの名前と、第1問から順に <code>B</code>、<code>C</code>、<code>A</code> の回答を、<code>students</code> のリストに追加しましょう。</p>
+                <p>佐藤さんは何点になるか予想してから、コードセル3を実行しましょう。コードセル2には二人分、コードセル3には三人分の結果が残ります。三人分の点数が表示され、佐藤さんの点数が予想どおりかを確認してください。</p>
+            </div>
+
             <h2 id="参考文献">参考文献</h2>
             <div class="column" data-title="教科書参照ページ">
                 <div class="textbook-section">

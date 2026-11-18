@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>タプル・辞書・セット | Python 入門講座（ohkuboma）</title>
+    <title>辞書・タプル・セット | Python 入門講座（ohkuboma）</title>
     <link rel="stylesheet" href="pages.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
@@ -19,7 +19,7 @@
     <header>
         <div class="header-top">
             <button onclick="location.href='index.html'" class="home-button"><i class="fas fa-home"></i> HOME</button>
-            <h1><i class="fas fa-code"></i> タプル・辞書・セット</h1>
+            <h1><i class="fas fa-code"></i> 辞書・タプル・セット</h1>
         </div>
     </header>
     
@@ -35,15 +35,105 @@
         <!-- 右側のメインコンテンツ -->
         <div class="content">
             <div class="page-header">
-                <h2 id="タプル"><i class="fas fa-list"></i> タプル・辞書・セット</h2>
+                <h2 id="タプル"><i class="fas fa-list"></i> 辞書・タプル・セット</h2>
                 <div class="progress-indicator">
                     <div class="progress-bar" style="width: 40%"></div>
                     <span>講義進度: 第3回</span>
                 </div>
             </div>
  
-            <h3><a href="https://youtu.be/yeZ3STy3k44?si=403jkphZeDt1Paat&t=1574" class="video-link"><span class="video-icon"><i class="fas fa-play-circle"></i></span>解説動画:（26:14～35:58）<br>リストと辞書</a></h3>
+            <h3><a href="https://youtu.be/yeZ3STy3k44?t=2159&si=w0PFAGSbGP5e6zKY" class="video-link"><span class="video-icon"><i class="fas fa-play-circle"></i></span>解説動画:（35:59～）<br>辞書</a></h3>
             <p style = "font-size: 10px;">ビデオの授業内での利用を快く許可してくださった今西航平先生に感謝申し上げます。<br> 出典：【完全版】この動画1本でPythonの基礎を習得！忙しい人のための速習コース（Python入門）@imanyu_programming</p>
+            
+            <h2>辞書の基本</h2>  
+            <h3 id="辞書の定型">辞書の定型</h3>
+            <div class="column" data-title="辞書の定型">
+                <div class="code-block">
+                    <pre><code>変数名 = {キー1: 値1, キー2: 値2, ...}</code></pre>
+                </div>
+            </div>
+            
+            <h3>辞書の特徴</h3>
+            <ul>
+                <li>辞書は、キーと値のペアを複数まとめて管理するデータ型です。</li>
+                <li>Python 3.7以降の辞書は、要素を追加した順序（挿入順）を保持します。キーの大小などで自動的に並ぶわけではありません。</li>
+                <li>同じキーに複数の値は保持できません。同じキーを再指定すると、後の値で上書きされます。</li>
+                <li>キーには文字列や数値などのハッシュ可能な値を使います。リストや辞書はキーにできません。</li>
+
+            </ul>
+            
+            <h3 id="辞書の例">辞書の例</h3>
+            <div class="code-example">
+                <pre><code>person = {'name': '大久保', 'age': 40, 'gender': '女性'}
+print(person)  # 辞書の中身を表示
+#結果
+{'name': '大久保', 'age': 40, 'gender': '女性'}</code></pre>
+            </div>
+            
+            <h2 id="辞書の要素を取り出す方法"> 辞書の要素を取り出す方法</h2>
+        <div class="code-example">
+ 
+            <pre><code>student = {
+51020014:"斎藤勇",
+51020777:"福島彩加",
+51020687:"吉田雪乃",
+51020349:"高橋雅子", 
+51020347:"金子久美子"
+}
+
+# key だけを取り出す
+for key in student.keys():
+    print(key)
+print()
+# value だけを取り出す
+for value in student.values():
+    print(value)
+print()
+# キーと値のペアを items() で取り出す
+for key, value in student.items():
+    print(key, value + 'さん')
+
+# 実行結果
+51020014
+51020777
+51020687
+51020349
+51020347
+
+斎藤勇
+福島彩加
+吉田雪乃
+高橋雅子
+金子久美子
+
+51020014 斎藤勇さん
+51020777 福島彩加さん
+51020687 吉田雪乃さん
+51020349 高橋雅子さん
+51020347 金子久美子さん
+
+</code></pre>
+
+        </div>
+            <h3 id="実習9 辞書">
+                <i class="fas fa-laptop-code"></i> 実習 9 辞書
+            </h3>
+            <div class="exercise-box">
+                <p>Exercise_Notebook.ipynb のノートブックにつづけて以下の実習をしなさい</p>
+                <ol>
+                	<li>テキストセルを挿入し、markdown editor に<code># 実習 9 辞書</code>　と入力
+			</li>
+                 	<li>辞書の取り出し例を参考に、items() を使って辞書 capitals の国名（キー）と首都（値）を取り出しましょう。print() に国名と首都をカンマで区切って渡し、1組ずつ表示しましょう。
+<pre>capitals = {"日本": "東京","フランス": "パリ","中国": "北京","オーストラリア": "キャンベラ",  "カナダ": "オタワ"}</pre>
+<pre>#出力結果
+日本 東京
+フランス パリ
+中国 北京
+オーストラリア キャンベラ
+カナダ オタワ</pre>
+                    </li>
+                </ol>
+            </div>
             
             <h2 id="タプルの基本">タプルの基本</h2>
             <h3 id="タプルの定型">タプルの定型</h3>
@@ -57,7 +147,7 @@
             <h3>タプルの特徴</h3>
             <ul>
                 <li>タプルは、リストと同じように、複数の要素をまとめて管理するデータ型です。</li>
-                <li>リストとの違いは、タプルは要素の追加や削除ができないことです。</li>
+                <li>タプルは、作成後に要素を追加・削除・置き換えできません。</li>
                 <li>タプルは、丸括弧<code> ( ) </code> で囲んで表現します。</li>
             </ul>
             
@@ -75,30 +165,29 @@ print(weekdays)  # タプルの中身を表示
 ('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')</code></pre>
             </div>
             
-            <h2>辞書の基本</h2>  
-            <h3 id="辞書の定型">辞書の定型</h3>
-            <div class="column" data-title="辞書の定型">
-                <div class="code-block">
-                    <pre><code>変数名 = {キー1: 値1, キー2: 値2, ...}</code></pre>
-                </div>
-            </div>
-            
-            <h3>辞書の特徴</h3>
-            <ul>
-                <li>辞書は、キーと値のペアを複数まとめて管理するデータ型です。</li>
-                <li>キーは重複してはいけません。</li>
-                <li>キーは変更できません。</li>
-
-            </ul>
-            
-            <h3 id="辞書の例">辞書の例</h3>
+            <h3 id="タプルの要素を取り出す方法">タプルの要素を取り出す方法</h3>
+            <p>タプルは順序を持ち、添字を使って要素を取り出せます。添字は0から始まります。<code>[-1]</code> は最後の要素を表し、<code>len()</code> は要素の数を返します。</p>
             <div class="code-example">
-                <pre><code>person = {'name': '大久保', 'age': 40, 'gender': '女性'}
-print(person)  # 辞書の中身を表示
-#結果
-{'name': '大久保', 'age': 40, 'gender': '女性'}</code></pre>
+                <pre><code>colors = ('赤', '青', '黄')
+print(colors[0])   # 赤（最初の要素）
+print(colors[-1])  # 黄（最後の要素）
+print(len(colors)) # 3（要素の数）</code></pre>
             </div>
-            
+            <h3 id="実習10 タプル"><i class="fas fa-laptop-code"></i> 実習 10 タプルで曜日を取り出す</h3>
+            <div class="exercise-box">
+                <p>同じノートブックにテキストセルを挿入し、<code># 実習 10 タプル</code> と入力しましょう。その下にコードセルを追加し、次のタプルを使って取り組みましょう。</p>
+                <pre><code>days = ('月', '火', '水', '木', '金', '土', '日')</code></pre>
+                <ol>
+                    <li>最初の要素を表示しましょう。</li>
+                    <li>最後の要素を表示しましょう。</li>
+                    <li>要素の数を表示しましょう。</li>
+                </ol>
+                <p>出力結果：</p>
+                <pre><code>月
+日
+7</code></pre>
+            </div>
+
             <h2>セットの基本</h2>
             <h3 id="セットの定型">セットの定型</h3>
             <div class="column" data-title="セットの定型">
@@ -111,13 +200,16 @@ print(person)  # 辞書の中身を表示
             <ul>
                 <li>セットは、重複しない要素をまとめて管理するデータ型です。</li>
                 <li>セットは、集合演算を行うためのデータ型です。</li>
+                <li>要素の表示順は保証されません。</li>
+                <li>空のセットは <code>set()</code> で作ります。<code>{}</code> は空の辞書です。</li>
 
             </ul>
             
             <h3 id="セットの例">セットの例</h3> 
             <div class="code-example">
                 <pre><code>fruits = {'apple', 'banana', 'cherry'}
-print(fruits)  # セットの中身を表示, 
+print(fruits)  # セットの中身を表示
+#出力例（要素の表示順は異なる場合があります）
 {'cherry', 'apple', 'banana'}
 #セットに順序という概念はない</code></pre>
             </div>
@@ -140,68 +232,20 @@ print(set1 - set2)  # 差集合
 {1, 2}</code></pre>
             </div>
  
-<h2 id="辞書の要素を取り出す方法"> 辞書の要素を取り出す方法</h2>
-        <div class="code-example">
- 
-            <pre><code>student = {
-51020014:"斎藤勇",
-51020777:"福島彩加",
-51020687:"吉田雪乃",
-51020349:"高橋雅子", 
-51020347:"金子久美子"
-}
-
-# key だけを取り出す
-for key in student.keys():
-    print(key)
-# value だけを取り出す
-for value in student.values():
-    print(value)
-#キーと値を両方取り出す(辞書では .items() が zip() の役目を果たしてくれる)
-for key, value in student.items():
-    print(key, value + 'さん')
-
-//実行結果
-51020014
-51020777
-51020687
-51020349
-51020347
-
-斎藤勇
-福島彩加
-吉田雪乃
-高橋雅子
-金子久美子
-
-51020014 斎藤勇さん
-51020777 福島彩加さん
-51020687 吉田雪乃さん
-51020349 高橋雅子さん
-51020347 金子久美子さん
-
-</code></pre>
-
-        </div>
-            <h3 id="実習8 辞書">
-                <i class="fas fa-laptop-code"></i> 実習 8 辞書
-            </h3>
+<h3 id="実習11 セット"><i class="fas fa-laptop-code"></i> 実習 11 セットで共通する果物を調べる</h3>
             <div class="exercise-box">
-                <p>Exercise_Notebook.ipynb のノートブックにつづけて以下の実習をしなさい</p>
+                <p>同じノートブックにテキストセルを挿入し、<code># 実習 11 セット</code> と入力しましょう。その下にコードセルを追加して取り組みましょう。</p>
+                <p>次の2つのセットは、AさんとBさんが好きな果物を表しています。</p>
+                <pre><code>fruits_a = {'りんご', 'みかん', 'バナナ'}
+fruits_b = {'みかん', 'ぶどう', 'バナナ'}</code></pre>
                 <ol>
-                	<li>テキストセルを挿入し、markdown editor に<code>### 辞書</code>　と入力
-			</li>
-                 	<li>例(items)を参照し、辞書 capitals のキーと値をそれぞれ取り出し、「国名：首都」の形で表示しましょう
-<pre>capitals = {"日本": "東京","フランス": "パリ","中国": "北京","オーストラリア": "キャンベラ",  "カナダ": "オタワ"}</pre>
-<pre>//出力結果
-日本：東京
-フランス：パリ
-中国：北京
-オーストラリア：キャンベラ
-カナダ：オタワ</pre>
+                    <li>2人に共通する果物を、積集合の演算子 <code>&amp;</code> を使って表示しましょう。</li>
+                    <li>Aさんだけが好きな果物を、差集合の演算子 <code>-</code> を使って表示しましょう。</li>
                 </ol>
+                <p>出力例（セットの要素の表示順は異なる場合があります）：</p>
+                <pre><code>{'みかん', 'バナナ'}
+{'りんご'}</code></pre>
             </div>
-            
             <!-- 参考文献部分 -->
                        <h2 id="参考文献">参考文献</h2>
             <div class="column" data-title="教科書参照ページ">

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タプル・辞書・セット | Python 入門講座（ohkuboma）</title>
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+	<link rel="icon" type="image/png" href="favicon.png">
+    <!-- 最小限のインラインスタイルで右上角を修正 -->
+    <style>
+ .content {
+    overflow: visible !important;
+  }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <button onclick="location.href='index.html'" class="home-button"><i class="fas fa-home"></i> HOME</button>
+            <h1><i class="fas fa-code"></i> タプル・辞書・セット</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- 左サイドバー（目次） -->
+        <nav class="sidebar">
+            <h2><i class="fas fa-list-ul"></i> 目次</h2>
+            <ul class="toc" id="tableOfContents">
+                <!-- JavaScriptで動的に生成される目次 -->
+            </ul>
+        </nav>
+        
+        <!-- 右側のメインコンテンツ -->
+        <div class="content">
+            <div class="page-header">
+                <h2 id="タプル"><i class="fas fa-list"></i> タプル・辞書・セット</h2>
+                <div class="progress-indicator">
+                    <div class="progress-bar" style="width: 40%"></div>
+                    <span>講義進度: 第3回</span>
+                </div>
+            </div>
+ 
+            <h3><a href="https://youtu.be/yeZ3STy3k44?si=403jkphZeDt1Paat&t=1574" class="video-link"><span class="video-icon"><i class="fas fa-play-circle"></i></span>解説動画:（26:14～35:58）<br>リストと辞書</a></h3>
+            <p style = "font-size: 10px;">ビデオの授業内での利用を快く許可してくださった今西航平先生に感謝申し上げます。<br> 出典：【完全版】この動画1本でPythonの基礎を習得！忙しい人のための速習コース（Python入門）@imanyu_programming</p>
+            
+            <h2 id="タプルの基本">タプルの基本</h2>
+            <h3 id="タプルの定型">タプルの定型</h3>
+            <div class="column" data-title="タプルの定型">
+                <div class="code-block">
+                    <pre><code>変数名 = (要素0, 要素1, 要素2, ...)
+#（要素が1つだけの場合は最後にカンマが必要：(100,)）</code></pre>       
+                </div>
+            </div>
+            
+            <h3>タプルの特徴</h3>
+            <ul>
+                <li>タプルは、リストと同じように、複数の要素をまとめて管理するデータ型です。</li>
+                <li>リストとの違いは、タプルは要素の追加や削除ができないことです。</li>
+                <li>タプルは、丸括弧<code> ( ) </code> で囲んで表現します。</li>
+            </ul>
+            
+            <h3 id="タプルの例">タプルの例</h3>
+            <div class="code-example">
+                <pre><code style="font-size: 100%;" >eto = ('子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥')
+print(eto)  # タプルの中身を表示
+#結果
+('子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥')</code></pre>
+<br>
+
+                <pre><code style="font-size: 100%;">weekdays = ('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday','Friday', 'Saturday')
+print(weekdays)  # タプルの中身を表示
+#結果
+('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')</code></pre>
+            </div>
+            
+            <h2>辞書の基本</h2>  
+            <h3 id="辞書の定型">辞書の定型</h3>
+            <div class="column" data-title="辞書の定型">
+                <div class="code-block">
+                    <pre><code>変数名 = {キー1: 値1, キー2: 値2, ...}</code></pre>
+                </div>
+            </div>
+            
+            <h3>辞書の特徴</h3>
+            <ul>
+                <li>辞書は、キーと値のペアを複数まとめて管理するデータ型です。</li>
+                <li>キーは重複してはいけません。</li>
+                <li>キーは変更できません。</li>
+
+            </ul>
+            
+            <h3 id="辞書の例">辞書の例</h3>
+            <div class="code-example">
+                <pre><code>person = {'name': '大久保', 'age': 40, 'gender': '女性'}
+print(person)  # 辞書の中身を表示
+#結果
+{'name': '大久保', 'age': 40, 'gender': '女性'}</code></pre>
+            </div>
+            
+            <h2>セットの基本</h2>
+            <h3 id="セットの定型">セットの定型</h3>
+            <div class="column" data-title="セットの定型">
+                <div class="code-block">
+                    <pre><code>変数名 = {要素1, 要素2, ...}</code></pre>
+                </div>
+            </div>
+            
+            <h3>セットの特徴</h3>
+            <ul>
+                <li>セットは、重複しない要素をまとめて管理するデータ型です。</li>
+                <li>セットは、集合演算を行うためのデータ型です。</li>
+
+            </ul>
+            
+            <h3 id="セットの例">セットの例</h3> 
+            <div class="code-example">
+                <pre><code>fruits = {'apple', 'banana', 'cherry'}
+print(fruits)  # セットの中身を表示, 
+{'cherry', 'apple', 'banana'}
+#セットに順序という概念はない</code></pre>
+            </div>
+            
+            <h3>セットの集合演算の例</h3>
+            <div class="code-example">
+                <pre><code>set1 = {1, 2, 3, 4, 5}
+set2 = {3, 4, 5, 6, 7}
+
+print(set1 | set2)  # 和集合
+#結果
+{1, 2, 3, 4, 5, 6, 7}
+
+print(set1 & set2)  # 積集合
+#結果
+{3, 4, 5}
+
+print(set1 - set2)  # 差集合
+#結果
+{1, 2}</code></pre>
+            </div>
+ 
+<h2 id="辞書の要素を取り出す方法"> 辞書の要素を取り出す方法</h2>
+        <div class="code-example">
+ 
+            <pre><code>student = {
+51020014:"斎藤勇",
+51020777:"福島彩加",
+51020687:"吉田雪乃",
+51020349:"高橋雅子", 
+51020347:"金子久美子"
+}
+
+# key だけを取り出す
+for key in student.keys():
+    print(key)
+# value だけを取り出す
+for value in student.values():
+    print(value)
+#キーと値を両方取り出す(辞書では .items() が zip() の役目を果たしてくれる)
+for key, value in student.items():
+    print(key, value + 'さん')
+
+//実行結果
+51020014
+51020777
+51020687
+51020349
+51020347
+
+斎藤勇
+福島彩加
+吉田雪乃
+高橋雅子
+金子久美子
+
+51020014 斎藤勇さん
+51020777 福島彩加さん
+51020687 吉田雪乃さん
+51020349 高橋雅子さん
+51020347 金子久美子さん
+
+</code></pre>
+
+        </div>
+            <h3 id="実習8 辞書">
+                <i class="fas fa-laptop-code"></i> 実習 8 辞書
+            </h3>
+            <div class="exercise-box">
+                <p>Exercise_Notebook.ipynb のノートブックにつづけて以下の実習をしなさい</p>
+                <ol>
+                	<li>テキストセルを挿入し、markdown editor に<code>### 辞書</code>　と入力
+			</li>
+                 	<li>例(items)を参照し、辞書 capitals のキーと値をそれぞれ取り出し、「国名：首都」の形で表示しましょう
+<pre>capitals = {"日本": "東京","フランス": "パリ","中国": "北京","オーストラリア": "キャンベラ",  "カナダ": "オタワ"}</pre>
+<pre>//出力結果
+日本：東京
+フランス：パリ
+中国：北京
+オーストラリア：キャンベラ
+カナダ：オタワ</pre>
+                </ol>
+            </div>
+            
+            <!-- 参考文献部分 -->
+                       <h2 id="参考文献">参考文献</h2>
+            <div class="column" data-title="教科書参照ページ">
+                <div class="textbook-section">
+                    <ul>
+                        <li>教科書参照ページ:「chapter 3 繰り返し文を学ぼう」「chapter 4 関数を作ろう」</li>
+                        <li>参考サイト：python早見帳 7.タプル <a href="https://chokkan.github.io/python/07tuple.html" target="_blank">7.タプル</a></li>
+                        <li>参考サイト：python早見帳 9.辞書 <a href="https://chokkan.github.io/python/09dict.html" target="_blank">9.辞書</a></li>
+</ul>
+                </div>
+
+
+
+            </div>
+      
+
+      
+            <div class="page-navigation">
+                <button onclick="window.scrollTo(0, 0)" class="top-button"><i class="fas fa-arrow-up"></i></button>
+                <button onclick="location.href='for.html'"><i class="fas fa-arrow-left"></i> 前へ：繰り返し</button>
+                <button onclick="location.href='function.html'"><i class="fas fa-arrow-right"></i> 次へ：関数</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>Python 入門講座 &copy; 2025</p>
+            <p><i class="fas fa-code"></i> with <i class="fas fa-heart"></i> by ohkuboma</p>
+        </div>
+    </footer>
+
+    <script src="pages.js"></script>
+</body>
+</html>
